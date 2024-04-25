@@ -1,4 +1,5 @@
 {
+  "version":Int,                        //Data format version 
   "date": String,                       //식사시간(yyyy-MM-dd HH:mm:ss)
   "type": String,                       //식사타입breakfast, lunch, dinner, snack, morning_snack, afternoon_snack, late_night_snack
   "imagePath": String,                  //이미지 경로
