@@ -105,8 +105,8 @@ foodLensCoreService.predict(byteData, object : RecognitionResultHandler {
 - 설정하지 않은 경우 기본값으로 설정됩니다.
 #### 4.2.1 언어 설정  
 ```
-//LanguageConfig.DEVICE, LanguageConfig.KO, LanguageConfig.EN, LanguageConfig.JP 4개 중에 선택할 수 있습니다.
-//Foodlens는 KO, EN을 Caloai의 경우 KO, EN, JP를 지원합니다.
+//LanguageConfig.DEVICE, LanguageConfig.KO(한국어), LanguageConfig.EN(영어), LanguageConfig.JA(일본어) 4개 중에 선택할 수 있습니다.
+//Foodlens는 KO, EN을 Caloai의 경우 KO, EN, JA를 지원합니다.
 //Default는 Device 입니다.
 foodLensCoreService.setLanguage(LanguageConfig.EN)
 ```
@@ -185,9 +185,9 @@ private var foodLensActivityResult: ActivityResultLauncher<Intent> =
 - 구현 방식은 5.1 번과 동일하며 startFoodLensCamera 대신 startFoodLensSearch를 사용합니다.
 
 ### 5.4 UI Service의 Data 수정 기능 사용
-- 5.1, 5.2, 5.3 에서 획득한 영양정보를 recognitionResult 에 저장합니다.  
-- imagePath는 임시 경로이므로 따로 저장시킨후 edit시에는 따로 저장된 경로를 보내야 합니다.   
-- 저장한 recongitionResult를 startFoodLensDataEdit 호출시 전달합니다.  
+- 5.1, 5.2, 5.3 에서 획득한 영양정보를 다시 활용 할 수 있습니다.
+- 활용시에 이미지를 디바이즈 로컬 경로에 저장하고 RecognitionResult의 imagePath에 설정 해야 합니다. 
+- 작성한 recongitionResult를 startFoodLensDataEdit 호출시 전달합니다.  
 - 전달된 데이터로 음식 결과 화면으로 진입합니다.
 1. 코드 예제
 ```java
@@ -237,17 +237,14 @@ foodLensUiService.setUiConfig(uiConfig)
 #### 5.5.2 옵션 변경
 ```
 var settingConfig = FoodLensSettingConfig()
-settingConfig.isEnableCameraOrientation = true  //카메라 회전 기능 지원 여부 (defalut : true)
-settingConfig.isShowPhotoGalleryIcon = true     //갤러리 아이콘 활성화 여부 (defalut : true)
-settingConfig.isShowManualInputIcon = true      //검색 입력 아이콘 활성화 여부 (defalut : true)
-settingConfig.isShowHelpIcon = true             //도움말 아이콘 활성화 여부 (defalut : true)
-settingConfig.isSaveToGallery = false           //카메라 촬영 이미지 갤러리 저장 여부 (defalut : false)
-settingConfig.isUseEatDatePopup = true          //갤러리에 저장된 사진의 사진촬영시간을 입력시간으로 사용할지 여부 (defalut : true)
-
-//이미지 리사이즈 방식 옵션, SPEED(속도우선), NORMAL, QUALITY(결과 품질 우선) (defalut : NORMAL)
-settingConfig.imageResize = ImageResizeOption.NORMAL 	
-//결과값 언어 설정, DEVICE, KO, EN, JA (defalut : DEVICE)
-settingConfig.languageConfig = LanguageConfig.DEVICE 		
+settingConfig.isEnableCameraOrientation = true  	//카메라 회전 기능 지원 여부 (defalut : true)
+settingConfig.isShowPhotoGalleryIcon = true     	//갤러리 아이콘 활성화 여부 (defalut : true)
+settingConfig.isShowManualInputIcon = true      	//검색 입력 아이콘 활성화 여부 (defalut : true)
+settingConfig.isShowHelpIcon = true             	//도움말 아이콘 활성화 여부 (defalut : true)
+settingConfig.isSaveToGallery = false           	//카메라 촬영 이미지 갤러리 저장 여부 (defalut : false)
+settingConfig.isUseEatDatePopup = true          	//갤러리에 저장된 사진의 사진촬영시간을 입력시간으로 사용할지 여부 (defalut : true)
+settingConfig.imageResize = ImageResizeOption.NORMAL 	//이미지 리사이즈 방식 옵션, SPEED(속도우선), NORMAL, QUALITY(결과 품질 우선) (defalut : NORMAL)
+settingConfig.languageConfig = LanguageConfig.DEVICE 	//결과값 언어 설정, DEVICE, KO, EN, JA (defalut : DEVICE)
 foodLensUiService.setSettingConfig(settingConfig)
 ```        
 
