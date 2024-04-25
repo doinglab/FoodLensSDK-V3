@@ -1,0 +1,89 @@
+{
+  "date": String,                       //식사시간(yyyy-MM-dd HH:mm:ss)
+  "type": String,                       //식사타입breakfast, lunch, dinner, snack, morning_snack, afternoon_snack, late_night_snack
+  "imagePath": String,                  //이미지 경로
+  "userComment" : String,               //사용자 코멘트
+  "foods": [
+    {
+      "eatAmount": Double,              //1회 제공량 대비 섭취한 음식의 양
+      "name":String,                    //음식이름(매칭 음식이 없을 경우 empty)
+      "fullName":String                 //음식 전체 이름
+      "candidates": [                   //후보 음식 리스트
+        {
+            "id": Int,                   //DB 기반 음식ID, (값이 없는 경우 -1 , Foodlens 2.0은 -1리턴)
+            "manufacturer": String,      //제조사 제조사 없는경우 empty string
+            "foodName": String,          //음식 이름 (매칭 음식이 없을 경우 empty)
+            "fullFoodName": String,      //음식 전체 이름
+            "foodType": String,          //음식 타입 (알코올 등)
+            "servingSize": Double,       //1회 섭취량
+            "totalServingSize" Double    //총량 (1회 섭취량과, 총량이 다른경우, 공산품)
+            "unit": String,              //섭취량 단위 (g, ml등)
+            "counts": String,            //섭취 단위(그릇)
+            // 열량 영양소
+            "energy": Double,            //총 에너지(칼로리), 단위 Kcal (값이 없는 경우 -1)
+            "carbohydrate": Double,      //총 탄수화물, 단위 g (값이 없는 경우 -1)
+            "protein": Double,           //총 단백질, 단위 g (값이 없는 경우 -1)
+            "fat": Double,               //총 지방, 단위 g (값이 없는 경우 -1)
+            "totalSugars": Double,       //총 당류, 단위 g (값이 없는 경우 -1)
+            "totalDietaryFiber": Double, //총 식이섬유, 단위 g (값이 없는 경우 -1)
+            // 무기질
+            "calcium": Double,           //총 칼슘, 단위 mg (값이 없는 경우 -1)
+            "iron": Double,              //총 철, 단위 mg (값이 없는 경우 -1)
+            "magnesium": Double,         //총 마그네슘, 단위 mg (값이 없는 경우 -1)
+            "phosphorus": Double,        //총 인, 단위 mg (값이 없는 경우 -1)
+            "potassium": Double,         //총 칼륨, 단위 mg (값이 없는 경우 -1)
+            "sodium": Double,            //총 나트륨, 단위 mg (값이 없는 경우 -1)
+            "zinc": Double,              //총 아연, 단위 mg (값이 없는 경우 -1)
+            "selenium": Double,          //총 셀레늄, 단위 μg (값이 없는 경우 -1)
+            // 비타민
+            "retinol": Double,           //총 레티놀, 단위 μg (값이 없는 경우 -1)
+            "betaCarotene": Double,      // 총 베타카로틴, 단위 μg (값이 없는 경우 -1)
+            "vitaminA": Double,          //총 비타민 A, 단위 μg (값이 없는 경우 -1)
+            "thiamin": Double,           //총 비타민 B1, 단위 mg  (값이 없는 경우 -1)
+            "riboflavin": Double,        //총 비타민 B2, 단위 mg (값이 없는 경우 -1)
+            "niacin": Double,            //총 니아신, 단위 mg (값이 없는 경우 -1)
+            "vitaminB6": Double,         //총 비타민 B6, 단위 mg (값이 없는 경우 -1)
+            "biotin": Double,            //총 비오틴, 단위 μg (값이 없는 경우 -1)
+            "totalFolate": Double,       //총 엽산(DEF), 단위 μg (값이 없는 경우 -1)
+            "vitaminC": Double,          //총 비타민 C, 단위 mg (값이 없는 경우 -1)
+            "vitaminD": Double,          //총 비타민 D, 단위 μg (값이 없는 경우 -1)
+            "vitaminE": Double,          //총 비타민 E, 단위 mg (값이 없는 경우 -1)
+            "vitaminK": Double,          //총 비타민 K, 단위 μg (값이 없는 경우 -1)
+            // 필수 아미노산
+            "isoleucine": Double,        //총 이소류신, 단위 mg (값이 없는 경우 -1)
+            "leucine": Double,           //총 류신신, 단위 mg (값이 없는 경우 -1)
+            "valine": Double,             //총 발린, 단위 mg (값이 없는 경우 -1)
+            "bcaa": Double,               //총 가지사슬 아미노산, 단위 mg (값이 없는 경우 -1)
+            // 지방산
+            "cholesterol": Double,       //총 콜레스테롤, 단위 mg (값이 없는 경우 -1)
+            "saturatedFattyAcid": Double,//총 포화 지방산, 단위 g (값이 없는 경우 -1)
+            "epa": Double,               //총 에이코사펜타에노산, 단위 mg (값이 없는 경우 -1)
+            "dha": Double,               //총 도코사헥사에노산 (값이 없는 경우 -1)
+            "omega3FattyAcid": Double,   //총 오메가3 지방산, 단위 g (값이 없는 경우 -1)
+            "omega6FattyAcid": Double,   //총 오메가6 지방산, 단위 g (값이 없는 경우 -1)
+            "transFattyAcid": Double,    //총 트랜스 지방산, 단위 g (값이 없는 경우 -1)
+            //음식군 단위 정보
+            "grains": Double,            //곡류군 단위 (권한이 있는겨우만 제공,값이 없는 경우 -1)
+            "proteins": Double,          //단백질군 단위 (권한이 있는겨우만 제공,값이 없는 경우 -1)
+            "vegetables": Double,        //채소군 단위 (권한이 있는겨우만 제공,값이 없는 경우 -1)
+            "fruits": Double,            //과일군 단위 (권한이 있는겨우만 제공,값이 없는 경우 -1)
+            "oils": Double,              //오일군 단위 (권한이 있는겨우만 제공,값이 없는 경우 -1)
+          }]
+      ingredients: [{
+            "name": String,              //재료 이름
+            "gram": Double,              //재료 무게 (권한이 있는겨우만 제공,값이 없는 경우 -1)
+        }],
+      "userSelected": Nutrition,        //Candidate List의 영양정보와 동일
+      "estimatedAmount" :{
+            "estimatedServingSize": Double  //실측된 음식양 (총 g 혹은 ml)
+            "estimatedServingAmount": Double//실측된 섭취량, 기준 그릇 대비 비율
+      },
+      "position": {                       //음식이 위치하는 좌표
+            "xmax": Int,
+            "xmin": Int,
+            "ymax": Int,
+            "ymin": Int
+      },
+    }
+  ],
+}
