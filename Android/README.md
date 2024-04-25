@@ -1,6 +1,6 @@
 # Android용 FoodLensSDK-V3 메뉴얼
 
-Android용 FoodLens SDK를 사용하여 FoodLens 기능을 이용할 수 있습니다.  
+Foodlens, CaloAI(Foodlens 2.0)을 지원하는 통합 Android용 SDK입니다.  
 FoodLens SDK는 Core SDK와 UI SDK로 이루어 지며, 자체 UI를 작성할 경우는 Core SDK를, Doinglab에서 제공하는 UI화면까지 사용할 경우는 UI SDK를 사용하셔서 FoodLens의 기능을 이용하실 수 있습니다.
 
 ## 1. 안드로이드 프로젝트 설정
@@ -70,7 +70,6 @@ android {
 //프로토콜과 및 포트를 제외한 순수 도메인 주소 혹은 IP주소 e.g) www.foodlens.com, 123.222.100.10
 <meta-data android:name="com.doinglab.foodlens.sdk.serveraddr" android:value="[server_address]"/> 
 ```  
-
 ## 4. Core SDK 사용법
 - FoodLens API는 FoodLens 기능을 이미지 파일 기반으로 동작하게 하는 기능입니다.  
 - 두잉랩 UI를 사용하지 않고 고객사에서 직접 커스터마이즈 하여 화면을 구성하고자 할 때 Core SDK를 사용할 수 있습니다.
@@ -107,20 +106,27 @@ foodLensCoreService.predict(byteData, object : RecognitionResultHandler {
 #### 4.2.1 언어 설정  
 ```
 //LanguageConfig.DEVICE, LanguageConfig.KO, LanguageConfig.EN, LanguageConfig.JP 4개 중에 선택할 수 있습니다.
+//Foodlens는 KO, EN을 Caloai의 경우 KO, EN, JP를 지원합니다.
 //Default는 Device 입니다.
 foodLensCoreService.setLanguage(LanguageConfig.EN)
 ```
 
-#### 4.2.2 이미지 리사이즈 방식 옵션
+#### 4.2.2 API Performance 옵션
 ```
-//ImageResizeOption.SPEED, ImageResizeOption.NORMAL, ImageResizeOption.QUALITY 3개 중에 선택할 수 있습니다.
+//요구사항에 따라 API성능을 변경할 수 잇습니다.
+//1. ImageResizeOption.SPEED : 빠른 속도의 처리가 필요한 경우 (음식 1~2개 수준)
+//2. ImageResizeOption.NORMAL, 가장 보편적인 사황처리 (음식수 2~4개 수준)
+//3. ImageResizeOption.QUALITY 3개 중에 선택할 수 있습니다. (속도가 느리더라도 음식인식율을 최대로 올릴 경우 4개 이상의 음식을 동시에 처리)
 //Default는 ImageResizeOption.NORMAL 입니다.
 foodLensCoreService.setImageResizeOption(LImageResizeOption.QUALITY)
 ```
 
 #### 4.2.3 영양소 반환 옵션
 ```
-//NutritionRetrieveOption.ALL_NUTRITION, NutritionRetrieveOption.TOP1_NUTRITION_ONLY, NutritionRetrieveOption.NO_NUTRITION 3개 중에 선택할 수 있습니다.
+//인식 후 전달받는 영양소에 대한 옵션 입니다.
+//1. NutritionRetrieveOption.ALL_NUTRITION : 모둔 음식 후보군 (Candidates food)에 영양소를 전달 받음
+//2. NutritionRetrieveOption.TOP1_NUTRITION_ONLY : 가장 확률이 높은 임식에 대해서만 영양소를 전달 받음 
+//3. NutritionRetrieveOption.NO_NUTRITION : 인식결과만 전달받고 영양소는 전달 받지 않음
 //Default는 ALL_NUTRITION 입니다.
 foodLensCoreService.setNutritionRetrieveOption(NutritionRetrieveOption.ALL_NUTRITION)
 ```
