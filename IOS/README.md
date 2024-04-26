@@ -278,7 +278,7 @@ public func onSuccess(_ result: RecognitionResultHandler) {
 JSON 문자열을 RecognitionResult 객체로 변환할 경우, 아래처럼 사용하실 수 있습니다.
 
 ```swift
-let recognitionResult = RecognitionResultHandler.create(json: jsonString)
+let recognitionResult = RecognitionResult.create(json: jsonString)
 ```
 
 
