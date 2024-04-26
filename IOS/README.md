@@ -16,8 +16,8 @@ FoodLens SDK는 Core SDK와 UI SDK로 이루어 지며, 자체 UI를 작성할 �
 - File > Swift Packages > Add Package Dependency
 - Add https://bitbucket.org/doing-lab/ios_foodlensuisdk
 
-<center><img src="./Images/spm1.png" width="70%" height="70%"></center>
-<center><img src="./Images/spm2.png" width="70%" height="70%"></center>
+<center><img src="./images/spm1.png" width="70%" height="70%"></center>
+<center><img src="./images/spm2.png" width="70%" height="70%"></center>
 
 ## 리소스(Resources) 및 info.plist 수정
 아래 항목 Info.plist에 추가
