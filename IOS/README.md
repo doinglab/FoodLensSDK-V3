@@ -1,6 +1,6 @@
 # iOS FoodLensSDK-V3 매뉴얼
 
-Foodlens, CaloAI(Foodlens 2.0)을 지원하는 통합 iOS용 SDK입니다.  
+Foodlens, CaloAI(Foodlens 2.0)을 지원하는 통합 iOS용 SDK입니다.     
 FoodLens SDK는 Core SDK와 UI SDK로 이루어 지며, 자체 UI를 작성할 경우는 Core SDK를, Doinglab에서 제공하는 UI화면까지 사용할 경우는 UI SDK를 사용하셔서 FoodLens의 기능을 이용하실 수 있습니다.
 
 
@@ -35,15 +35,15 @@ inpo.plist에 FoodLensAppToken, FoodLensCompanyToken 항목 추가하여 AppToke
 ```
 
 ## Core SDK 사용법
-- FoodLens API는 FoodLens 기능을 이미지 파일 기반으로 동작하게 하는 기능입니다.  
+- FoodLens API는 FoodLens 기능을 이미지 파일 기반으로 동작하게 하는 기능입니다.   
 - 두잉랩 UI를 사용하지 않고 고객사에서 직접 커스터마이즈 하여 화면을 구성하고자 할 때 Core SDK를 사용할 수 있습니다.
 
 ### 음식 결과 영양정보 얻기
 1. NetworkService를 생성합니다.
     - FoodLensType은 foodlens, caloai 중 선택 할 수 있습니다.
 2. predict 메소드를 호출합니다.
-파라미터로 UIImage로 로드된 이미지를 전달합니다.
-※ async, Combine, Escaping closure 3가지 방법을 지원합니다. (샘플코드 참고)
+파라미터로 UIImage로 로드된 이미지를 전달합니다.   
+※ async, Combine, Escaping closure 3가지 방법을 지원합니다. (샘플코드 참고)    
 ※ 이미지가 작은경우 인식율이 낮아질 수 있습니다.
 
 #### 코드 예제
@@ -94,7 +94,7 @@ Task {
 ### 음식이름 검색하기
 1. NetworkService를 생성합니다.
     - FoodLensType은 foodlens, caloai 중 선택 할 수 있습니다.
-2. searchFoodName 메소드를 호출합니다.
+2. searchFoodName 메소드를 호출합니다.    
 ※ async, combine, closure 3가지 방법을 지원합니다. (샘플코드 참고)
 
 #### 코드 예제
@@ -118,7 +118,7 @@ Task {
 옵션을 따로 설정하지 않은 경우 기본값으로 설정됩니다.
 
 #### 언어 설정
-device(기기설정), ko(한국어), en(영어), ja(일본어) 4개 중에 선택할 수 있습니다. (default는 device입니다.)
+device(기기설정), ko(한국어), en(영어), ja(일본어) 4개 중에 선택할 수 있습니다. (default는 device입니다.)        
 FoodLens는 ko, en을 Caloai의 경우 ko, en, ja를 지원합니다.
 
 ```swift
@@ -154,7 +154,7 @@ foodlens.setNutritionRetrievalOption(.topOne)
 - UI API는 간단한 화면 Customize기능을 포함하고 있습니다.
 
 ### UIService 생성
-UIService 인스턴스 생성합니다.
+UIService 인스턴스 생성합니다.    
 FoodLensType은 foodlens, caloai 중 선택 할 수 있습니다.
 
 ```swift
@@ -213,7 +213,7 @@ struct ContentView: View {
 
 
 #### RecognitionResultHandler
-RecognitionResultHandler 프로토콜에는 세가지 메소드가 정의되어 있습니다.
+RecognitionResultHandler 프로토콜에는 세가지 메소드가 정의되어 있습니다.    
 - onSuccess(_: RecognitionResult): 성공했을 때 호출되며 결과 값을 처리하는 메소드
 - onCancel(): 사용자가 인식을 취소하면 호출되는 메소드
 - onError(_: Error): 에러가 발생 했을 때 호출되는 메소드
