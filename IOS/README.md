@@ -214,9 +214,9 @@ struct ContentView: View {
 
 #### RecognitionResultHandler
 RecognitionResultHandler 프로토콜에는 세가지 메소드가 정의되어 있습니다.
-    - onSuccess(_: RecognitionResult): 성공했을 때 호출되며 결과 값을 처리하는 메소드
-    - onCancel(): 사용자가 인식을 취소하면 호출되는 메소드
-    - onError(_: Error): 에러가 발생 했을 때 호출되는 메소드
+- onSuccess(_: RecognitionResult): 성공했을 때 호출되며 결과 값을 처리하는 메소드
+- onCancel(): 사용자가 인식을 취소하면 호출되는 메소드
+- onError(_: Error): 에러가 발생 했을 때 호출되는 메소드
 
 
 ### 옵션 설정
