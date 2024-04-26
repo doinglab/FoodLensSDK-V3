@@ -7,4 +7,4 @@ Foodlens, CaloAI(Foodlens 2.0)을 지원하는 통합 SDK입니다.
 
 
 - iOS용 SDK  
-  [IOS SDK 사용설명서](IOS/)
+  [iOS SDK 사용설명서](IOS/)
