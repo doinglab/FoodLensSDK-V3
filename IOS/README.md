@@ -9,23 +9,28 @@ FoodLens SDK는 Core SDK와 UI SDK로 이루어 지며, 자체 UI를 작성할 �
 * Swift Version 5.5 이상
 
 
-## 설치
+## 1. iOS 프로젝트 설정
 
-### Swift Package Manager
-
-- File > Swift Packages > Add Package Dependency
-- Add https://bitbucket.org/doing-lab/ios_foodlensuisdk
-
-<center><img src="./images/spm1.png" width="70%" height="70%"></center>
-<center><img src="./images/spm2.png" width="70%" height="70%"></center>
-
-## 리소스(Resources) 및 info.plist 수정
-아래 항목 Info.plist에 추가
+### 1.1 info.plist 설정
+아래와 같이 카메라와 갤러리 권한 항목 Info.plist에 추가
 - Privacy - Camera Usage Description
 - Privacy - Photo Library Additions Usage Description
 - Privacy - Photo Library Usage Description
 
-## Token 설정
+### 1.2 Foodlens SDK 설치 
+ SPM(Swift Package Manager)을 이용하여 라이브러리 설치
+- File > Swift Packages > Add Package Dependency
+  
+Core SDK만 사용하는 경우 아래 경로 사용
+https://bitbucket.org/doing-lab/ios_foodlenscoresdk
+
+UI SDK도 사용하는 경우 아래 경로 사용
+https://bitbucket.org/doing-lab/ios_foodlensuisdk
+
+<center><img src="./images/spm1.png" width="70%" height="70%"></center>
+<center><img src="./images/spm2.png" width="70%" height="70%"></center>
+
+## 1.3 AppToken, CompanyToken 설정
 inpo.plist에 FoodLensAppToken, FoodLensCompanyToken 항목 추가하여 AppToken, CompanyToken 입력
 ```
 <key>FoodLensAppToken</key>
@@ -34,19 +39,19 @@ inpo.plist에 FoodLensAppToken, FoodLensCompanyToken 항목 추가하여 AppToke
 <string>Company Token</string>
 ```
 
-## Core SDK 사용법
+## 2. Core SDK 사용법
 - FoodLens API는 FoodLens 기능을 이미지 파일 기반으로 동작하게 하는 기능입니다.   
 - 두잉랩 UI를 사용하지 않고 고객사에서 직접 커스터마이즈 하여 화면을 구성하고자 할 때 Core SDK를 사용할 수 있습니다.
 
-### 음식 결과 영양정보 얻기
+### 2.1 음식 결과 영양정보 얻기
 1. NetworkService를 생성합니다.
     - FoodLensType은 foodlens, caloai 중 선택 할 수 있습니다.
 2. predict 메소드를 호출합니다.
-파라미터로 UIImage로 로드된 이미지를 전달합니다.   
-※ async, Combine, Escaping closure 3가지 방법을 지원합니다. (샘플코드 참고)    
-※ 이미지가 작은경우 인식율이 낮아질 수 있습니다.
+   파라미터로 UIImage로 로드된 이미지를 전달합니다.   
+   ※ async, Combine, Escaping closure 3가지 방법을 지원합니다. (샘플코드 참고)    
+   ※ 이미지가 작은경우 인식율이 낮아질 수 있습니다.
 
-#### 코드 예제
+3. 코드 예제
 ``` swift
 let foodlens = NetworkService(type: .foodlens)
 
