@@ -37,10 +37,10 @@ android {
    implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.0.0"
 ```
 
-## 2. 리소스(Resources) 및 메니페스트(Manifests) 
+### 1.3. 리소스(Resources) 및 메니페스트(Manifests) 
 - Company, AppToken을 세팅 합니다.
 
-### 2.1 AppToken, CompanyToken 설정
+### 1.4 AppToken, CompanyToken 설정
 - 발급된 AppToken, CompanyToken을 /app/res/values/strings.xml에 추가 합니다.
 ```xml
 <string name="foodlens_app_token">[AppToken]</string>
@@ -54,7 +54,7 @@ android {
 <meta-data android:name="com.doinglab.foodlens.sdk.companytoken" android:value="@string/foodlens_company_token"/> 
 ```
 
-### 2.2 공통
+### 1.5 공통
 * ProGuard 설정
 앱에서 proguard를 통한 난독화를 설정할 경우 아래와 같이 proguard 설정을 설정 파일에 추가해 주세요
 ```xml
@@ -63,18 +63,18 @@ android {
 }
 ```
 
-## 3.독립 FoodLens 서버 주소 설정
+## 1.6 독립 FoodLens 서버 주소 설정
  - 기본 FoodLens 서버가 아닌 독립 서버를 운용할 경우 서버 주소를 설정 할 수 있습니다. 자세한 방법은 당사와 협의해 주시기 바랍니다.
  - Meta data추가 아래와 같이 메타데이터를 Manifest.xml에 추가해 주세요
 ```xml
 //프로토콜과 및 포트를 제외한 순수 도메인 주소 혹은 IP주소 e.g) www.foodlens.com, 123.222.100.10
 <meta-data android:name="com.doinglab.foodlens.sdk.serveraddr" android:value="[server_address]"/> 
 ```  
-## 4. Core SDK 사용법
+## 2. Core SDK 사용법
 - FoodLens API는 FoodLens 기능을 이미지 파일 기반으로 동작하게 하는 기능입니다.  
 - 두잉랩 UI를 사용하지 않고 고객사에서 직접 커스터마이즈 하여 화면을 구성하고자 할 때 Core SDK를 사용할 수 있습니다.
 
-### 4.1 음식 결과 영양정보 얻기
+### 2.1 음식 결과 영양정보 얻기
 1. FoodLensCoreService 를 생성합니다.  
    파라미터는 Context, FoodLens Type 입니다.  
    FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두가지 중에 선택할 수 있습니다.     
@@ -101,9 +101,9 @@ foodLensCoreService.predict(byteData, object : RecognitionResultHandler {
 })
 ```
 
-### 4.2 옵션 변경
+### 2.2 옵션 변경
 - 설정하지 않은 경우 기본값으로 설정됩니다.
-#### 4.2.1 언어 설정  
+#### 2.2.1 언어 설정  
 ```
 //LanguageConfig.DEVICE, LanguageConfig.KO(한국어), LanguageConfig.EN(영어), LanguageConfig.JA(일본어) 4개 중에 선택할 수 있습니다.
 //Foodlens는 KO, EN을 Caloai의 경우 KO, EN, JA를 지원합니다.
@@ -111,7 +111,7 @@ foodLensCoreService.predict(byteData, object : RecognitionResultHandler {
 foodLensCoreService.setLanguage(LanguageConfig.EN)
 ```
 
-#### 4.2.2 API Performance 옵션
+#### 2.2.2 API Performance 옵션
 ```
 //요구사항에 따라 API성능을 변경할 수 잇습니다.
 //1. ImageResizeOption.SPEED : 빠른 속도의 처리가 필요한 경우 (음식 1~2개 수준)
@@ -121,7 +121,7 @@ foodLensCoreService.setLanguage(LanguageConfig.EN)
 foodLensCoreService.setImageResizeOption(LImageResizeOption.QUALITY)
 ```
 
-#### 4.2.3 영양소 반환 옵션
+#### 2.2.3 영양소 반환 옵션
 ```
 //인식 후 전달받는 영양소에 대한 옵션 입니다.
 //1. NutritionRetrieveOption.ALL_NUTRITION : 모둔 음식 후보군 (Candidates food)에 영양소를 전달 받음
@@ -131,11 +131,11 @@ foodLensCoreService.setImageResizeOption(LImageResizeOption.QUALITY)
 foodLensCoreService.setNutritionRetrieveOption(NutritionRetrieveOption.ALL_NUTRITION)
 ```
 
-## 5. UI SDK 사용법
+## 3. UI SDK 사용법
 - UI SDK는 FoodLens 에서 제공하는 기본 UI를 활용하여 서비스를 개발 할 수 있는 기능입니다.  
 - UI API는 간단한 화면 Customize기능을 포함하고 있습니다.
 
-### 5.1 UI Service의 인식 기능 사용
+### 3.1 UI Service의 인식 기능 사용
 1. FoodLensCoreService 를 생성합니다.  
 파라미터는 Context, FoodLens Type 입니다.  
 FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두가지 중에 선택할 수 있습니다.
@@ -176,15 +176,15 @@ private var foodLensActivityResult: ActivityResultLauncher<Intent> =
 
 ```
 
-### 5.2 UI Service의 갤러리 기능 사용
+### 3.2 UI Service의 갤러리 기능 사용
 - 카메라 화면을 거치지 않고 갤러리 이미지 선택화면으로 바로 진입합니다.  
 - 구현 방식은 5.1 번과 동일하며 startFoodLensCamera 대신 startFoodLensGallery를 사용합니다.
 
-### 5.3 UI Service의 검색 기능 사용
+### 3.3 UI Service의 검색 기능 사용
 - 카메라 화면이 거치지 않고 검색 화면으로 진입합니다.  
 - 구현 방식은 5.1 번과 동일하며 startFoodLensCamera 대신 startFoodLensSearch를 사용합니다.
 
-### 5.4 UI Service의 Data 수정 기능 사용
+### 3.4 UI Service의 Data 수정 기능 사용
 - 5.1, 5.2, 5.3 에서 획득한 영양정보를 다시 활용 할 수 있습니다.
 - 활용시에 이미지를 디바이즈 로컬 경로에 저장하고 RecognitionResult의 imagePath에 설정 해야 합니다. 
 - 작성한 recongitionResult를 startFoodLensDataEdit 호출시 전달합니다.  
@@ -221,10 +221,10 @@ private var foodLensActivityResult: ActivityResultLauncher<Intent> =
 
 ```
 
-### 5.5. UI SDK 옵션 및 매인 컬러 변경 (option)
+### 3.5. UI SDK 옵션 및 매인 컬러 변경 (option)
 - 설정하지 않은 경우 기본값으로 설정됩니다.
 
-#### 5.5.1 UI 테마 변경
+#### 3.5.1 UI 테마 변경
 - FoodLens UI 의 매인 색상을 변경할 수 있습니다.  
 - FoodLens UI 의 메인 텍스트 색상을 변경할 수 있습니다.
 ```
@@ -234,7 +234,7 @@ uiConfig.mainTextColor = Color.parseColor("#ffffff")  //메인 텍스트 색상 
 foodLensUiService.setUiConfig(uiConfig) 
 ```
 
-#### 5.5.2 옵션 변경
+#### 3.5.2 옵션 변경
 ```
 var settingConfig = FoodLensSettingConfig()
 settingConfig.isEnableCameraOrientation = true  	//카메라 회전 기능 지원 여부 (defalut : true)
@@ -248,14 +248,14 @@ settingConfig.languageConfig = LanguageConfig.DEVICE 	//결과값 언어 설정,
 foodLensUiService.setSettingConfig(settingConfig)
 ```        
 
-## 6. SDK 상세 스펙  
+## 4. SDK 상세 스펙  
 
-## 7. SDK 사용 예제 
+## 5. SDK 사용 예제 
 
-## 8. JSON Format
+## 6. JSON Format
 [JSON Format](../JSON%20Format)
 
 [JSON Sample](../JSON%20Sample)
 
-## 9. License
+## 7. License
 FoodLens is available under the MIT license. See the LICENSE file for more info.
