@@ -10,5 +10,5 @@ This is a combined SDK for supporting FoodLens, CaloAI(FoodLens 2.0).
 
 - FoodLensCoreSDK supports Korean, English and also Japanese.
 - FoodLensUISDK supports Korean and English UI. (In case of food recognition result, SDK can support Korean, English, Japanese.)
-<img src="./images/sc_kr.jpg" width="360" height="780">      <img src="./images/sc_en.jpg" width="360" height="780">
+<img src="./images/sc_kr.jpg" width="270" height="585"> <img src="./images/sc_en.jpg" width="270" height="585"> <img src="./images/sc_jp.jpg" width="270" height="585">
 
