@@ -48,7 +48,7 @@ android {
 ```
 
 * Add Meta data
-- Add the Meta data in Manifest.xml like below.
+- Add Meta data in Manifest.xml like below.
 ```xml
 <meta-data android:name="com.doinglab.foodlens.sdk.apptoken" android:value="@string/foodlens_app_token"/> 
 <meta-data android:name="com.doinglab.foodlens.sdk.companytoken" android:value="@string/foodlens_company_token"/> 
