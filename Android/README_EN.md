@@ -65,24 +65,24 @@ If you set a code obfuscation technique in the app through proguard, add a progu
 
 ## 3. Standalone FoodLens Server Address Setting
  - You can set a server address if you operate a standalone server instead of original FoodLens server. Please discuss with Doinglab for more detailed method.
-  - Meta data추가 아래와 같이 메타데이터를 Manifest.xml에 추가해 주세요
+  - Add Meta data in Manifest.xml like below.
 ```xml
-//프로토콜과 및 포트를 제외한 순수 도메인 주소 혹은 IP주소 e.g) www.foodlens.com, 123.222.100.10
+//Domain address or IP address without protocol and port e.g) www.foodlens.com, 123.222.100.10
 <meta-data android:name="com.doinglab.foodlens.sdk.serveraddr" android:value="[server_address]"/> 
 ```  
-## 2. Core SDK 사용법
-- FoodLens API는 FoodLens 기능을 이미지 파일 기반으로 동작하게 하는 기능입니다.  
-- 두잉랩 UI를 사용하지 않고 고객사에서 직접 커스터마이즈 하여 화면을 구성하고자 할 때 Core SDK를 사용할 수 있습니다.
+## 2. How to Use Core SDK
+- FoodLens API is an API that works FoodLens features based on image file.  
+- You may use the Core SDK to compose a screen UI through customizing without using the UI provided by Doinglab.
 
-### 2.1 음식 결과 영양정보 얻기
-1. FoodLensCoreService 를 생성합니다.  
-   파라미터는 Context, FoodLens Type 입니다.  
-   FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두가지 중에 선택할 수 있습니다.     
-2. predict 메서드를 호출합니다.  
-   파라미터는 Jpeg image, RecognitionResultHandler 입니다.   
-   Jpeg이미지는 카메라 촬영 또는 갤러리 원본 이미지를 전달해 줍니다.</br>
-※ 이미지가 작은경우 인식율이 낮아질 수 있습니다.  
-#### 코드 예제
+### 2.1 Obtaining Nutritional Information as Food Result
+1. Generate FoodLensCoreService.
+   Parameters are Context and FoodLens Type.  
+   You may choose FoodLensType between FoodLensType.FoodLens and FoodLensType.CaloAI.     
+2. Call predict method.
+   Parameters are Jpeg image and RecognitionResultHandler.   
+   Jpeg image delievers camera shot or original gallery image.</br>
+※ The recognition rate may be lowered when the image is small. 
+#### Code Example
 ```java
 //Create FoodLens Service
 private val foodLensCoreService by lazy {
