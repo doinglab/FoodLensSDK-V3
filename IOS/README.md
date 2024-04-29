@@ -1,38 +1,36 @@
-# iOS FoodLensSDK-V3 매뉴얼
+# # Manual for iOS FoodLensSDK-V3
 ## [iOS SDK 한글 설명서 보기](README_KO.md)
 
-FoodLens, CaloAI(FoodLens 2.0)을 지원하는 통합 iOS용 SDK입니다.     
-FoodLens SDK는 Core SDK와 UI SDK로 이루어 지며, 자체 UI를 작성할 경우는 Core SDK를, Doinglab에서 제공하는 UI화면까지 사용할 경우는 UI SDK를 사용하셔서 FoodLens의 기능을 이용하실 수 있습니다.
-
+This is a combined SDK for Android supporting FoodLens, CaloAI(FoodLens 2.0).  
+FoodLens is composed of Core SDK and UI SDK. You may use the functions of FoodLens by using the Core SDK to create your own UI, or you may also use the UI SDK to use the UI screen provided by Doinglab.
 
 ## Requirements
-* iOS Ver 14.0 이상
-* Swift Version 5.5 이상
+* Over iOS Ver 14.0
+* Over Swift Version 5.5
 
+## 1. iOS Project Setting
 
-## 1. iOS 프로젝트 설정
-
-### 1.1 info.plist 설정
-아래와 같이 카메라와 갤러리 권한 항목 Info.plist에 추가
+### 1.1 Setting info.plist 
+Please add Camera and Galley permission in Info.plist as bellow.
 - Privacy - Camera Usage Description
 - Privacy - Photo Library Additions Usage Description
 - Privacy - Photo Library Usage Description
 
-### 1.2 FoodLens SDK 설치 
- SPM(Swift Package Manager)을 이용하여 라이브러리 설치
+### 1.2 Install FoodLens SDK
+ Use SPM(Swift Package Manager) to install FoodLens Library.
 - File > Swift Packages > Add Package Dependency
   
-Core SDK만 사용하는 경우 아래 경로 사용
+//When Using Core SDK Only, please use below address
 - https://bitbucket.org/doing-lab/ios_foodlenscoresdk
 
-UI SDK도 사용하는 경우 아래 경로 사용
+//When Using UI SDK Together, please use below address 
 - https://bitbucket.org/doing-lab/ios_foodlensuisdk
 
 <center><img src="./images/spm1.png" width="70%" height="70%"></center>
 <center><img src="./images/spm2.png" width="70%" height="70%"></center>
 
-### 1.3 AppToken, CompanyToken 설정
-inpo.plist에 FoodLensAppToken, FoodLensCompanyToken 항목 추가하여 AppToken, CompanyToken 입력
+### 1.3 Setting AppToken, CompanyToken
+Add FoodLensAppToken, FoodLensCompanyToken on inpo.plist
 ```
 <key>FoodLensAppToken</key>
 <string>App Token</string>
@@ -40,19 +38,19 @@ inpo.plist에 FoodLensAppToken, FoodLensCompanyToken 항목 추가하여 AppToke
 <string>Company Token</string>
 ```
 
-## 2. Core SDK 사용법
-- FoodLens API는 FoodLens 기능을 이미지 파일 기반으로 동작하게 하는 기능입니다.   
-- 두잉랩 UI를 사용하지 않고 고객사에서 직접 커스터마이즈 하여 화면을 구성하고자 할 때 Core SDK를 사용할 수 있습니다.
+## 2. How to Use Core SDK
+- FoodLens API is an API that works FoodLens features based on image file.  
+- You may use the Core SDK to compose a screen UI through customizing without using the UI provided by Doinglab.
 
-### 2.1 음식 결과 영양정보 얻기
-1. FoodLensCoreService 생성합니다.
-    - FoodLensType은 foodlens, caloai 중 선택 할 수 있습니다.
-2. predict 메소드를 호출합니다.
-   파라미터로 UIImage로 로드된 이미지를 전달합니다.   
-   ※ async, Combine, Escaping closure 3가지 방법을 지원합니다. (샘플코드 참고)    
-   ※ 이미지가 작은경우 인식율이 낮아질 수 있습니다.
+### 2.1 Obtaining Nutritional Information
+1. Create FoodLensCoreService instance.
+    - You may choose FoodLensType between foodlens and caloai.
+2. Call predict method.
+   Parameters is UIImage which will be used.   
+   ※ FoodLens SDK supports three method like async, Combine, Escaping closure. (Refer to sample code)    
+   ※ The recognition qulity may be lowered when the image is small. 
 
-#### 코드 예제
+#### Code Example
 ``` swift
 let foodlensCoreService = FoodLensCoreService(type: .foodlens)
 
