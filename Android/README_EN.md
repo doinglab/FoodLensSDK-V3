@@ -274,66 +274,66 @@ private var foodLensActivityResult: ActivityResultLauncher<Intent> =
 
 ```
 
-### 3.5. UI SDK 옵션 및 매인 컬러 변경 (option)
-- 설정하지 않은 경우 기본값으로 설정됩니다.
+### 3.5. UI SDK Option and Main Color Change (option)
+- Default value will be set when not set.
 
-#### 3.5.1 UI 테마 변경
-- FoodLens UI 의 매인 색상을 변경할 수 있습니다.  
-- FoodLens UI 의 메인 텍스트 색상을 변경할 수 있습니다.
+#### 3.5.1 UI Theme Change
+- You may change the main color of FoodLens UI.  
+- You may change the main text color of FoodLens UI.
 ```
 var uiConfig = FoodLensUiConfig()
-uiConfig.mainColor = Color.parseColor("#ff0000") //메인 색상 변경 getColor(R.color.red)
-uiConfig.mainTextColor = Color.parseColor("#ffffff")  //메인 텍스트 색상 변경 getColor(R.color.white)
+uiConfig.mainColor = Color.parseColor("#ff0000") //Main Color Change getColor(R.color.red)
+uiConfig.mainTextColor = Color.parseColor("#ffffff")  //Main Text Color Change getColor(R.color.white)
 foodLensUiService.setUiConfig(uiConfig) 
 ```
 
-#### 3.5.2 FoodLens 옵션 변경
+#### 3.5.2 FoodLens Option Change
 ```
 var settingConfig = FoodLensSettingConfig()
-settingConfig.isEnableCameraOrientation = true  	//카메라 회전 기능 지원 여부 (defalut : true)
-settingConfig.isShowPhotoGalleryIcon = true     	//갤러리 아이콘 활성화 여부 (defalut : true)
-settingConfig.isShowManualInputIcon = true      	//검색 입력 아이콘 활성화 여부 (defalut : true)
-settingConfig.isShowHelpIcon = true             	//도움말 아이콘 활성화 여부 (defalut : true)
-settingConfig.isSaveToGallery = false           	//카메라 촬영 이미지 갤러리 저장 여부 (defalut : false)
-settingConfig.isUseEatDatePopup = true          	//갤러리에 저장된 사진의 사진촬영시간을 입력시간으로 사용할지 여부 (defalut : true)
-settingConfig.imageResize = ImageResizeOption.NORMAL 	//이미지 리사이즈 방식 옵션, SPEED(속도우선), NORMAL, QUALITY(결과 품질 우선) (defalut : NORMAL)
-settingConfig.languageConfig = LanguageConfig.DEVICE 	//결과값 언어 설정, DEVICE, KO, EN, JA (defalut : DEVICE)
-settingConfig.eatDate = Date()				// 식시 시간 설정(default: 현재 시간, isUseEatDatePopup == true 시 팝업에서 입력 받은 시간으로 설정)
-settingConfig.mealType = MealType.AFTERNOON_SNACK	// 식사 타입 설정(default: 시간에 맞는 식사 타입)
-settingConfig.recommendedKcal = 2000f			// 1일 권장 칼로리 (defalut : 2,000)
+settingConfig.isEnableCameraOrientation = true  	//Camera rotation feature support (defalut : true)
+settingConfig.isShowPhotoGalleryIcon = true     	//Gallery icon activation (defalut : true)
+settingConfig.isShowManualInputIcon = true      	//Search input icon activation (defalut : true)
+settingConfig.isShowHelpIcon = true             	//Help icon activation (defalut : true)
+settingConfig.isSaveToGallery = false           	//Camera shot save to gellery (defalut : false)
+settingConfig.isUseEatDatePopup = true          	//Save the input time as the time saved in gallery (defalut : true)
+settingConfig.imageResize = ImageResizeOption.NORMAL 	//Image resize method option, SPEED(Speed priority), NORMAL, QUALITY(Result quality priority) (defalut : NORMAL)
+settingConfig.languageConfig = LanguageConfig.DEVICE 	//Result language setting, DEVICE, KO, EN, JA (defalut : DEVICE)
+settingConfig.eatDate = Date()				//Meal time setting (default: Current time, isUseEatDatePopup == true Set as input time at pop-up)
+settingConfig.mealType = MealType.AFTERNOON_SNACK	//Meal type setting (default: Meal type based on time)
+settingConfig.recommendedKcal = 2000f			//Recommended calorie per day (defalut : 2,000)
 
 foodLensUiService.setSettingConfig(settingConfig)
 ```        
 
-#### 3.5.3 식사 타입 자동 설정
-사용자가 MealType을 이용하여 식사타입 설정을 직접 하지 않은 경우, 음식 식사 타입은 기준 시간을 기준으로 자동설정됨
+#### 3.5.3 Auto Meal Type Setting
+When the user does not set the meal type using MealType, the meal type is automatically set based on the criteria.
 ```
-아침 : 5시 ~ 10시
-아침간신 : 10 ~ 11시
-점심 : 11시 ~ 13시
-점심간신 : 13시 ~ 17시
-저녁 : 17시 ~ 20시
-야식 : 20시 ~ 5시
+Breakfast : 5AM ~ 10AM
+Morning Snack : 10AM ~ 11AM
+Lunch : 11AM ~ 13PM
+Afternoon Snack : 13PM ~ 17PM
+Dinner : 17PM ~ 20PM
+Night Snack : 20PM ~ 5AM
 ```
 
-## 4. JSON 변환
+## 4. JSON Change
 
 ### 4.1 RecognitionResult -> JSON string
-설명설명
+Description
 ```java
 code
 ```
 
 ### 4.2 JSON string -> RecognitionResult
-설명설명
+Description
 
 ```swift
 code
 ```
 
-## 5. SDK 상세 스펙  
+## 5. SDK Specific Spec 
 
-## 6. SDK 사용 예제 
+## 6. SDK Use Cases
 
 ## 7. JSON Format
 [JSON Format](../JSON%20Format)
