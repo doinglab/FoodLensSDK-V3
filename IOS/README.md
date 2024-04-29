@@ -11,7 +11,7 @@ FoodLens is composed of Core SDK and UI SDK. You may use the functions of FoodLe
 ## 1. iOS Project Setting
 
 ### 1.1 Setting info.plist 
-Please add Camera and Galley permission in Info.plist as bellow.
+Please add Camera and Gallery permission in Info.plist as bellow.
 - Privacy - Camera Usage Description
 - Privacy - Photo Library Additions Usage Description
 - Privacy - Photo Library Usage Description
@@ -20,17 +20,17 @@ Please add Camera and Galley permission in Info.plist as bellow.
  Use SPM(Swift Package Manager) to install FoodLens Library.
 - File > Swift Packages > Add Package Dependency
   
-When Using Core SDK Only, please use below address
+When Using Core SDK only, please use the address below.
 - https://bitbucket.org/doing-lab/ios_foodlenscoresdk
 
-When Using UI SDK Together, please use below address 
+When Using UI SDK together, please use the address below. 
 - https://bitbucket.org/doing-lab/ios_foodlensuisdk
 
 <center><img src="./images/spm1.png" width="70%" height="70%"></center>
 <center><img src="./images/spm2.png" width="70%" height="70%"></center>
 
 ### 1.3 Setting AppToken, CompanyToken
-Add FoodLensAppToken, FoodLensCompanyToken on inpo.plist
+Add FoodLensAppToken, FoodLensCompanyToken in inpo.plist.
 ```
 <key>FoodLensAppToken</key>
 <string>App Token</string>
@@ -46,9 +46,9 @@ Add FoodLensAppToken, FoodLensCompanyToken on inpo.plist
 1. Create FoodLensCoreService instance.
     - You may choose FoodLensType between foodlens and caloai.
 2. Call predict method.
-   Parameters is UIImage which will be used.   
-   ※ FoodLens SDK supports three method like async, Combine, Escaping closure. (Refer to sample code)    
-   ※ The recognition qulity may be lowered when the image is small. 
+   Parameter is UIImage which will be used.   
+   ※ FoodLens SDK supports three method including async, Combine, Escaping closure. (Refer to sample code)    
+   ※ The recognition quality may be lowered when the image is small. 
 
 #### Code Example
 ``` swift
@@ -76,7 +76,7 @@ Task {
 #### 2.2.1 Language Option  
 ```
 //You may choose between LanguageConfig.device, LanguageConfig.ko(Korean), LanguageConfig.en(English), LanguageConfig.ja(Japanese).
-//FoodLens supports ko, en and Caloai supports ko, en, ja.
+//FoodLens supports KO, EN and CaloAI supports KO, EN, JA.
 //Default is device.
 foodlensCoreService.setLanguage(.en)
 ```
@@ -104,7 +104,7 @@ foodlensCoreService.setNutritionRetrieveOption(.all)
 ### 2.3 Food Information Search
 1. Create FoodLensCoreService instance.
     - You may choose FoodLensType between foodlens, caloai.
-2. call foodInfo method.
+2. Call foodInfo method.
 ※ SDK supports async, combine, closure three methods. (Refer to sample code)
 
 #### Code Example
@@ -127,7 +127,7 @@ Task {
 ### 2.4 Food Name Search
 1. Create FoodLensCoreService instance.
     - You may choose FoodLensType between foodlens, caloai.
-2. CAll searchFoodbyName method.    
+2. Call searchFoodbyName method.    
 ※ SDK supports async, combine, closure three methods. (Refer to sample code)
 
 #### Code Example
@@ -152,7 +152,7 @@ Task {
 - UI SDK has a feature to develop service using the basic UI provided by FoodLens.  
 - UI API includes simple screen Customize feature.
 
-### 3.1 UI Service의 인식 기능 사용
+### 3.1 Using UI Service Recognition Feature
 1. Crate FoodLensUIService instance.    
 You may choose FoodLensType between foodlens and caloai.
 2. Call startFoodLensCamera method.
@@ -202,7 +202,7 @@ You can use nutritional information obtained from 3.1, 3.2, 3.3.
 #### *Important* You shall set to save the image to be shown on the screen in device local path and set imagePath of RecognitionResult before calling revise feature.
 
 ```swift
-// Please use below method to store image file in local storage before call FoodLens
+// Please use the method below to store image file in local storage before call FoodLens.
 let localFileName = "your_file_name.jpg"
 FoodLensStorage.shared.save(image: image, fileName: localFileName)
 
@@ -231,18 +231,18 @@ struct ContentView: View {
 ```
 
 #### 3.4.2 RecognitionResultHandler
-RecognitionResultHandler protocal defines below mehtod.    
+RecognitionResultHandler protocol defines below mehtod.    
 - onSuccess(_: RecognitionResult): It will call when operation is success.
 - onCancel(): It will call, user close the UI without meal recording.
 - onError(_: Error): It will call when error is occurred.
 
 
 #### 3.4.3 FoodLensStorage
-This is utility funciotn to store/load image before/after using FoodLens.
+This is utility function to store/load image before/after using FoodLens.
 
 ```swift
-//Get image which is recored by user.
-//Parameter is image path. Return type is UIImage which is recorted by user.
+//Get image which is recorded by user.
+//Parameter is image path. Return type is UIImage which is recorded by user.
 FoodLensStorage.shared.load(_: String) -> UIImage
 
 //Save image to local storeage before using Foodlens.
@@ -278,8 +278,8 @@ let settingConfig = FoodLensSettingConfig(
     isUseEatDatePopup: true,                // Save the input time as the time saved in gallery (defalut : true)
     imageResizingType: .normal              // Image resize method option, SPEED(Speed priority), NORMAL, QUALITY(Result quality priority) (defalut : NORMAL)
     language: .en,                          // Result language setting device, ko, en, ja (defalut : device) (This is only affect to food recognition result. UI language is following system setting.) 
-    eatDate: Date(),                        // Meal time setting(default: Current time, isUseEatDatePopup == true Set as input time at pop-u)
-    eatType: .lunch,                        // Meal type setting(default: Meal type based on time)
+    eatDate: Date(),                        // Meal time setting (default: Current time, isUseEatDatePopup == true Set as input time at pop-u)
+    eatType: .lunch,                        // Meal type setting (default: Meal type based on time)
     recommendKcal: 2400,                    // Recommended calorie per day (defalut : 2,000)
 )
 
