@@ -103,7 +103,7 @@ foodLensCoreService.predict(byteData, object : RecognitionResultHandler {
 })
 ```
 
-### 2.2 FoodlensCoreSDK Option Change
+### 2.2 FoodLensCoreSDK Option Change
 - Default value will be set when not set.
 #### 2.2.1 Language Setting  
 ```
