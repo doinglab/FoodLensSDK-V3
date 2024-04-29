@@ -148,23 +148,23 @@ Task {
 ```
  
 
-## 3. UI SDK 사용법
-- UI SDK는 FoodLens 에서 제공하는 기본 UI를 활용하여 서비스를 개발 할 수 있는 기능입니다.  
-- UI API는 간단한 화면 Customize기능을 포함하고 있습니다.
+## 3. How to Use UI SDK
+- UI SDK has a feature to develop service using the basic UI provided by FoodLens.  
+- UI API includes simple screen Customize feature.
 
 ### 공통 모듈 사용
 parent에는 FoodLensUI의 View를 띄울 UIViewController를 전달하고, completionHandler에는 결과를 처리할 RecognitionResultHandler를 전달합니다.
 
 ### 3.1 UI Service의 인식 기능 사용
-1. FoodLensUIService 인스턴스 생성합니다.    
-FoodLensType은 foodlens, caloai 중 선택 할 수 있습니다.
-2. startFoodLensCamera 메소드를 호출합니다.
-파라미터는 Parent ViewController와 RecognitionResultHandler 입니다.
+1. Crate FoodLensUIService instance.    
+You may choose FoodLensType between foodlens and caloai.
+2. Call startFoodLensCamera method.
+Parameters are Parent ViewController and RecognitionResultHandler.
 
 ```swift
 class ReconitionHandler : RecognitionResultHandler {
     func onSuccess(_ result: FoodLensCore.RecognitionResult) {
-        // 사용자가 선택하여 분석한 사진 가져오기
+        // Get image which is selected by user
         FoodLensStorage.shared.load(fileName: result.imagePath ?? "")
 
         //implement code
@@ -184,28 +184,28 @@ let foodLensUIService = FoodLensUIService(type: .foodlens)
 foodLensUIService.startFoodLensCamera(parent: self, completionHandler: ReconitionHandler())
 ```
 
-### 3.2 갤러리 기능 사용
-startFoodLensGallery를 메소드를 호출 합니다.
+### 3.2 Using Gallery Feature
+Call startFoodLensGallery를 method.
 
 ```swift
 foodLensUIService.startFoodLensGallery를(parent: self, completionHandler: ReconitionHandler())
 ```
 
-### 3.3 검색 기능 사용
-startFoodLensSearch를 메소드를 호출 합니다.
+### 3.3 Using Search Feature
+Call startFoodLensSearch를 method.
 
 ```swift
 foodLensUIService.startFoodLensSearch를(parent: self, completionHandler: ReconitionHandler())
 ```
 
 
-### 3.4 Data 수정 기능 사용
-- 3.1, 3.2, 3.3 에서 획득한 영양정보를 다시 활용 할 수 있습니다.
-- 작성한 recongitionResult를 startFoodLensDataEdit 호출시 전달합니다.
-#### *중요* 수정 기능을 호출하기 이전에 화면에 표시할 이미지를 디바이스 로컬에 저장하고 RecognitionResult의 imagePath에 설정 해야 합니다. 
+### 3.4 Using Data Revise Feature of UI Service
+You can use nutritional information obtained from 3.1, 3.2, 3.3. 
+- Deliver recognitionResult when calling startFoodLensDataEdit.
+#### *Important* You shall set to save the image to be shown on the screen in device local path and set imagePath of RecognitionResult before calling revise feature.
 
 ```swift
-// 해당 메소드를 통해 UIImage와 이미지 파일 이름만 전달하여 FoodLens 전용 폴더에 저장
+// Please use below method to store image file in local storage before call FoodLens
 FoodLensStorage.shared.save(image: image, fileName: "local image file name")
 
 let mealData = RecognitionResult.create(json: jsonString)
@@ -213,8 +213,8 @@ mealData.imgPath = "local image file name"
 foodLensUIService.startFoodLensDataEdit(recognitionResult: mealData, parent: self, completionHandler: ReconitionHandler())
 ```
 
-#### 3.4.1 SwiftUI에서 FoodLensUI 띄우기
-SwiftUI에서 UIViewController로 뷰를 띄우기 위해 EnvironmentValues를 제공합니다.
+#### 3.4.1 Call FoodLensUI based on SwiftUI
+FoodLens SDK supports EnvironmentValues to call UIViewController based on  SwiftUI.
 
 ```swift
 struct ContentView: View {
