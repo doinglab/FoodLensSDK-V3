@@ -22,64 +22,64 @@
             "counts": String,            //Counts(Bowl, etc)
             // Calories nutrients
             "energy": Double,            //Total energy(Calorie), Unit Kcal (Return -1 if value is not exist)
-            "carbohydrate": Double,      //총 탄수화물, Unit g (Return -1 if value is not exist)
-            "protein": Double,           //총 단백질, Unit g (Return -1 if value is not exist)
-            "fat": Double,               //총 지방, Unit g (Return -1 if value is not exist)
-            "totalSugars": Double,       //총 당류, Unit g (Return -1 if value is not exist)
-            "totalDietaryFiber": Double, //총 식이섬유, Unit g (Return -1 if value is not exist)
-            // 무기질
-            "calcium": Double,           //총 칼슘, Unit mg (Return -1 if value is not exist)
-            "iron": Double,              //총 철, Unit mg (Return -1 if value is not exist)
-            "magnesium": Double,         //총 마그네슘, Unit mg (Return -1 if value is not exist)
-            "phosphorus": Double,        //총 인, Unit mg (Return -1 if value is not exist)
-            "potassium": Double,         //총 칼륨, Unit mg (Return -1 if value is not exist)
-            "sodium": Double,            //총 나트륨, Unit mg (Return -1 if value is not exist)
-            "zinc": Double,              //총 아연, Unit mg (Return -1 if value is not exist)
-            "selenium": Double,          //총 셀레늄, Unit μg (Return -1 if value is not exist)
-            // 비타민
-            "retinol": Double,           //총 레티놀, Unit μg (Return -1 if value is not exist)
-            "betaCarotene": Double,      // 총 베타카로틴, Unit μg (Return -1 if value is not exist)
-            "vitaminA": Double,          //총 비타민 A, Unit μg (Return -1 if value is not exist)
-            "thiamin": Double,           //총 비타민 B1, Unit mg  (Return -1 if value is not exist)
-            "riboflavin": Double,        //총 비타민 B2, Unit mg (Return -1 if value is not exist)
-            "niacin": Double,            //총 니아신, Unit mg (Return -1 if value is not exist)
-            "vitaminB6": Double,         //총 비타민 B6, Unit mg (Return -1 if value is not exist)
-            "biotin": Double,            //총 비오틴, Unit μg (Return -1 if value is not exist)
-            "totalFolate": Double,       //총 엽산(DEF), Unit μg (Return -1 if value is not exist)
-            "vitaminC": Double,          //총 비타민 C, Unit mg (Return -1 if value is not exist)
-            "vitaminD": Double,          //총 비타민 D, Unit μg (Return -1 if value is not exist)
-            "vitaminE": Double,          //총 비타민 E, Unit mg (Return -1 if value is not exist)
-            "vitaminK": Double,          //총 비타민 K, Unit μg (Return -1 if value is not exist)
-            // 필수 아미노산
-            "isoleucine": Double,        //총 이소류신, Unit mg (Return -1 if value is not exist)
-            "leucine": Double,           //총 류신신, Unit mg (Return -1 if value is not exist)
-            "valine": Double,             //총 발린, Unit mg (Return -1 if value is not exist)
-            "bcaa": Double,               //Total branched-chain amino acid, Unit mg (Return -1 if value is not exist)
-            // 지방산
-            "cholesterol": Double,       //총 콜레스테롤, Unit mg (Return -1 if value is not exist)
-            "saturatedFattyAcid": Double,//총 포화 지방산, Unit g (Return -1 if value is not exist)
-            "epa": Double,               //총 에이코사펜타에노산, Unit mg (Return -1 if value is not exist)
-            "dha": Double,               //총 도코사헥사에노산 (Return -1 if value is not exist)
-            "omega3FattyAcid": Double,   //총 오메가3 지방산, Unit g (Return -1 if value is not exist)
-            "omega6FattyAcid": Double,   //총 오메가6 지방산, Unit g (Return -1 if value is not exist)
-            "transFattyAcid": Double,    //총 트랜스 지방산, Unit g (Return -1 if value is not exist)
-            //음식군 Unit 정보
-            "grains": Double,            //곡류군 단위 (권한이 있는겨우만 제공,Return -1 if value is not exist)
-            "proteins": Double,          //단백질군 단위 (권한이 있는겨우만 제공,Return -1 if value is not exist)
-            "vegetables": Double,        //채소군 단위 (권한이 있는겨우만 제공,Return -1 if value is not exist)
-            "fruits": Double,            //과일군 단위 (권한이 있는겨우만 제공,Return -1 if value is not exist)
-            "oils": Double,              //오일군 단위 (권한이 있는겨우만 제공,Return -1 if value is not exist)
+            "carbohydrate": Double,      //Total carbohydrate, Unit g (Return -1 if value is not exist)
+            "protein": Double,           //Total protein, Unit g (Return -1 if value is not exist)
+            "fat": Double,               //Total fat, Unit g (Return -1 if value is not exist)
+            "totalSugars": Double,       //Total sugars, Unit g (Return -1 if value is not exist)
+            "totalDietaryFiber": Double, //Total dietary fiber, Unit g (Return -1 if value is not exist)
+            // Mineral
+            "calcium": Double,           //Total calcium, Unit mg (Return -1 if value is not exist)
+            "iron": Double,              //Total iron, Unit mg (Return -1 if value is not exist)
+            "magnesium": Double,         //Total magnesium, Unit mg (Return -1 if value is not exist)
+            "phosphorus": Double,        //Total phosphorus, Unit mg (Return -1 if value is not exist)
+            "potassium": Double,         //Total potassium, Unit mg (Return -1 if value is not exist)
+            "sodium": Double,            //Total sodium, Unit mg (Return -1 if value is not exist)
+            "zinc": Double,              //Total zinc, Unit mg (Return -1 if value is not exist)
+            "selenium": Double,          //Total selenium, Unit μg (Return -1 if value is not exist)
+            // Vitamin
+            "retinol": Double,           //Total retinol, Unit μg (Return -1 if value is not exist)
+            "betaCarotene": Double,      //Total betaCarotene, Unit μg (Return -1 if value is not exist)
+            "vitaminA": Double,          //Total vitaminA, Unit μg (Return -1 if value is not exist)
+            "thiamin": Double,           //Total thiamin(vitamin B1), Unit mg  (Return -1 if value is not exist)
+            "riboflavin": Double,        //Total riboflavin(vitamin B2), Unit mg (Return -1 if value is not exist)
+            "niacin": Double,            //Total niacin, Unit mg (Return -1 if value is not exist)
+            "vitaminB6": Double,         //Total vitamin B6, Unit mg (Return -1 if value is not exist)
+            "biotin": Double,            //Total biotin, Unit μg (Return -1 if value is not exist)
+            "totalFolate": Double,       //Total folate(DEF), Unit μg (Return -1 if value is not exist)
+            "vitaminC": Double,          //Total vitamin C, Unit mg (Return -1 if value is not exist)
+            "vitaminD": Double,          //Total vitamin D, Unit μg (Return -1 if value is not exist)
+            "vitaminE": Double,          //Total vitamin E, Unit mg (Return -1 if value is not exist)
+            "vitaminK": Double,          //Total vitamin K, Unit μg (Return -1 if value is not exist)
+            // Essential amino acids
+            "isoleucine": Double,        //Total isoleucine, Unit mg (Return -1 if value is not exist)
+            "leucine": Double,           //Total leucine, Unit mg (Return -1 if value is not exist)
+            "valine": Double,            //Total valine, Unit mg (Return -1 if value is not exist)
+            "bcaa": Double,              //Total branched-chain amino acid, Unit mg (Return -1 if value is not exist)
+            // Fatty acid
+            "cholesterol": Double,       //Total cholesterol, Unit mg (Return -1 if value is not exist)
+            "saturatedFattyAcid": Double,//Total saturated fatty acid, Unit g (Return -1 if value is not exist)
+            "epa": Double,               //Total epa, Unit mg (Return -1 if value is not exist)
+            "dha": Double,               //Total dha (Return -1 if value is not exist)
+            "omega3FattyAcid": Double,   //Total omega3 fatty acid, Unit g (Return -1 if value is not exist)
+            "omega6FattyAcid": Double,   //Total omega6 fatty acid, Unit g (Return -1 if value is not exist)
+            "transFattyAcid": Double,    //Total trans fatty acid, Unit g (Return -1 if value is not exist)
+            // Food group
+            "grains": Double,            //Grain group (Only you can get this information when you have permission,return -1 if value is not exist)
+            "proteins": Double,          //Protein gruop (Only you can get this information when you have permission,return -1 if value is not exist)
+            "vegetables": Double,        //Vegetable group (Only you can get this information when you have permission,return -1 if value is not exist)
+            "fruits": Double,            //Fruit group (Only you can get this information when you have permission,return -1 if value is not exist)
+            "oils": Double,              //Oil group (Only you can get this information when you have permission,return -1 if value is not exist)
           }]
       ingredients: [{
-            "name": String,              //재료 이름
-            "gram": Double,              //재료 무게 (권한이 있는겨우만 제공,Return -1 if value is not exist)
+            "name": String,              //Ingredient name
+            "gram": Double,              //Ingredient weight (Only you can get this information when you have permission, return -1 if value is not exist)
         }],
-      "userSelected": Nutrition,        //Candidate List의 영양정보와 동일
+      "userSelected": Nutrition,         //Food nutrition inforation which is selected by user. In case  of CoreSDK, this value will be null
       "estimatedAmount" :{
-            "estimatedServingSize": Double  //실측된 음식양 (총 g 혹은 ml)
-            "estimatedServingAmount": Double//실측된 섭취량, 기준 그릇 대비 비율
+            "estimatedServingSize": Double  //Estimagted weight of food (Total g or ml)
+            "estimatedServingAmount": Double//Estimated amount of food, ratio based on one serving size
       },
-      "position": {                       //음식이 위치하는 좌표
+      "position": {                       //Food position
             "xmax": Int,
             "xmin": Int,
             "ymax": Int,
