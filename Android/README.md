@@ -82,12 +82,14 @@ android {
    파라미터는 Jpeg image, RecognitionResultHandler 입니다.   
    Jpeg이미지는 카메라 촬영 또는 갤러리 원본 이미지를 전달해 줍니다.</br>
 ※ 이미지가 작은경우 인식율이 낮아질 수 있습니다.  
-4. 코드 예제
+#### 코드 예제
 ```java
 //Create FoodLens Service
 private val foodLensCoreService by lazy {
   FoodLensCore.createFoodLensService(context, FoodLensType.FoodLens)
 }
+
+...........
 
 //Call prediction method.
 foodLensCoreService.predict(byteData, object : RecognitionResultHandler {
@@ -101,7 +103,7 @@ foodLensCoreService.predict(byteData, object : RecognitionResultHandler {
 })
 ```
 
-### 2.2 옵션 변경
+### 2.2 FoodlensCoreSDK 옵션 변경
 - 설정하지 않은 경우 기본값으로 설정됩니다.
 #### 2.2.1 언어 설정  
 ```
@@ -130,6 +132,57 @@ foodLensCoreService.setImageResizeOption(LImageResizeOption.QUALITY)
 //Default는 ALL_NUTRITION 입니다.
 foodLensCoreService.setNutritionRetrieveOption(NutritionRetrieveOption.ALL_NUTRITION)
 ```
+### 2.3 음식정보 검색하기
+1. FoodLensCoreService 생성합니다.
+    - 파라미터는 Context, FoodLens Type 입니다.  
+    - FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두가지 중에 선택할 수 있습니다.     
+3. foodInfo 메소드를 호출합니다.
+
+#### 코드 예제
+```java
+private val foodLensCoreService by lazy {
+  FoodLensCore.createFoodLensService(context, FoodLensType.FoodLens)
+}
+
+...........
+
+//Call foodInfo method.
+foodLensCoreService.foodInfo(foodId, object : RecognitionResultHandler {
+    override fun onSuccess(result: RecognitionResult?) {
+	//implement code
+    }
+
+    override fun onError(errorReason: BaseError?) {
+	//implement code
+    }
+})
+```
+### 2.4 음식정보 검색하기
+1. FoodLensCoreService 생성합니다.
+    - 파라미터는 Context, FoodLens Type 입니다.  
+    - FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두가지 중에 선택할 수 있습니다.     
+3. foodInfo 메소드를 호출합니다.
+
+#### 코드 예제
+```java
+private val foodLensCoreService by lazy {
+  FoodLensCore.createFoodLensService(context, FoodLensType.FoodLens)
+}
+
+...........
+
+//Call searchFoodsByName method.
+foodLensCoreService.searchFoodsByName(foodName, object : SearchResultHandler {
+    override fun onSuccess(result: FoodSearchResult?) {
+	//implement code
+    }
+
+    override fun onError(errorReason: BaseError?) {
+	//implement code
+    }
+})
+```
+
 
 ## 3. UI SDK 사용법
 - UI SDK는 FoodLens 에서 제공하는 기본 UI를 활용하여 서비스를 개발 할 수 있는 기능입니다.  
