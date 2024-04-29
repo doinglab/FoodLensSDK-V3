@@ -161,7 +161,7 @@ foodLensCoreService.foodInfo(foodId, object : RecognitionResultHandler {
 1. FoodLensCoreService 생성합니다.
     - 파라미터는 Context, FoodLens Type 입니다.  
     - FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두가지 중에 선택할 수 있습니다.     
-3. foodInfo 메소드를 호출합니다.
+3. searchFoodsByName 메소드를 호출합니다.
 
 #### 코드 예제
 ```java
@@ -189,11 +189,11 @@ foodLensCoreService.searchFoodsByName(foodName, object : SearchResultHandler {
 - UI API는 간단한 화면 Customize기능을 포함하고 있습니다.
 
 ### 3.1 UI Service의 인식 기능 사용
-1. FoodLensCoreService 를 생성합니다.  
+1. FoodLensUIService 를 생성합니다.  
 파라미터는 Context, FoodLens Type 입니다.  
 FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두가지 중에 선택할 수 있습니다.
 2. startFoodLensCamera 메서드를 호출합니다.  
-파라미터는 Context, Jpeg image, ActivityResultLauncher, RecognitionResultHandler 입니다.   
+파라미터는 Context, ActivityResultLauncher, UIServiceResultHandler 입니다.   
 결과를 처리할 ActivityResultLauncher<Intent>를 전달합니다. </br>
 3. 전달한 ActivityResultLauncher 에서 UIService의 onActivityResult 메소드를 호출합니다.  
 ※ 이미지가 작은경우 인식율이 낮아질 수 있습니다.  
@@ -229,19 +229,19 @@ private var foodLensActivityResult: ActivityResultLauncher<Intent> =
 
 ```
 
-### 3.2 UI Service의 갤러리 기능 사용
+### 3.2 갤러리 기능 사용
 - 카메라 화면을 거치지 않고 갤러리 이미지 선택화면으로 바로 진입합니다.  
 - 구현 방식은 5.1 번과 동일하며 startFoodLensCamera 대신 startFoodLensGallery를 사용합니다.
 
-### 3.3 UI Service의 검색 기능 사용
+### 3.3 검색 기능 사용
 - 카메라 화면이 거치지 않고 검색 화면으로 진입합니다.  
 - 구현 방식은 5.1 번과 동일하며 startFoodLensCamera 대신 startFoodLensSearch를 사용합니다.
 
 ### 3.4 UI Service의 Data 수정 기능 사용
-- 5.1, 5.2, 5.3 에서 획득한 영양정보를 다시 활용 할 수 있습니다.
-- 활용시에 이미지를 디바이즈 로컬 경로에 저장하고 RecognitionResult의 imagePath에 설정 해야 합니다. 
+- 3.1, 3.2, 3.3 에서 획득한 영양정보를 다시 활용 할 수 있습니다.
 - 작성한 recongitionResult를 startFoodLensDataEdit 호출시 전달합니다.  
 - 전달된 데이터로 음식 결과 화면으로 진입합니다.
+#### *중요* 수정 기능을 호출하기 이전에 화면에 표시하 이미지를 디바이즈 로컬 경로에 저장하고 RecognitionResult의 imagePath에 설정 해야 합니다. 
 1. 코드 예제
 ```java
 //Create FoodLens Service
@@ -287,7 +287,7 @@ uiConfig.mainTextColor = Color.parseColor("#ffffff")  //메인 텍스트 색상 
 foodLensUiService.setUiConfig(uiConfig) 
 ```
 
-#### 3.5.2 옵션 변경
+#### 3.5.2 FoodLens 옵션 변경
 ```
 var settingConfig = FoodLensSettingConfig()
 settingConfig.isEnableCameraOrientation = true  	//카메라 회전 기능 지원 여부 (defalut : true)
@@ -298,17 +298,47 @@ settingConfig.isSaveToGallery = false           	//카메라 촬영 이미지 �
 settingConfig.isUseEatDatePopup = true          	//갤러리에 저장된 사진의 사진촬영시간을 입력시간으로 사용할지 여부 (defalut : true)
 settingConfig.imageResize = ImageResizeOption.NORMAL 	//이미지 리사이즈 방식 옵션, SPEED(속도우선), NORMAL, QUALITY(결과 품질 우선) (defalut : NORMAL)
 settingConfig.languageConfig = LanguageConfig.DEVICE 	//결과값 언어 설정, DEVICE, KO, EN, JA (defalut : DEVICE)
+settingConfig.eatDate = Date()				// 식시 시간 설정(default: 현재 시간, isUseEatDatePopup == true 시 팝업에서 입력 받은 시간으로 설정)
+settingConfig.mealType = MealType.AFTERNOON_SNACK	// 식사 타입 설정(default: 시간에 맞는 식사 타입)
+settingConfig.recommendedKcal = 2000f			// 1일 권장 칼로리 (defalut : 2,000)
+
 foodLensUiService.setSettingConfig(settingConfig)
 ```        
 
-## 4. SDK 상세 스펙  
+#### 3.5.3 식사 타입 자동 설정
+사용자가 MealType을 이용하여 식사타입 설정을 직접 하지 않은 경우, 음식 식사 타입은 기준 시간을 기준으로 자동설정됨
+```
+아침 : 5시 ~ 10시
+아침간신 : 10 ~ 11시
+점심 : 11시 ~ 13시
+점심간신 : 13시 ~ 17시
+저녁 : 17시 ~ 20시
+야식 : 20시 ~ 5시
+```
 
-## 5. SDK 사용 예제 
+## 4. JSON 변환
 
-## 6. JSON Format
+### 4.1 RecognitionResult -> JSON string
+설명설명
+```java
+code
+```
+
+### 4.2 JSON string -> RecognitionResult
+설명설명
+
+```swift
+code
+```
+
+## 5. SDK 상세 스펙  
+
+## 6. SDK 사용 예제 
+
+## 7. JSON Format
 [JSON Format](../JSON%20Format)
 
 [JSON Sample](../JSON%20Sample)
 
-## 7. License
+## 8. License
 FoodLens is available under the MIT license. See the LICENSE file for more info.
