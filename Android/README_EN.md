@@ -188,16 +188,16 @@ foodLensCoreService.searchFoodsByName(foodName, object : SearchResultHandler {
 - UI SDK has a feature to develop service using the basic UI provided by FoodLens.  
 - UI API includes simple screen Customize feature.
 
-### 3.1 UI Service의 인식 기능 사용
-1. FoodLensUIService 를 생성합니다.  
-파라미터는 Context, FoodLens Type 입니다.  
-FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두가지 중에 선택할 수 있습니다.
-2. startFoodLensCamera 메서드를 호출합니다.  
-파라미터는 Context, ActivityResultLauncher, UIServiceResultHandler 입니다.   
-결과를 처리할 ActivityResultLauncher<Intent>를 전달합니다. </br>
-3. 전달한 ActivityResultLauncher 에서 UIService의 onActivityResult 메소드를 호출합니다.  
-※ 이미지가 작은경우 인식율이 낮아질 수 있습니다.  
-4. 코드 예제
+### 3.1 Using UI Service Recognition Feature
+1. Create FoodLensUIService.  
+Parameters are Context, FoodLens Type.  
+You may choose FoodLensType between FoodLensType.FoodLens and FoodLensType.CaloAI.
+2. Call startFoodLensCamera method.  
+Parameters are Context, ActivityResultLauncher and UIServiceResultHandler.   
+Deliver ActivityResultLauncher<Intent> to process the result. </br>
+3. Call onActivity Result method of the delievered UI Service in ActivityResultLauncher.  
+※ The recognition rate may be lowered when the image is small. 
+4. Code Example
 ```java
 //Create FoodLens Service
 private val foodLensUiService by lazy {
@@ -229,20 +229,20 @@ private var foodLensActivityResult: ActivityResultLauncher<Intent> =
 
 ```
 
-### 3.2 갤러리 기능 사용
-- 카메라 화면을 거치지 않고 갤러리 이미지 선택화면으로 바로 진입합니다.  
-- 구현 방식은 5.1 번과 동일하며 startFoodLensCamera 대신 startFoodLensGallery를 사용합니다.
+### 3.2 Using Gallery Feature
+- Enter the gallery image selection screen directly without going through the camera.  
+- Implement method is the same with 5.1 by using startFoodLensGallery instead of startFoodLensCamera.
 
-### 3.3 검색 기능 사용
-- 카메라 화면이 거치지 않고 검색 화면으로 진입합니다.  
-- 구현 방식은 5.1 번과 동일하며 startFoodLensCamera 대신 startFoodLensSearch를 사용합니다.
+### 3.3 Using Search Feature
+- Enter a black screen directly without going through the camera.  
+- Implement method is the same with 5.1 by using startFoodLensSearch instead of startFoodLensCamera.
 
-### 3.4 UI Service의 Data 수정 기능 사용
-- 3.1, 3.2, 3.3 에서 획득한 영양정보를 다시 활용 할 수 있습니다.
-- 작성한 recongitionResult를 startFoodLensDataEdit 호출시 전달합니다.  
-- 전달된 데이터로 음식 결과 화면으로 진입합니다.
-#### *중요* 수정 기능을 호출하기 이전에 화면에 표시하 이미지를 디바이즈 로컬 경로에 저장하고 RecognitionResult의 imagePath에 설정 해야 합니다. 
-1. 코드 예제
+### 3.4 Using Data Revise Feature of UI Service
+- You can use nutritional information obtained from 3.1, 3.2, 3.3. 
+- Deliver recognitionResult when calling startFoodLensDataEdit.  
+- Enter into food result screen with the delivered data.
+#### *Important* You shall set to save the image to be shown on the screen in device local path and set imagePath of RecognitionResult before calling revise feature.
+1. Code Example
 ```java
 //Create FoodLens Service
 private val foodLensUiService by lazy {
