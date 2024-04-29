@@ -344,14 +344,12 @@ JSON 문자열을 RecognitionResult 객체로 변환할 경우, 아래처럼 사
 var reconitionResult = RecognitionResult.create(json)
 ```
 
-## 5. SDK 상세 스펙  
+## 5. SDK 사용 예제 
 
-## 6. SDK 사용 예제 
-
-## 7. JSON Format
+## 6. JSON Format
 [JSON Format](../JSON%20Format)
 
 [JSON Sample](../JSON%20Sample)
 
-## 8. License
+## 7. License
 FoodLens is available under the MIT license. See the LICENSE file for more info.
