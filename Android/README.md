@@ -69,7 +69,20 @@ android {
 ```xml
 //프로토콜과 및 포트를 제외한 순수 도메인 주소 혹은 IP주소 e.g) www.foodlens.com, 123.222.100.10
 <meta-data android:name="com.doinglab.foodlens.sdk.serveraddr" android:value="[server_address]"/> 
-```  
+```
+
+### 1.7 데이터 바인딩 활성화(UI SDK)
+ - UI SDK를 사용하기 위해서는 데이터 바인딩을 활성화해야 합니다.
+ - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 android{} 섹션에 아래와 같은 문구를 추가해 주세요.
+```xml
+android {
+    ...
+    buildFeatures {
+        dataBinding true
+    }
+}
+```
+
 ## 2. Core SDK 사용법
 - FoodLens API는 FoodLens 기능을 이미지 파일 기반으로 동작하게 하는 기능입니다.  
 - 두잉랩 UI를 사용하지 않고 고객사에서 직접 커스터마이즈 하여 화면을 구성하고자 할 때 Core SDK를 사용할 수 있습니다.
@@ -120,7 +133,7 @@ foodLensCoreService.setLanguage(LanguageConfig.EN)
 //2. ImageResizeOption.NORMAL, 가장 보편적인 사황처리 (음식수 2~4개 수준)
 //3. ImageResizeOption.QUALITY 3개 중에 선택할 수 있습니다. (속도가 느리더라도 음식인식율을 최대로 올릴 경우 4개 이상의 음식을 동시에 처리)
 //Default는 ImageResizeOption.NORMAL 입니다.
-foodLensCoreService.setImageResizeOption(LImageResizeOption.QUALITY)
+foodLensCoreService.setImageResizeOption(ImageResizeOption.QUALITY)
 ```
 
 #### 2.2.3 영양소 반환 옵션
@@ -319,16 +332,16 @@ foodLensUiService.setSettingConfig(settingConfig)
 ## 4. JSON 변환
 
 ### 4.1 RecognitionResult -> JSON string
-설명설명
-```java
-code
+RecognitionResult 객체를 JSON 문자열로 변환할 수 있습니다.
+```
+var json = recognitionResult.toJSONString()
 ```
 
 ### 4.2 JSON string -> RecognitionResult
-설명설명
+JSON 문자열을 RecognitionResult 객체로 변환할 경우, 아래처럼 사용하실 수 있습니다.
 
-```swift
-code
+```
+var reconitionResult = RecognitionResult.create(json)
 ```
 
 ## 5. SDK 상세 스펙  
