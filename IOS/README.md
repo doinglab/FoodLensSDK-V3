@@ -22,15 +22,15 @@ FoodLens SDK는 Core SDK와 UI SDK로 이루어 지며, 자체 UI를 작성할 �
 - File > Swift Packages > Add Package Dependency
   
 Core SDK만 사용하는 경우 아래 경로 사용
-https://bitbucket.org/doing-lab/ios_foodlenscoresdk
+- https://bitbucket.org/doing-lab/ios_foodlenscoresdk
 
 UI SDK도 사용하는 경우 아래 경로 사용
-https://bitbucket.org/doing-lab/ios_foodlensuisdk
+- https://bitbucket.org/doing-lab/ios_foodlensuisdk
 
 <center><img src="./images/spm1.png" width="70%" height="70%"></center>
 <center><img src="./images/spm2.png" width="70%" height="70%"></center>
 
-## 1.3 AppToken, CompanyToken 설정
+### 1.3 AppToken, CompanyToken 설정
 inpo.plist에 FoodLensAppToken, FoodLensCompanyToken 항목 추가하여 AppToken, CompanyToken 입력
 ```
 <key>FoodLensAppToken</key>
@@ -44,16 +44,16 @@ inpo.plist에 FoodLensAppToken, FoodLensCompanyToken 항목 추가하여 AppToke
 - 두잉랩 UI를 사용하지 않고 고객사에서 직접 커스터마이즈 하여 화면을 구성하고자 할 때 Core SDK를 사용할 수 있습니다.
 
 ### 2.1 음식 결과 영양정보 얻기
-1. NetworkService를 생성합니다.
+1. FoodLensCoreService 생성합니다.
     - FoodLensType은 foodlens, caloai 중 선택 할 수 있습니다.
 2. predict 메소드를 호출합니다.
    파라미터로 UIImage로 로드된 이미지를 전달합니다.   
    ※ async, Combine, Escaping closure 3가지 방법을 지원합니다. (샘플코드 참고)    
    ※ 이미지가 작은경우 인식율이 낮아질 수 있습니다.
 
-3. 코드 예제
+#### 코드 예제
 ``` swift
-let foodlens = NetworkService(type: .foodlens)
+let foodlens = FoodLensCoreService(type: .foodlens)
 
 guard let image = image else {
     return
@@ -72,15 +72,46 @@ Task {
 }
 ```
 
-### 음식정보 검색하기
-1. NetworkService를 생성합니다.
+### 2.2 FoodlensCoreSDK 옵션
+- 설정하지 않은 경우 기본값으로 설정됩니다.
+#### 2.2.1 언어 설정  
+```
+//LanguageConfig.device, LanguageConfig.ko(한국어), LanguageConfig.en(영어), LanguageConfig.ja(일본어) 4개 중에 선택할 수 있습니다.
+//Foodlens는 ko, en을 Caloai의 경우 ko, en, ja를 지원합니다.
+//Default는 device 입니다.
+foodLensCoreService.setLanguage(.en)
+```
+
+#### 2.2.2 API Performance 옵션
+```
+//요구사항에 따라 API성능을 변경할 수 잇습니다.
+//1. ImageResizingType.speed : 빠른 속도의 처리가 필요한 경우 (음식 1~2개 수준)
+//2. ImageResizingType.normal, 가장 보편적인 사황처리 (음식수 2~4개 수준)
+//3. ImageResizingType.quality 3개 중에 선택할 수 있습니다. (속도가 느리더라도 음식인식율을 최대로 올릴 경우 4개 이상의 음식을 동시에 처리)
+//Default는 ImageResizingType.normal 입니다.
+foodLensCoreService.setImageResizingType(.quality)
+```
+
+#### 2.2.3 영양소 반환 옵션
+```
+//인식 후 전달받는 영양소에 대한 옵션 입니다.
+//1. NutritionRetrievalOption.all : 모둔 음식 후보군 (Candidates food)에 영양소를 전달 받음
+//2. NutritionRetrievalOption.tpo1 : 가장 확률이 높은 임식에 대해서만 영양소를 전달 받음 
+//3. NutritionRetrievalOption.no : 인식결과만 전달받고 영양소는 전달 받지 않음
+//Default는 all 입니다.
+foodLensCoreService.setNutritionRetrieveOption(.all)
+```
+
+
+### 2.3 음식정보 검색하기
+1. FoodLensCoreService 생성합니다.
     - FoodLensType은 foodlens, caloai 중 선택 할 수 있습니다.
 2. foodInfo 메소드를 호출합니다.
 ※ async, combine, closure 3가지 방법을 지원합니다. (샘플코드 참고)
 
 #### 코드 예제
 ```swift
-let foodlens = NetworkService(type: .foodlens)
+let foodlens = FoodLensCoreService(type: .foodlens)
 
 Task {
     let result = await foodlens.foodInfo(foodId: id)
@@ -95,19 +126,18 @@ Task {
 }
 ```
 
-
-### 음식이름 검색하기
-1. NetworkService를 생성합니다.
+### 2.4 음식이름 검색하기
+1. FoodLensCoreService 생성합니다.
     - FoodLensType은 foodlens, caloai 중 선택 할 수 있습니다.
 2. searchFoodName 메소드를 호출합니다.    
 ※ async, combine, closure 3가지 방법을 지원합니다. (샘플코드 참고)
 
 #### 코드 예제
 ```swift
-let foodlens = NetworkService(type: .foodlens)
+let foodlens = FoodLensCoreService(type: .foodlens)
 
 Task {
-    let result = await foodlens.searchFoodName(name)
+    let result = await foodlens.searchFoodbyName(name)
     switch result {
     case .success(let response):
         DispatchQueue.main.async {
