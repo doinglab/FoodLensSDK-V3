@@ -83,7 +83,7 @@ If you set a code obfuscation technique in the app through proguard, add a progu
 2. Call predict method.
    Parameters are Jpeg image and RecognitionResultHandler.   
    Jpeg image delievers camera shot or original gallery image.</br>
-※ The recognition rate may be lowered when the image is small. 
+※ The recognition quality may be lowered when the image is small. 
 #### Code Example
 ```java
 //Create FoodLens Service
