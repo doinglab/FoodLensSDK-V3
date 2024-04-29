@@ -1,4 +1,6 @@
 # Manual for Android FoodLensSDK-V3
+## [Android SDK 한글 설명서 보기](README_KO.md)
+## [Go to ReleaseNote](ReleaseNote.md)
 
 This is a combined SDK for Android supporting FoodLens, CaloAI(FoodLens 2.0).  
 FoodLens is composed of Core SDK and UI SDK. You may use the functions of FoodLens by using the Core SDK to create your own UI, or you may also use the UI SDK to use the UI screen provided by Doinglab.
@@ -75,7 +77,7 @@ If you set a code obfuscation technique in the app through proguard, add a progu
 - You may use the Core SDK to compose a screen UI through customizing without using the UI provided by Doinglab.
 
 ### 2.1 Obtaining Nutritional Information as Food Result
-1. Create FoodLensCoreService.
+1. Create FoodLensCoreService instance.
    Parameters are Context and FoodLens Type.  
    You may choose FoodLensType between FoodLensType.FoodLens and FoodLensType.CaloAI.     
 2. Call predict method.
@@ -133,7 +135,7 @@ foodLensCoreService.setImageResizeOption(LImageResizeOption.QUALITY)
 foodLensCoreService.setNutritionRetrieveOption(NutritionRetrieveOption.ALL_NUTRITION)
 ```
 ### 2.3 Food Information Search
-1. Create FoodLensCoreService.
+1. Create FoodLensCoreService instance.
     - Parameteres are Context and FoodLens Type.  
     - You may choose FoodLensType between FoodLensType.FoodLens and FoodLensType.CaloAI.     
 3. Call foodInfo method.
@@ -158,7 +160,7 @@ foodLensCoreService.foodInfo(foodId, object : RecognitionResultHandler {
 })
 ```
 ### 2.4 Food Information Search
-1. Create FoodLensCoreService.
+1. Create FoodLensCoreService instance.
     - Parameters are Context and FoodLens Type.  
     - You may choose FoodLensType between FoodLensType.FoodLens and FoodLensType.CaloAI.     
 3. Call searchFoodsByName method.
@@ -189,7 +191,7 @@ foodLensCoreService.searchFoodsByName(foodName, object : SearchResultHandler {
 - UI API includes simple screen Customize feature.
 
 ### 3.1 Using UI Service Recognition Feature
-1. Create FoodLensUIService.  
+1. Create FoodLensUIService instance.  
 Parameters are Context, FoodLens Type.  
 You may choose FoodLensType between FoodLensType.FoodLens and FoodLensType.CaloAI.
 2. Call startFoodLensCamera method.  
@@ -244,7 +246,7 @@ private var foodLensActivityResult: ActivityResultLauncher<Intent> =
 #### *Important* You shall set to save the image to be shown on the screen in device local path and set imagePath of RecognitionResult before calling revise feature.
 1. Code Example
 ```java
-//Create FoodLens Service
+//Create FoodLens Service instance
 private val foodLensUiService by lazy {
   FoodLensUI.createFoodLensService(context, FoodLensType.FoodLens)
 }
