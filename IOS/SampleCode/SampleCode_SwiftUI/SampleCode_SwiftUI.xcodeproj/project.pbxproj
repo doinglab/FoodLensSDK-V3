@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		252C037E2BE0605C0026479B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C037D2BE0605C0026479B /* ViewModel.swift */; };
+		252C03802BE060CD0026479B /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C037F2BE060CD0026479B /* ButtonStyle.swift */; };
+		2538426F2BDF8DE600AF1702 /* SampleCode_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2538426E2BDF8DE600AF1702 /* SampleCode_SwiftUIApp.swift */; };
+		253842712BDF8DE600AF1702 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253842702BDF8DE600AF1702 /* ContentView.swift */; };
+		253842732BDF8DE800AF1702 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 253842722BDF8DE800AF1702 /* Assets.xcassets */; };
+		253842762BDF8DE800AF1702 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 253842752BDF8DE800AF1702 /* Preview Assets.xcassets */; };
+		2538427E2BDF902D00AF1702 /* FoodLensUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2538427D2BDF902D00AF1702 /* FoodLensUI */; };
+		253842802BDF92B300AF1702 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2538427F2BDF92B300AF1702 /* PhotoPicker.swift */; };
+		253842832BDF9C7E00AF1702 /* JSON.strings in Resources */ = {isa = PBXBuildFile; fileRef = 253842822BDF9C7E00AF1702 /* JSON.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		252C037D2BE0605C0026479B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		252C037F2BE060CD0026479B /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		2538426B2BDF8DE600AF1702 /* SampleCode_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleCode_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2538426E2BDF8DE600AF1702 /* SampleCode_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCode_SwiftUIApp.swift; sourceTree = "<group>"; };
+		253842702BDF8DE600AF1702 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		253842722BDF8DE800AF1702 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		253842752BDF8DE800AF1702 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2538427F2BDF92B300AF1702 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		253842812BDF946800AF1702 /* SampleCode-SwiftUI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SampleCode-SwiftUI-Info.plist"; sourceTree = SOURCE_ROOT; };
+		253842822BDF9C7E00AF1702 /* JSON.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = JSON.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		253842682BDF8DE600AF1702 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2538427E2BDF902D00AF1702 /* FoodLensUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		253842622BDF8DE600AF1702 = {
+			isa = PBXGroup;
+			children = (
+				2538426D2BDF8DE600AF1702 /* SampleCode_SwiftUI */,
+				2538426C2BDF8DE600AF1702 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2538426C2BDF8DE600AF1702 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2538426B2BDF8DE600AF1702 /* SampleCode_SwiftUI.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2538426D2BDF8DE600AF1702 /* SampleCode_SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				253842812BDF946800AF1702 /* SampleCode-SwiftUI-Info.plist */,
+				2538426E2BDF8DE600AF1702 /* SampleCode_SwiftUIApp.swift */,
+				253842702BDF8DE600AF1702 /* ContentView.swift */,
+				2538427F2BDF92B300AF1702 /* PhotoPicker.swift */,
+				253842722BDF8DE800AF1702 /* Assets.xcassets */,
+				253842742BDF8DE800AF1702 /* Preview Content */,
+				253842822BDF9C7E00AF1702 /* JSON.strings */,
+				252C037D2BE0605C0026479B /* ViewModel.swift */,
+				252C037F2BE060CD0026479B /* ButtonStyle.swift */,
+			);
+			path = SampleCode_SwiftUI;
+			sourceTree = "<group>";
+		};
+		253842742BDF8DE800AF1702 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				253842752BDF8DE800AF1702 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2538426A2BDF8DE600AF1702 /* SampleCode_SwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 253842792BDF8DE800AF1702 /* Build configuration list for PBXNativeTarget "SampleCode_SwiftUI" */;
+			buildPhases = (
+				253842672BDF8DE600AF1702 /* Sources */,
+				253842682BDF8DE600AF1702 /* Frameworks */,
+				253842692BDF8DE600AF1702 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SampleCode_SwiftUI;
+			packageProductDependencies = (
+				2538427D2BDF902D00AF1702 /* FoodLensUI */,
+			);
+			productName = SampleCode_SwiftUI;
+			productReference = 2538426B2BDF8DE600AF1702 /* SampleCode_SwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		253842632BDF8DE600AF1702 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					2538426A2BDF8DE600AF1702 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 253842662BDF8DE600AF1702 /* Build configuration list for PBXProject "SampleCode_SwiftUI" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 253842622BDF8DE600AF1702;
+			packageReferences = (
+				2538427C2BDF902D00AF1702 /* XCRemoteSwiftPackageReference "ios_foodlensuisdk" */,
+			);
+			productRefGroup = 2538426C2BDF8DE600AF1702 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2538426A2BDF8DE600AF1702 /* SampleCode_SwiftUI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		253842692BDF8DE600AF1702 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				253842762BDF8DE800AF1702 /* Preview Assets.xcassets in Resources */,
+				253842832BDF9C7E00AF1702 /* JSON.strings in Resources */,
+				253842732BDF8DE800AF1702 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		253842672BDF8DE600AF1702 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				253842712BDF8DE600AF1702 /* ContentView.swift in Sources */,
+				252C03802BE060CD0026479B /* ButtonStyle.swift in Sources */,
+				2538426F2BDF8DE600AF1702 /* SampleCode_SwiftUIApp.swift in Sources */,
+				252C037E2BE0605C0026479B /* ViewModel.swift in Sources */,
+				253842802BDF92B300AF1702 /* PhotoPicker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		253842772BDF8DE800AF1702 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		253842782BDF8DE800AF1702 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2538427A2BDF8DE800AF1702 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SampleCode_SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = GGV5WWVER9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SampleCode-SwiftUI-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = camera;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = save;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = photo;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doinglab.foodlens.sample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2538427B2BDF8DE800AF1702 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SampleCode_SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = GGV5WWVER9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SampleCode-SwiftUI-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = camera;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = save;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = photo;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doinglab.foodlens.sample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		253842662BDF8DE600AF1702 /* Build configuration list for PBXProject "SampleCode_SwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				253842772BDF8DE800AF1702 /* Debug */,
+				253842782BDF8DE800AF1702 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		253842792BDF8DE800AF1702 /* Build configuration list for PBXNativeTarget "SampleCode_SwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2538427A2BDF8DE800AF1702 /* Debug */,
+				2538427B2BDF8DE800AF1702 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2538427C2BDF902D00AF1702 /* XCRemoteSwiftPackageReference "ios_foodlensuisdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://bitbucket.org/doing-lab/ios_foodlensuisdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2538427D2BDF902D00AF1702 /* FoodLensUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2538427C2BDF902D00AF1702 /* XCRemoteSwiftPackageReference "ios_foodlensuisdk" */;
+			productName = FoodLensUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 253842632BDF8DE600AF1702 /* Project object */;
+}
