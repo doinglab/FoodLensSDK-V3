@@ -71,43 +71,43 @@ Task {
 }
 ```
 
-### 2.2 FoodLensCoreSDK 옵션
-- 설정하지 않은 경우 기본값으로 설정됩니다.
-#### 2.2.1 언어 설정  
+### 2.2 2.2 FoodlensCoreSDK Option
+- Default value will be set when not set.
+#### 2.2.1 Language Option  
 ```
-//LanguageConfig.device, LanguageConfig.ko(한국어), LanguageConfig.en(영어), LanguageConfig.ja(일본어) 4개 중에 선택할 수 있습니다.
-//FoodLens는 ko, en을 Caloai의 경우 ko, en, ja를 지원합니다.
-//Default는 device 입니다.
+//You may choose between LanguageConfig.device, LanguageConfig.ko(Korean), LanguageConfig.en(English), LanguageConfig.ja(Japanese).
+//FoodLens supports ko, en and Caloai supports ko, en, ja.
+//Default is device.
 foodlensCoreService.setLanguage(.en)
 ```
 
-#### 2.2.2 API Performance 옵션
+#### 2.2.2 API Performance Option
 ```
-//요구사항에 따라 API성능을 변경할 수 잇습니다.
-//1. ImageResizingType.speed : 빠른 속도의 처리가 필요한 경우 (음식 1~2개 수준)
-//2. ImageResizingType.normal, 가장 보편적인 사황처리 (음식수 2~4개 수준)
-//3. ImageResizingType.quality 3개 중에 선택할 수 있습니다. (속도가 느리더라도 음식인식율을 최대로 올릴 경우 4개 이상의 음식을 동시에 처리)
-//Default는 ImageResizingType.normal 입니다.
+//API performance may be changed on demand.
+//1. ImageResizingType.speed : Fast processing (1~2 food level)
+//2. ImageResizingType.normal : The most common processing (2~4 food level)
+//3. ImageResizingType.quality : You may choose between three. (More than 4 foods can be handled at once with highest food recognition rate although the spped is low)
+//Default is ImageResizingType.normal.
 foodlensCoreService.setImageResizingType(.quality)
 ```
 
-#### 2.2.3 영양소 반환 옵션
+#### 2.2.3 Nutrition Return Option
 ```
-//인식 후 전달받는 영양소에 대한 옵션 입니다.
-//1. NutritionRetrievalOption.all : 모둔 음식 후보군 (Candidates food)에 영양소를 전달 받음
-//2. NutritionRetrievalOption.tpo1 : 가장 확률이 높은 임식에 대해서만 영양소를 전달 받음 
-//3. NutritionRetrievalOption.no : 인식결과만 전달받고 영양소는 전달 받지 않음
-//Default는 all 입니다.
+//This is an option for nutrition returned after recognition.
+//1. NutritionRetrievalOption.all : Deliever nutrition about every food candidates
+//2. NutritionRetrievalOption.tpo1 : Deliver nutrition only for the most likely food 
+//3. NutritionRetrievalOption.no : Deliever only recognition result and not the nutrition
+//Default is all.
 foodlensCoreService.setNutritionRetrieveOption(.all)
 ```
 
-### 2.3 음식정보 검색하기
-1. FoodLensCoreService 생성합니다.
-    - FoodLensType은 foodlens, caloai 중 선택 할 수 있습니다.
-2. foodInfo 메소드를 호출합니다.
-※ async, combine, closure 3가지 방법을 지원합니다. (샘플코드 참고)
+### 2.3 Food Information Search
+1. Create FoodLensCoreService instance.
+    - You may choose FoodLensType between foodlens, caloai.
+2. call foodInfo method.
+※ SDK supports async, combine, closure three methods. (Refer to sample code)
 
-#### 코드 예제
+#### Code Example
 ```swift
 let foodlensCoreService = FoodLensCoreService(type: .foodlens)
 
@@ -124,13 +124,13 @@ Task {
 }
 ```
 
-### 2.4 음식이름 검색하기
-1. FoodLensCoreService 생성합니다.
-    - FoodLensType은 foodlens, caloai 중 선택 할 수 있습니다.
-2. searchFoodbyName 메소드를 호출합니다.    
-※ async, combine, closure 3가지 방법을 지원합니다. (샘플코드 참고)
+### 2.4 Food Name Search
+1. Create FoodLensCoreService instance.
+    - You may choose FoodLensType between foodlens, caloai.
+2. CAll searchFoodbyName method.    
+※ SDK supports async, combine, closure three methods. (Refer to sample code)
 
-#### 코드 예제
+#### Code Example
 ```swift
 let foodlensCoreService = FoodLensCoreService(type: .foodlens)
 
