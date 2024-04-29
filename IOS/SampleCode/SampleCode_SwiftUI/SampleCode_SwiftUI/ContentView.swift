@@ -50,13 +50,6 @@ struct ContentView: View {
                     )
                 }
                 .buttonStyle(FoodLensButtonStyle())
-                
-                
-                Button("json") {
-                    let json = RecognitionResult.create(json: json)
-                    print(json)
-                }
-                .buttonStyle(FoodLensButtonStyle())
             }
             .padding(.horizontal)
             
@@ -67,17 +60,8 @@ struct ContentView: View {
         .sheet(isPresented: self.$viewModel.isShowPhotoPicker) {
             PHPicker(selectedImage: self.$viewModel.selectedImage)
         }
-        .onChange(of: self.viewModel.selectedImage) { newValue in
-            let foodlensCoreService = FoodLensCoreService(type: .foodlens)
-            Task {
-                let result = await foodlensCoreService.predict(image: self.viewModel.selectedImage)
-                switch result {
-                case .success(let success):
-                    print(success.toJSONString() ?? "")
-                case .failure(let failure):
-                    print(failure)
-                }
-            }
+        .onChange(of: self.viewModel.selectedImage) { image in
+            self.viewModel.predict(image: image)
         }
         .padding(.vertical)
     }

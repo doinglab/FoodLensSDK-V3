@@ -9,7 +9,7 @@ import UIKit
 import FoodLensUI
 import FoodLensCore
 
-class ViewModel: ObservableObject, RecognitionResultHandler {
+class ViewModel: ObservableObject {
     @Published var result: RecognitionResult = .init()
     
     @Published var isShowPhotoPicker: Bool = false
@@ -17,6 +17,22 @@ class ViewModel: ObservableObject, RecognitionResultHandler {
     
     @Published var predictedFoodImage: UIImage = UIImage()
     
+    func predict(image: UIImage) {
+        let foodlensCoreService = FoodLensCoreService(type: .foodlens)
+        Task {
+            let result = await foodlensCoreService.predict(image: image)
+            switch result {
+            case .success(let success):
+                print(success.toJSONString() ?? "")
+            case .failure(let failure):
+                print(failure)
+            }
+        }
+    }
+}
+
+
+extension ViewModel: RecognitionResultHandler {
     func onSuccess(_ result: RecognitionResult) {
         self.predictedFoodImage = FoodLensStorage.shared.load(fileName: result.imagePath ?? "") ?? .init()
         DispatchQueue.main.async {
