@@ -139,7 +139,7 @@ Task {
     switch result {
     case .success(let response):
         DispatchQueue.main.async {
-            self.foodNameSearchingResult = response.searchFoodList
+            // UI Update
         }
     case .failure(let failure):
         print(failure)
@@ -159,11 +159,14 @@ parent에는 FoodLensUI의 View를 띄울 UIViewController를 전달하고, comp
 1. FoodLensUIService 인스턴스 생성합니다.    
 FoodLensType은 foodlens, caloai 중 선택 할 수 있습니다.
 2. startFoodLensCamera 메소드를 호출합니다.
-파라미터는 Parenet ViewController와 RecognitionResultHandler 입니다.
+파라미터는 Parent ViewController와 RecognitionResultHandler 입니다.
 
 ```swift
 class ReconitionHandler : RecognitionResultHandler {
-    func onSuccess(_ result: FoodLensCore.PredictResult) {
+    func onSuccess(_ result: FoodLensCore.RecognitionResult) {
+        // 사용자가 선택하여 분석한 사진 가져오기
+        FoodLensStorage.shared.load(fileName: result.imagePath ?? "")
+
         //implement code
     }
     
@@ -177,34 +180,37 @@ class ReconitionHandler : RecognitionResultHandler {
 }
 ............
 
-let foodlesUiService = FoodLensUIService(type: .foodlens)
-foodlesUiService.startCameraView(parent: self, completionHandler: ReconitionHandler())
+let foodLensUIService = FoodLensUIService(type: .foodlens)
+foodLensUIService.startFoodLensCamera(parent: self, completionHandler: ReconitionHandler())
 ```
 
 ### 3.2 갤러리 기능 사용
 startFoodLensGallery를 메소드를 호출 합니다.
 
 ```swift
-foodlesUiService.startFoodLensGallery를(parent: self, completionHandler: self)
+foodLensUIService.startFoodLensGallery를(parent: self, completionHandler: ReconitionHandler())
 ```
 
 ### 3.3 검색 기능 사용
 startFoodLensSearch를 메소드를 호출 합니다.
 
 ```swift
-foodlesUiService.startFoodLensSearch를(parent: self, completionHandler: self)
+foodLensUIService.startFoodLensSearch를(parent: self, completionHandler: ReconitionHandler())
 ```
 
 
 ### 3.4 Data 수정 기능 사용
 - 3.1, 3.2, 3.3 에서 획득한 영양정보를 다시 활용 할 수 있습니다.
-- 작성한 recongitionResult를 startEditView 호출시 전달합니다.
-#### *중요* 수정 기능을 호출하기 이전에 화면에 표시하 이미지를 디바이즈 로컬 경로에 저장하고 RecognitionResult의 imagePath에 설정 해야 합니다. 
+- 작성한 recongitionResult를 startFoodLensDataEdit 호출시 전달합니다.
+#### *중요* 수정 기능을 호출하기 이전에 화면에 표시할 이미지를 디바이스 로컬에 저장하고 RecognitionResult의 imagePath에 설정 해야 합니다. 
 
 ```swift
+// 해당 메소드를 통해 UIImage와 이미지 파일 이름만 전달하여 FoodLens 전용 폴더에 저장
+FoodLensStorage.shared.save(image: image, fileName: "local image file name")
+
 let mealData = RecognitionResult.create(json: jsonString)
-mealData.imgPath = "local imgage path"
-foodlesUiService.startEditView(parent: self, completionHandler: self)
+mealData.imgPath = "local image file name"
+foodLensUIService.startFoodLensDataEdit(recognitionResult: mealData, parent: self, completionHandler: ReconitionHandler())
 ```
 
 #### 3.4.1 SwiftUI에서 FoodLensUI 띄우기
@@ -217,8 +223,8 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button("start") {
-                let foodlensUiService = FoodLensUIService(type: .foodlens)
-                foodlesUiService.startCameraView(parent: self.viewControllerHolder, completionHandler: CallBackObject())
+                let foodlensUIService = FoodLensUIService(type: .foodlens)
+                foodLensUIService.startFoodLensCamera(parent: self.viewControllerHolder, completionHandler: ReconitionHandler())
             }
         }
         .padding()
@@ -233,18 +239,30 @@ RecognitionResultHandler 프로토콜에는 세가지 메소드가 정의되어 
 - onError(_: Error): 에러가 발생 했을 때 호출되는 메소드
 
 
+#### 3.4.3 FoodLensStorage
+사용자가 UI에서 선택하여 분석한 이미지를 가져올 수 있고, Data 수정 기능을 사용할 때 이미지를 저장하여 전달할 수 있습니다.
+
+```swift
+// 사용자가 선택하여 분석한 사진 가져오기
+FoodLensStorage.shared.load(_: String)
+
+// 해당 메소드를 통해 UIImage와 이미지 파일 이름만 전달하여 FoodLens 전용 폴더에 저장
+FoodLensStorage.shared.save(_: UIImage, _: String)
+```
+
+
 ### 3.5. UI SDK 옵션 및 매인 컬러 변경 (option)
 
 #### 3.5.1 UI 테마 변경
 - FoodLens UI 의 매인 색상을 변경할 수 있습니다.  
 - FoodLens UI 의 메인 텍스트 색상을 변경할 수 있습니다.
 ```swift
-let uiConfig = FoodLensUiConfig(
+let uiConfig = FoodLensUIConfig(
     mainColor: .green,                      // 메인 색상
     mainTextColor: . white                  // 메인 텍스트 색상
 )
 
-foodlesUiService.setUiConfig(uiConfig) 
+foodLensUIService.setUIConfig(uiConfig) 
 ```
 
 
@@ -264,7 +282,7 @@ let settingConfig = FoodLensSettingConfig(
     recommendKcal: 2400,                    // 1일 권장 칼로리 (defalut : 2,000)
 )
 
-foodlesUiService.setSettingConfig(settingConfig)
+foodLensUIService.setSettingConfig(settingConfig)
 ```
 
 #### 3.5.3 식사 타입 자동 설정
