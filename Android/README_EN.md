@@ -1,13 +1,13 @@
 # Manual for Android FoodLensSDK-V3
 
-Foodlens, CaloAI(Foodlens 2.0)을 지원하는 통합 Android용 SDK입니다.  
-FoodLens SDK는 Core SDK와 UI SDK로 이루어 지며, 자체 UI를 작성할 경우는 Core SDK를, Doinglab에서 제공하는 UI화면까지 사용할 경우는 UI SDK를 사용하셔서 FoodLens의 기능을 이용하실 수 있습니다.
+This is a combined SDK for Android supporting FoodLens, CaloAI(FoodLens 2.0).  
+FoodLens is composed of Core SDK and UI SDK. You may use the functions of FoodLens by using the Core SDK to create your own UI, or you may also use the UI SDK to use the UI screen provided by Doinglab.
 
 ## 1. Android Project Setting
 
 ### 1.1 Android 13 Support
-- Android 13 지원을 위해 Compile SDK Version을 33이상으로 설정해 주세요. 
-- 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 android{} 섹션에 아래와 같은 문구를 추가해 주세요.
+- Set Compile SDK Version over 33 for Android 13 support.
+- Open app > Gradle Scripts > build.gradle (Module: app) in the project and add the text below in the android{} section.
 
 ```java
 android {
@@ -19,8 +19,8 @@ android {
 
 ### 1.2 gradle Setting
 #### 1.2.1 minSdkVersion Setting
-- minSdkVersion은 26 이상을 사용하시기 바랍니다.
-- 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 defaultConfig{} 섹션에 아래와 같은 문구를 추가해 주세요.
+- Use minSdkVersion over 26.
+- Open app > Gradle Scripts > build.gradle (Module: app) in the project and add the text below in the defaultConfig{} section.
 ```java
    defaultConfig {
         ....
@@ -29,42 +29,42 @@ android {
     }
 ```
 #### 1.2.2 gradle dependencies Setting
-- 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies를 추가해 주세요.
+- Open app > Gradle Scripts > build.gradle (Module: app) in the project and add dependencies.
 ```java
-   //Core SDK만 사용할 경우
+   //When Using Core SDK Only
    implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.0" 
-   //UI SDK도 사용할 경우 
+   //When Using UI SDK Together 
    implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.0.0"
 ```
 
 ## 2. Resources and Manifests 
-- Company, AppToken을 세팅 합니다.
+- Set Company, AppToken.
 
 ### 2.1 AppToken, CompanyToken Setting
-- 발급된 AppToken, CompanyToken을 /app/res/values/strings.xml에 추가 합니다.
+- Add the issued AppToken, CompanyToken to /app/res/values/strings.xml.
 ```xml
 <string name="foodlens_app_token">[AppToken]</string>
 <string name="foodlens_company_token">[CompanyToken]</string>
 ```
 
-* Meta data추가
-- 아래와 같이 메타데이터를 Manifest.xml에 추가해 주세요
+* Add Meta data
+- Add the Meta data in Manifest.xml like below.
 ```xml
 <meta-data android:name="com.doinglab.foodlens.sdk.apptoken" android:value="@string/foodlens_app_token"/> 
 <meta-data android:name="com.doinglab.foodlens.sdk.companytoken" android:value="@string/foodlens_company_token"/> 
 ```
 
-### 2.2 공통
-* ProGuard 설정
-앱에서 proguard를 통한 난독화를 설정할 경우 아래와 같이 proguard 설정을 설정 파일에 추가해 주세요
+### 2.2 Common
+* Setting ProGuard
+If you set a code obfuscation technique in the app through proguard, add a proguard like below in the setting.
 ```xml
 -keep public class com.doinglab.foodlens.sdk.core.** {
        *;
 }
 ```
 
-## 3.독립 FoodLens 서버 주소 설정
- - 기본 FoodLens 서버가 아닌 독립 서버를 운용할 경우 서버 주소를 설정 할 수 있습니다. 자세한 방법은 당사와 협의해 주시기 바랍니다.
+## 3. Standalone FoodLens Server Address Setting
+ - You can set a server address if you operate a standalone server instead of original FoodLens server. Please discuss with Doinglab for more detailed method.
  - Meta data추가 아래와 같이 메타데이터를 Manifest.xml에 추가해 주세요
 ```xml
 //프로토콜과 및 포트를 제외한 순수 도메인 주소 혹은 IP주소 e.g) www.foodlens.com, 123.222.100.10
