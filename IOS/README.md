@@ -165,7 +165,7 @@ Parameters are Parent ViewController and RecognitionResultHandler.
 class ReconitionHandler : RecognitionResultHandler {
     func onSuccess(_ result: FoodLensCore.RecognitionResult) {
         // Get image which is selected by user
-        FoodLensStorage.shared.load(fileName: result.imagePath ?? "")
+        let image = FoodLensStorage.shared.load(fileName: result.imagePath ?? "")
 
         //implement code
     }
@@ -185,17 +185,17 @@ foodLensUIService.startFoodLensCamera(parent: self, completionHandler: Reconitio
 ```
 
 ### 3.2 Using Gallery Feature
-Call startFoodLensGallery를 method.
+Call startFoodLensGallery method.
 
 ```swift
-foodLensUIService.startFoodLensGallery를(parent: self, completionHandler: ReconitionHandler())
+foodLensUIService.startFoodLensGallery(parent: self, completionHandler: ReconitionHandler())
 ```
 
 ### 3.3 Using Search Feature
-Call startFoodLensSearch를 method.
+Call startFoodLensSearch method.
 
 ```swift
-foodLensUIService.startFoodLensSearch를(parent: self, completionHandler: ReconitionHandler())
+foodLensUIService.startFoodLensSearch(parent: self, completionHandler: ReconitionHandler())
 ```
 
 
@@ -206,10 +206,11 @@ You can use nutritional information obtained from 3.1, 3.2, 3.3.
 
 ```swift
 // Please use below method to store image file in local storage before call FoodLens
-FoodLensStorage.shared.save(image: image, fileName: "local image file name")
+let localFileName = "your_file_name.jpg"
+FoodLensStorage.shared.save(image: image, fileName: localFileName)
 
 let mealData = RecognitionResult.create(json: jsonString)
-mealData.imgPath = "local image file name"
+mealData.imgPath = localFileName
 foodLensUIService.startFoodLensDataEdit(recognitionResult: mealData, parent: self, completionHandler: ReconitionHandler())
 ```
 
@@ -233,74 +234,77 @@ struct ContentView: View {
 ```
 
 #### 3.4.2 RecognitionResultHandler
-RecognitionResultHandler 프로토콜에는 세가지 메소드가 정의되어 있습니다.    
-- onSuccess(_: RecognitionResult): 성공했을 때 호출되며 결과 값을 처리하는 메소드
-- onCancel(): 사용자가 인식을 취소하면 호출되는 메소드
-- onError(_: Error): 에러가 발생 했을 때 호출되는 메소드
+RecognitionResultHandler protocal defines below mehtod.    
+- onSuccess(_: RecognitionResult): It will call when operation is success.
+- onCancel(): It will call, user close the UI without meal recording.
+- onError(_: Error): It will call when error is occurred.
 
 
 #### 3.4.3 FoodLensStorage
-사용자가 UI에서 선택하여 분석한 이미지를 가져올 수 있고, Data 수정 기능을 사용할 때 이미지를 저장하여 전달할 수 있습니다.
+This is utility funciotn to store/load image before/after using FoodLens.
 
 ```swift
-// 사용자가 선택하여 분석한 사진 가져오기
-FoodLensStorage.shared.load(_: String)
+//Get image which is recored by user.
+//Parameter is image path. Return type is UIImage which is recorted by user.
+FoodLensStorage.shared.load(_: String) -> UIImage
 
-// 해당 메소드를 통해 UIImage와 이미지 파일 이름만 전달하여 FoodLens 전용 폴더에 저장
+//Save image to local storeage before using Foodlens.
+//Parameter is UIImage and file name. You should pass same file name to imgPath on RecognitionResult.
 FoodLensStorage.shared.save(_: UIImage, _: String)
 ```
 
 
-### 3.5. UI SDK 옵션 및 매인 컬러 변경 (option)
-
-#### 3.5.1 UI 테마 변경
-- FoodLens UI 의 매인 색상을 변경할 수 있습니다.  
-- FoodLens UI 의 메인 텍스트 색상을 변경할 수 있습니다.
+### 3.5.UI SDK Option and Main Color Change (option)
+- Default value will be set when not set.
+- 
+#### 3.5.1 UI Theme Change
+- You may change the main color of FoodLens UI.  
+- You may change the main text color of FoodLens UI.
 ```swift
 let uiConfig = FoodLensUIConfig(
-    mainColor: .green,                      // 메인 색상
-    mainTextColor: . white                  // 메인 텍스트 색상
+    mainColor: .green,                      // Main Color
+    mainTextColor: . white                  // Main Text Color
 )
 
 foodLensUIService.setUIConfig(uiConfig) 
 ```
 
 
-#### 3.5.2 FoodLens 옵션 변경
+#### 3.5.2 FoodLens Option Change
 ```swift
 let settingConfig = FoodLensSettingConfig(
-    isEnableCameraOrientation: true,        // 카메라 회전 기능 지원 여부 (defalut : true)
-    isShowPhotoGalleryIcon: true,           // 카메라 화면에서 갤러리 버튼 활성화 여부 (defalut : true)
-    isShowManualInputIcon: true,            // 카메라 화면에서 검색 버튼 활성화 여부 (defalut : true)
-    isShowHelpIcon: true,                   // 카메라 화면에서 help 아이콘 활성화 여부 (defalut : true)
-    isSaveToGallery: true,                  // 촬영한 이미지 갤러리 저장 여부 (defalut : false)
-    isUseEatDatePopup: true,                // 갤러리에서 이미지 불러올 때 촬영 일자 사용여부 (ture일 경우 선택 팝업 표시)
-    imageResizingType: .normal              // //이미지 리사이즈 방식 옵션, SPEED(속도우선), NORMAL, QUALITY(결과 품질 우선) (defalut : NORMAL)
-    language: .en,                          // 제동되는 음식 정보 언어 설정 (음식정보 외에 UI에 표시되는 텍스트의 언어는 기기에 설정된 언어로 표시) (defalut : device)
-    eatDate: Date(),                        // 식시 시간 설정(default: 현재 시간, isUseEatDatePopup == true 시 팝업에서 입력 받은 시간으로 설정)
-    eatType: .lunch,                        // 식사 타입 설정(default: 시간에 맞는 식사 타입)
-    recommendKcal: 2400,                    // 1일 권장 칼로리 (defalut : 2,000)
+    isEnableCameraOrientation: true,        // Camera rotation feature support (defalut : true)
+    isShowPhotoGalleryIcon: true,           // Gallery icon activation (defalut : true)
+    isShowManualInputIcon: true,            // Search input icon activation (defalut : true)
+    isShowHelpIcon: true,                   // Help icon activation (defalut : true)
+    isSaveToGallery: true,                  // Camera shot save to gellery (defalut : false)
+    isUseEatDatePopup: true,                // Save the input time as the time saved in gallery (defalut : true)
+    imageResizingType: .normal              // Image resize method option, SPEED(Speed priority), NORMAL, QUALITY(Result quality priority) (defalut : NORMAL)
+    language: .en,                          // Result language setting device, ko, en, ja (defalut : device) (This is only affect to food recognition result. UI language is following system setting.) 
+    eatDate: Date(),                        // Meal time setting(default: Current time, isUseEatDatePopup == true Set as input time at pop-u)
+    eatType: .lunch,                        // Meal type setting(default: Meal type based on time)
+    recommendKcal: 2400,                    // Recommended calorie per day (defalut : 2,000)
 )
 
 foodLensUIService.setSettingConfig(settingConfig)
 ```
 
-#### 3.5.3 식사 타입 자동 설정
-사용자가 MealType을 이용하여 식사타입 설정을 직접 하지 않은 경우, 음식 식사 타입은 기준 시간을 기준으로 자동설정됨
+#### 3.5.3 Auto Meal Type Setting
+When the user does not set the meal type using MealType, the meal type is automatically set based on the criteria.
 ```
-아침 : 5시 ~ 10시
-아침간신 : 10 ~ 11시
-점심 : 11시 ~ 13시
-점심간신 : 13시 ~ 17시
-저녁 : 17시 ~ 20시
-야식 : 20시 ~ 5시
+Breakfast : 5AM ~ 10AM
+Morning Snack : 10AM ~ 11AM
+Lunch : 11AM ~ 13PM
+Afternoon Snack : 13PM ~ 17PM
+Dinner : 17PM ~ 20PM
+Night Snack : 20PM ~ 5AM
 ```
 
 
-## 4. JSON 변환
+## 4. JSON Change
 
 ### 4.1 RecognitionResult -> JSON string
-RecognitionResultHandler.onSuccess 함수의 파라미터로 전달되는 RecognitionResult 객체를 JSON 문자열로 변환할 수 있습니다. 
+You can convert to RecognitionResult to JSON string. 
 
 ```swift
 public func onSuccess(_ result: RecognitionResultHandler) {
@@ -310,17 +314,17 @@ public func onSuccess(_ result: RecognitionResultHandler) {
 ```
 
 ### 4.2 JSON string -> RecognitionResult
-JSON 문자열을 RecognitionResult 객체로 변환할 경우, 아래처럼 사용하실 수 있습니다.
+You can conver to JSON string to RecognitionResult object.
 
 ```swift
 let recognitionResult = RecognitionResult.create(json: jsonString)
 ```
 
 
-## 5. SDK 상세 스펙  
+## 5. SDK Specific Spec 
 
 
-## 6. SDK 사용 예제 
+## 6. SDK Use Cases
 
 
 ## 7. JSON Format
