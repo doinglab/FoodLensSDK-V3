@@ -321,26 +321,24 @@ Night Snack : 20PM ~ 5AM
 ## 4. JSON Change
 
 ### 4.1 RecognitionResult -> JSON string
-Description
-```java
-code
+You can convert RecognitionResult to JSON string.
+```
+var json = recognitionResult.toJSONString()
 ```
 
 ### 4.2 JSON string -> RecognitionResult
-Description
+You can convert JSON string to RecognitionResult.
 
-```swift
-code
+```
+var reconitionResult = RecognitionResult.create(json)
 ```
 
-## 5. SDK Specific Spec 
+## 5. SDK Sample
 
-## 6. SDK Use Cases
-
-## 7. JSON Format
+## 6. JSON Format
 [JSON Format](../JSON%20Format)
 
 [JSON Sample](../JSON%20Sample)
 
-## 8. License
+## 7. License
 FoodLens is available under the MIT license. See the LICENSE file for more info.
