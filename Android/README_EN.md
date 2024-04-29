@@ -184,9 +184,9 @@ foodLensCoreService.searchFoodsByName(foodName, object : SearchResultHandler {
 ```
 
 
-## 3. UI SDK 사용법
-- UI SDK는 FoodLens 에서 제공하는 기본 UI를 활용하여 서비스를 개발 할 수 있는 기능입니다.  
-- UI API는 간단한 화면 Customize기능을 포함하고 있습니다.
+## 3. How to Use UI SDK
+- UI SDK has a feature to develop service using the basic UI provided by FoodLens.  
+- UI API includes simple screen Customize feature.
 
 ### 3.1 UI Service의 인식 기능 사용
 1. FoodLensUIService 를 생성합니다.  
