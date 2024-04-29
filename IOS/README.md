@@ -1,4 +1,4 @@
-# # Manual for iOS FoodLensSDK-V3
+# Manual for iOS FoodLensSDK-V3
 ## [iOS SDK 한글 설명서 보기](README_KO.md)
 ## [Go to ReleaseNote](ReleaseNote.md)
 This is a combined SDK for Android supporting FoodLens, CaloAI(FoodLens 2.0).  
