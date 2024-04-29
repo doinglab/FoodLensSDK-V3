@@ -20,10 +20,10 @@ Please add Camera and Galley permission in Info.plist as bellow.
  Use SPM(Swift Package Manager) to install FoodLens Library.
 - File > Swift Packages > Add Package Dependency
   
-//When Using Core SDK Only, please use below address
+When Using Core SDK Only, please use below address
 - https://bitbucket.org/doing-lab/ios_foodlenscoresdk
 
-//When Using UI SDK Together, please use below address 
+When Using UI SDK Together, please use below address 
 - https://bitbucket.org/doing-lab/ios_foodlensuisdk
 
 <center><img src="./images/spm1.png" width="70%" height="70%"></center>
