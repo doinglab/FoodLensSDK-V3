@@ -152,9 +152,6 @@ Task {
 - UI SDK has a feature to develop service using the basic UI provided by FoodLens.  
 - UI API includes simple screen Customize feature.
 
-### 공통 모듈 사용
-parent에는 FoodLensUI의 View를 띄울 UIViewController를 전달하고, completionHandler에는 결과를 처리할 RecognitionResultHandler를 전달합니다.
-
 ### 3.1 UI Service의 인식 기능 사용
 1. Crate FoodLensUIService instance.    
 You may choose FoodLensType between foodlens and caloai.
