@@ -63,7 +63,7 @@ If you set a code obfuscation technique in the app through proguard, add a progu
 }
 ```
 
-## 3. Standalone FoodLens Server Address Setting
+## 3. FoodLens Standalone Server Address Setting
  - You can set a server address if you operate a standalone server instead of original FoodLens server. Please discuss with Doinglab for more detailed method.
   - Add Meta data in Manifest.xml like below.
 ```xml
@@ -75,7 +75,7 @@ If you set a code obfuscation technique in the app through proguard, add a progu
 - You may use the Core SDK to compose a screen UI through customizing without using the UI provided by Doinglab.
 
 ### 2.1 Obtaining Nutritional Information as Food Result
-1. Generate FoodLensCoreService.
+1. Create FoodLensCoreService.
    Parameters are Context and FoodLens Type.  
    You may choose FoodLensType between FoodLensType.FoodLens and FoodLensType.CaloAI.     
 2. Call predict method.
@@ -103,42 +103,42 @@ foodLensCoreService.predict(byteData, object : RecognitionResultHandler {
 })
 ```
 
-### 2.2 FoodlensCoreSDK 옵션 변경
-- 설정하지 않은 경우 기본값으로 설정됩니다.
-#### 2.2.1 언어 설정  
+### 2.2 FoodlensCoreSDK Option Change
+- Default value will be set when not set.
+#### 2.2.1 Language Setting  
 ```
-//LanguageConfig.DEVICE, LanguageConfig.KO(한국어), LanguageConfig.EN(영어), LanguageConfig.JA(일본어) 4개 중에 선택할 수 있습니다.
-//Foodlens는 KO, EN을 Caloai의 경우 KO, EN, JA를 지원합니다.
-//Default는 Device 입니다.
+//You may choose between LanguageConfig.DEVICE, LanguageConfig.KO(Korean), LanguageConfig.EN(English), LanguageConfig.JA(Japanese).
+//FoodLens supports KO, EN and CaloAI supports KO, EN, JA.
+//Default is Device.
 foodLensCoreService.setLanguage(LanguageConfig.EN)
 ```
 
-#### 2.2.2 API Performance 옵션
+#### 2.2.2 API Performance Option
 ```
-//요구사항에 따라 API성능을 변경할 수 잇습니다.
-//1. ImageResizeOption.SPEED : 빠른 속도의 처리가 필요한 경우 (음식 1~2개 수준)
-//2. ImageResizeOption.NORMAL, 가장 보편적인 사황처리 (음식수 2~4개 수준)
-//3. ImageResizeOption.QUALITY 3개 중에 선택할 수 있습니다. (속도가 느리더라도 음식인식율을 최대로 올릴 경우 4개 이상의 음식을 동시에 처리)
-//Default는 ImageResizeOption.NORMAL 입니다.
+//API performance may be changed on demand.
+//1. ImageResizeOption.SPEED : Fast processing (1~2 food level)
+//2. ImageResizeOption.NORMAL : The most common processing (2~4 food level)
+//3. ImageResizeOption.QUALITY : You may choose between three. (More than 4 foods can be handled at once with highest food recognition rate although the spped is low)
+//Default is ImageResizeOption.NORMAL.
 foodLensCoreService.setImageResizeOption(LImageResizeOption.QUALITY)
 ```
 
-#### 2.2.3 영양소 반환 옵션
+#### 2.2.3 Nutrition Return Option
 ```
-//인식 후 전달받는 영양소에 대한 옵션 입니다.
-//1. NutritionRetrieveOption.ALL_NUTRITION : 모둔 음식 후보군 (Candidates food)에 영양소를 전달 받음
-//2. NutritionRetrieveOption.TOP1_NUTRITION_ONLY : 가장 확률이 높은 임식에 대해서만 영양소를 전달 받음 
-//3. NutritionRetrieveOption.NO_NUTRITION : 인식결과만 전달받고 영양소는 전달 받지 않음
-//Default는 ALL_NUTRITION 입니다.
+//This is an option for nutrition returned after recognition.
+//1. NutritionRetrieveOption.ALL_NUTRITION : Deliever nutrition about every food candidates
+//2. NutritionRetrieveOption.TOP1_NUTRITION_ONLY : Deliver nutrition only for the most likely food 
+//3. NutritionRetrieveOption.NO_NUTRITION : Deliever only recognition result and not the nutrition
+//Default is ALL_NUTRITION.
 foodLensCoreService.setNutritionRetrieveOption(NutritionRetrieveOption.ALL_NUTRITION)
 ```
-### 2.3 음식정보 검색하기
-1. FoodLensCoreService 생성합니다.
-    - 파라미터는 Context, FoodLens Type 입니다.  
-    - FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두가지 중에 선택할 수 있습니다.     
-3. foodInfo 메소드를 호출합니다.
+### 2.3 Food Information Search
+1. Create FoodLensCoreService.
+    - Parameteres are Context and FoodLens Type.  
+    - You may choose FoodLensType between FoodLensType.FoodLens and FoodLensType.CaloAI.     
+3. Call foodInfo method.
 
-#### 코드 예제
+#### Code Example
 ```java
 private val foodLensCoreService by lazy {
   FoodLensCore.createFoodLensService(context, FoodLensType.FoodLens)
@@ -157,13 +157,13 @@ foodLensCoreService.foodInfo(foodId, object : RecognitionResultHandler {
     }
 })
 ```
-### 2.4 음식정보 검색하기
-1. FoodLensCoreService 생성합니다.
-    - 파라미터는 Context, FoodLens Type 입니다.  
-    - FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두가지 중에 선택할 수 있습니다.     
-3. searchFoodsByName 메소드를 호출합니다.
+### 2.4 Food Information Search
+1. Create FoodLensCoreService.
+    - Parameters are Context and FoodLens Type.  
+    - You may choose FoodLensType between FoodLensType.FoodLens and FoodLensType.CaloAI.     
+3. Call searchFoodsByName method.
 
-#### 코드 예제
+#### Code Example
 ```java
 private val foodLensCoreService by lazy {
   FoodLensCore.createFoodLensService(context, FoodLensType.FoodLens)
