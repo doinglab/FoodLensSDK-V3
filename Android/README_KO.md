@@ -30,11 +30,12 @@ android {
 ```
 #### 1.2.2 gradle dependencies 설정
 - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies를 추가해 주세요.
+- 최종 라이브러리 버전은 [ReleaseNote](ReleaseNote.md)를 확인해 주세요
 ```java
    //Core SDK만 사용할 경우
-   implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.0" 
+   implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.1" 
    //UI SDK도 사용할 경우 
-   implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.0.0"
+   implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.0.1"
 ```
 
 ### 1.3. 리소스(Resources) 및 메니페스트(Manifests) 
