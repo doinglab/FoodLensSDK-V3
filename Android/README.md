@@ -73,6 +73,19 @@ If you set a code obfuscation technique in the app through proguard, add a progu
 //Domain address or IP address without protocol and port e.g) www.foodlens.com, 123.222.100.10
 <meta-data android:name="com.doinglab.foodlens.sdk.serveraddr" android:value="[server_address]"/> 
 ```  
+
+### 1.7 데이터 바인딩 활성화(UI SDK)
+ - UI SDK를 사용하기 위해서는 데이터 바인딩을 활성화해야 합니다.
+ - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 android{} 섹션에 아래와 같은 문구를 추가해 주세요.
+```xml
+android {
+    ...
+    buildFeatures {
+        dataBinding true
+    }
+}
+```
+
 ## 2. How to Use Core SDK
 - FoodLens API is an API that works FoodLens features based on image file.  
 - You may use the Core SDK to compose a screen UI through customizing without using the UI provided by Doinglab.
