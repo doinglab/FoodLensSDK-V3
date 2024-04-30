@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">SampleCode</string>
+
+
+    <string name="foodlens_app_token">FILL_KEY</string>
+    <string name="foodlens_company_token">FILL_KEY</string>
+
+    <string name="results">RESULTS</string>
+
+    <string name="food_position">Food Position</string>
+    <string name="carbohydrate">Carb</string>
+    <string name="protein">Protein</string>
+    <string name="fat">Fat</string>
+    <string name="name">Name</string>
+    <string name="totalsugars">Total Sugars</string>
+    <string name="sodium">Sodium</string>
+    <string name="energy">Calorie</string>
+    <string name="amount">Amount</string>
+
 </resources>
