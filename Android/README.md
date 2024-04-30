@@ -30,7 +30,7 @@ android {
 	....       
     }
 ```
-### 1.2.2 Data Binding option (If you want to use UI SDK, please check below)
+#### 1.2.2 Data Binding option (If you want to use UI SDK, please check below)
  - To use UI SDK, you should enable data biding option.
  - Open app > Gradle Scripts > build.gradle (Module: app) in the progject, add the text below in the android{} section.
 ```xml
