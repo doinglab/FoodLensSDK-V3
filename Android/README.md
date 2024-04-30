@@ -32,6 +32,7 @@ android {
 ```
 #### 1.2.2 gradle dependencies Setting
 - Open app > Gradle Scripts > build.gradle (Module: app) in the project and add dependencies.
+- Please refer to [ReleaseNote](ReleaseNote.md) to check latest library version.
 ```java
    //When Using Core SDK Only
    implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.1" 
