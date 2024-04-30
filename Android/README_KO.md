@@ -28,7 +28,19 @@ android {
 	....       
     }
 ```
-#### 1.2.2 gradle dependencies 설정
+#### 1.2.2 데이터 바인딩 활성화(UI SDK)
+ - UI SDK를 사용하기 위해서는 데이터 바인딩을 활성화해야 합니다.
+ - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 android{} 섹션에 아래와 같은 문구를 추가해 주세요.
+```xml
+android {
+    ...
+    buildFeatures {
+        dataBinding true
+    }
+}
+```
+
+#### 1.2.3 gradle dependencies 설정
 - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 dependencies를 추가해 주세요.
 - 최종 라이브러리 버전은 [ReleaseNote](ReleaseNote.md)를 확인해 주세요
 ```java
@@ -70,18 +82,6 @@ android {
 ```xml
 //프로토콜과 및 포트를 제외한 순수 도메인 주소 혹은 IP주소 e.g) www.foodlens.com, 123.222.100.10
 <meta-data android:name="com.doinglab.foodlens.sdk.serveraddr" android:value="[server_address]"/> 
-```
-
-### 1.7 데이터 바인딩 활성화(UI SDK)
- - UI SDK를 사용하기 위해서는 데이터 바인딩을 활성화해야 합니다.
- - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 android{} 섹션에 아래와 같은 문구를 추가해 주세요.
-```xml
-android {
-    ...
-    buildFeatures {
-        dataBinding true
-    }
-}
 ```
 
 ## 2. Core SDK 사용법
