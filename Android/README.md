@@ -30,7 +30,19 @@ android {
 	....       
     }
 ```
-#### 1.2.2 gradle dependencies Setting
+### 1.2.2 Data Binding option (If you want to use UI SDK, please check below)
+ - To use UI SDK, you should enable data biding option.
+ - Open app > Gradle Scripts > build.gradle (Module: app) in the progject, add the text below in the android{} section.
+```xml
+android {
+    ...
+    buildFeatures {
+        dataBinding true
+    }
+}
+```
+
+#### 1.2.3 gradle dependencies Setting
 - Open app > Gradle Scripts > build.gradle (Module: app) in the project and add dependencies.
 - Please refer to [ReleaseNote](ReleaseNote.md) to check latest library version.
 ```java
@@ -40,10 +52,10 @@ android {
    implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.0.1"
 ```
 
-## 2. Resources and Manifests 
+### 1.3 Resources and Manifests 
 - Set Company, AppToken.
 
-### 2.1 AppToken, CompanyToken Setting
+### 1.4 AppToken, CompanyToken Setting
 - Add the issued AppToken, CompanyToken to /app/res/values/strings.xml.
 ```xml
 <string name="foodlens_app_token">[AppToken]</string>
@@ -57,7 +69,7 @@ android {
 <meta-data android:name="com.doinglab.foodlens.sdk.companytoken" android:value="@string/foodlens_company_token"/> 
 ```
 
-### 2.2 Common
+### 1.5 Common
 * Setting ProGuard
 If you set a code obfuscation technique in the app through proguard, add a proguard like below in the setting.
 ```xml
@@ -66,7 +78,7 @@ If you set a code obfuscation technique in the app through proguard, add a progu
 }
 ```
 
-## 3. FoodLens Standalone Server Address Setting
+### 1.6 FoodLens Standalone Server Address Setting
  - You can set a server address if you operate a standalone server instead of original FoodLens server. Please discuss with Doinglab for more detailed method.
   - Add Meta data in Manifest.xml like below.
 ```xml
@@ -74,17 +86,6 @@ If you set a code obfuscation technique in the app through proguard, add a progu
 <meta-data android:name="com.doinglab.foodlens.sdk.serveraddr" android:value="[server_address]"/> 
 ```  
 
-### 1.7 데이터 바인딩 활성화(UI SDK)
- - UI SDK를 사용하기 위해서는 데이터 바인딩을 활성화해야 합니다.
- - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 android{} 섹션에 아래와 같은 문구를 추가해 주세요.
-```xml
-android {
-    ...
-    buildFeatures {
-        dataBinding true
-    }
-}
-```
 
 ## 2. How to Use Core SDK
 - FoodLens API is an API that works FoodLens features based on image file.  
