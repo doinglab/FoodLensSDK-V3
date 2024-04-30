@@ -1,7 +1,7 @@
 # Manual for iOS FoodLensSDK-V3
 ## [iOS SDK 한글 설명서 보기](README_KO.md)
 ## [Go to ReleaseNote](ReleaseNote.md)
-This is a combined SDK for Android supporting FoodLens, CaloAI(FoodLens 2.0).  
+This is a combined SDK for iOS supporting FoodLens, CaloAI(FoodLens 2.0).  
 FoodLens is composed of Core SDK and UI SDK. You may use the functions of FoodLens by using the Core SDK to create your own UI, or you may also use the UI SDK to use the UI screen provided by Doinglab.
 
 ## Requirements
