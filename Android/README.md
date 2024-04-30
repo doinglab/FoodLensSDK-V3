@@ -248,11 +248,11 @@ private var foodLensActivityResult: ActivityResultLauncher<Intent> =
 
 ### 3.2 Using Gallery Feature
 - Enter the gallery image selection screen directly without going through the camera.  
-- Implement method is the same with 5.1 by using startFoodLensGallery instead of startFoodLensCamera.
+- Implement method is the same with 3.1 by using startFoodLensGallery instead of startFoodLensCamera.
 
 ### 3.3 Using Search Feature
 - Enter a black screen directly without going through the camera.  
-- Implement method is the same with 5.1 by using startFoodLensSearch instead of startFoodLensCamera.
+- Implement method is the same with 3.1 by using startFoodLensSearch instead of startFoodLensCamera.
 
 ### 3.4 Using Data Revise Feature of UI Service
 - You can use nutritional information obtained from 3.1, 3.2, 3.3. 
@@ -349,6 +349,7 @@ var reconitionResult = RecognitionResult.create(json)
 ```
 
 ## 5. SDK Sample
+[Sample 예제](SampleCode/)
 
 ## 6. JSON Format
 [JSON Format](../JSON%20Format)
