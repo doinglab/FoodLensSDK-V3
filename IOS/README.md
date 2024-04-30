@@ -86,7 +86,7 @@ foodlensCoreService.setLanguage(.en)
 //API performance may be changed on demand.
 //1. ImageResizingType.speed : Fast processing (1~2 food level)
 //2. ImageResizingType.normal : The most common processing (2~4 food level)
-//3. ImageResizingType.quality : You may choose between three. (More than 4 foods can be handled at once with highest food recognition rate although the spped is low)
+//3. ImageResizingType.quality : Best qulity processing. (More than 4 foods can be handled at once with highest food recognition rate although the spped is low)
 //Default is ImageResizingType.normal.
 foodlensCoreService.setImageResizingType(.quality)
 ```
