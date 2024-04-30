@@ -17,7 +17,8 @@ Please add Camera and Gallery permission in Info.plist as bellow.
 - Privacy - Photo Library Usage Description
 
 ### 1.2 Install FoodLens SDK
- Use SPM(Swift Package Manager) to install FoodLens Library.
+Please refer to [ReleaseNote](ReleaseNote.md) to check latest library version. <br>
+Use SPM(Swift Package Manager) to install FoodLens Library.
 - File > Swift Packages > Add Package Dependency
   
 When Using Core SDK only, please use the address below.
