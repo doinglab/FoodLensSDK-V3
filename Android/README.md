@@ -34,9 +34,9 @@ android {
 - Open app > Gradle Scripts > build.gradle (Module: app) in the project and add dependencies.
 ```java
    //When Using Core SDK Only
-   implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.0" 
+   implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.1" 
    //When Using UI SDK Together 
-   implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.0.0"
+   implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.0.1"
 ```
 
 ## 2. Resources and Manifests 
