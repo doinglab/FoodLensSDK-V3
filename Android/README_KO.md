@@ -245,11 +245,11 @@ private var foodLensActivityResult: ActivityResultLauncher<Intent> =
 
 ### 3.2 갤러리 기능 사용
 - 카메라 화면을 거치지 않고 갤러리 이미지 선택화면으로 바로 진입합니다.  
-- 구현 방식은 5.1 번과 동일하며 startFoodLensCamera 대신 startFoodLensGallery를 사용합니다.
+- 구현 방식은 3.1 번과 동일하며 startFoodLensCamera 대신 startFoodLensGallery를 사용합니다.
 
 ### 3.3 검색 기능 사용
 - 카메라 화면이 거치지 않고 검색 화면으로 진입합니다.  
-- 구현 방식은 5.1 번과 동일하며 startFoodLensCamera 대신 startFoodLensSearch를 사용합니다.
+- 구현 방식은 3.1 번과 동일하며 startFoodLensCamera 대신 startFoodLensSearch를 사용합니다.
 
 ### 3.4 UI Service의 Data 수정 기능 사용
 - 3.1, 3.2, 3.3 에서 획득한 영양정보를 다시 활용 할 수 있습니다.
@@ -346,6 +346,7 @@ var reconitionResult = RecognitionResult.create(json)
 ```
 
 ## 5. SDK 사용 예제 
+[Sample 예제](SampleCode/)
 
 ## 6. JSON Format
 [JSON Format](../JSON%20Format)
