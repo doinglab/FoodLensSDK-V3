@@ -18,7 +18,8 @@ FoodLens SDK는 Core SDK와 UI SDK로 이루어 지며, 자체 UI를 작성할 �
 - Privacy - Photo Library Usage Description
 
 ### 1.2 FoodLens SDK 설치 
- SPM(Swift Package Manager)을 이용하여 라이브러리 설치
+최종 라이브러리 버전은 [ReleaseNote](ReleaseNote.md)를 확인해 주세요 <br>
+SPM(Swift Package Manager)을 이용하여 라이브러리 설치
 - File > Swift Packages > Add Package Dependency
   
 Core SDK만 사용하는 경우 아래 경로 사용
