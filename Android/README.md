@@ -120,7 +120,7 @@ foodLensCoreService.setLanguage(LanguageConfig.EN)
 //API performance may be changed on demand.
 //1. ImageResizeOption.SPEED : Fast processing (1~2 food level)
 //2. ImageResizeOption.NORMAL : The most common processing (2~4 food level)
-//3. ImageResizeOption.QUALITY : You may choose between three. (More than 4 foods can be handled at once with highest food recognition rate although the spped is low)
+//3. ImageResizeOption.QUALITY : Best qulity processing. (More than 4 foods can be handled at once with highest food recognition rate although the spped is low)
 //Default is ImageResizeOption.NORMAL.
 foodLensCoreService.setImageResizeOption(LImageResizeOption.QUALITY)
 ```
