@@ -8,6 +8,9 @@ This is a combined SDK for supporting FoodLens, CaloAI(FoodLens 2.0).
 - iOS SDK  
   [Manual for iOS SDK](IOS/)
 
+- REST API
+  - If you want to use REST API, please contact to sales@doinglab.com
+    
 - FoodLensCoreSDK supports below language for recognition result.
   - CaloAI : Korean, English and also Japanese.
   - FoodLens : Korean and English.
