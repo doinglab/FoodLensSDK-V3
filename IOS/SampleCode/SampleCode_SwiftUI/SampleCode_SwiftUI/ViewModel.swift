@@ -17,13 +17,22 @@ class ViewModel: ObservableObject {
     
     @Published var predictedFoodImage: UIImage = UIImage()
     
+    @Published var isLoading: Bool = false
+    
     func predict(image: UIImage) {
         let foodlensCoreService = FoodLensCoreService(type: .foodlens)
         Task {
+            DispatchQueue.main.async {
+                self.isLoading = true
+            }
             let result = await foodlensCoreService.predict(image: image)
             switch result {
             case .success(let success):
-                print(success.toJSONString() ?? "")
+                DispatchQueue.main.async {
+                    self.predictedFoodImage = self.selectedImage
+                    self.result = success
+                    self.isLoading = false
+                }
             case .failure(let failure):
                 print(failure)
             }
@@ -31,11 +40,10 @@ class ViewModel: ObservableObject {
     }
 }
 
-
 extension ViewModel: RecognitionResultHandler {
     func onSuccess(_ result: RecognitionResult) {
-        self.predictedFoodImage = FoodLensStorage.shared.load(fileName: result.imagePath ?? "") ?? .init()
         DispatchQueue.main.async {
+            self.predictedFoodImage = FoodLensStorage.shared.load(fileName: result.imagePath ?? "") ?? .init()
             self.result = result
         }
         print(result.toJSONString() ?? "")
