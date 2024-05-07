@@ -40,6 +40,16 @@ inpo.plist에 FoodLensAppToken, FoodLensCompanyToken 항목 추가하여 AppToke
 <string>Company Token</string>
 ```
 
+### 1.3 독립 FoodLens 서버 주소 설정
+기본 FoodLens 서버가 아닌 독립 서버를 운용할 경우 서버 주소를 설정 할 수 있습니다.
+```
+//info.plist에 FoodLensServerAddr 항목을 추가하고 서버 주소를 추가
+//도메인 이름만 추가 http, https등 프로토콜은 추가하지 않음 e.g.) www.domain.com, 132.213.111.23 등
+
+<key>FoodLensServerAddr</key>
+<string>www.domain.com</string>
+```
+
 ## 2. Core SDK 사용법
 - FoodLens API는 FoodLens 기능을 이미지 파일 기반으로 동작하게 하는 기능입니다.   
 - 두잉랩 UI를 사용하지 않고 고객사에서 직접 커스터마이즈 하여 화면을 구성하고자 할 때 Core SDK를 사용할 수 있습니다.
