@@ -39,6 +39,16 @@ Add FoodLensAppToken, FoodLensCompanyToken in inpo.plist.
 <string>Company Token</string>
 ```
 
+### 1.4 FoodLens Standalone Server Address Setting
+You can set a server address if you operate a standalone server instead of original FoodLens server. Please discuss with Doinglab for more detailed method.
+```
+//Add a FoodLensServerAddr entry to info.plist and add a server address
+//Add domain names only, no protocols such as http, https, etc e.g.) www.domain.com, 132.213.111.23
+
+<key>FoodLensServerAddr</key>
+<string>www.domain.com</string>
+```
+
 ## 2. How to Use Core SDK
 - FoodLens API is an API that works FoodLens features based on image file.  
 - You may use the Core SDK to compose a screen UI through customizing without using the UI provided by Doinglab.
