@@ -40,7 +40,7 @@ inpo.plist에 FoodLensAppToken, FoodLensCompanyToken 항목 추가하여 AppToke
 <string>Company Token</string>
 ```
 
-### 1.3 독립 FoodLens 서버 주소 설정
+### 1.4 독립 FoodLens 서버 주소 설정
 기본 FoodLens 서버가 아닌 독립 서버를 운용할 경우 서버 주소를 설정 할 수 있습니다.
 ```
 //info.plist에 FoodLensServerAddr 항목을 추가하고 서버 주소를 추가
