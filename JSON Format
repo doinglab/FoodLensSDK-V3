@@ -64,11 +64,13 @@
             "omega6FattyAcid": Double,   //Total omega6 fatty acid, Unit g (Return -1 if value is not exist)
             "transFattyAcid": Double,    //Total trans fatty acid, Unit g (Return -1 if value is not exist)
             // Food group
-            "grains": Double,            //Grain group (Only you can get this information when you have permission,return -1 if value is not exist)
-            "proteins": Double,          //Protein gruop (Only you can get this information when you have permission,return -1 if value is not exist)
-            "vegetables": Double,        //Vegetable group (Only you can get this information when you have permission,return -1 if value is not exist)
-            "fruits": Double,            //Fruit group (Only you can get this information when you have permission,return -1 if value is not exist)
-            "oils": Double,              //Oil group (Only you can get this information when you have permission,return -1 if value is not exist)
+            "grainGroup": Double,            //Grain group (Only you can get this information when you have permission,return -1 if value is not exist)
+            "proteinGroup": Double,          //Protein gruop (Only you can get this information when you have permission,return -1 if value is not exist)
+            "vegetableGroup": Double,        //Vegetable group (Only you can get this information when you have permission,return -1 if value is not exist)
+            "fruitGroup": Double,            //Fruit group (Only you can get this information when you have permission,return -1 if value is not exist)
+            "oilGroup": Double,              //Oil group (Only you can get this information when you have permission,return -1 if value is not exist)
+            "sugarGroup": Double,            //Sugar group (Only you can get this information when you have permission,return -1 if value is not exist)
+            "dairyGroup": Double,            //Dairy group (Only you can get this information when you have permission,return -1 if value is not exist)
           }]
       ingredients: [{
             "name": String,              //Ingredient name
