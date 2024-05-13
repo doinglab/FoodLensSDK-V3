@@ -47,9 +47,9 @@ android {
 - Please refer to [ReleaseNote](ReleaseNote.md) to check latest library version.
 ```java
    //When Using Core SDK Only
-   implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.1" 
+   implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.2" 
    //When Using UI SDK Together 
-   implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.0.1"
+   implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.0.2"
 ```
 
 ### 1.3 Resources and Manifests 
