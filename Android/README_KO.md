@@ -45,9 +45,9 @@ android {
 - 최종 라이브러리 버전은 [ReleaseNote](ReleaseNote.md)를 확인해 주세요
 ```java
    //Core SDK만 사용할 경우
-   implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.1" 
+   implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.2" 
    //UI SDK도 사용할 경우 
-   implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.0.1"
+   implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.0.2"
 ```
 
 ### 1.3. 리소스(Resources) 및 메니페스트(Manifests) 
