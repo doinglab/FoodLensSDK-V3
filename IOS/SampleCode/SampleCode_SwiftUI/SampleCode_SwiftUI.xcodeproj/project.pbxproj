@@ -13,9 +13,9 @@
 		253842712BDF8DE600AF1702 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253842702BDF8DE600AF1702 /* ContentView.swift */; };
 		253842732BDF8DE800AF1702 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 253842722BDF8DE800AF1702 /* Assets.xcassets */; };
 		253842762BDF8DE800AF1702 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 253842752BDF8DE800AF1702 /* Preview Assets.xcassets */; };
-		2538427E2BDF902D00AF1702 /* FoodLensUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2538427D2BDF902D00AF1702 /* FoodLensUI */; };
 		253842802BDF92B300AF1702 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2538427F2BDF92B300AF1702 /* PhotoPicker.swift */; };
 		253842832BDF9C7E00AF1702 /* JSON.strings in Resources */ = {isa = PBXBuildFile; fileRef = 253842822BDF9C7E00AF1702 /* JSON.strings */; };
+		25FDF7B72BE0CC820081B4A5 /* FoodLensUI in Frameworks */ = {isa = PBXBuildFile; productRef = 25FDF7B62BE0CC820081B4A5 /* FoodLensUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2538427E2BDF902D00AF1702 /* FoodLensUI in Frameworks */,
+				25FDF7B72BE0CC820081B4A5 /* FoodLensUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,7 +100,7 @@
 			);
 			name = SampleCode_SwiftUI;
 			packageProductDependencies = (
-				2538427D2BDF902D00AF1702 /* FoodLensUI */,
+				25FDF7B62BE0CC820081B4A5 /* FoodLensUI */,
 			);
 			productName = SampleCode_SwiftUI;
 			productReference = 2538426B2BDF8DE600AF1702 /* SampleCode_SwiftUI.app */;
@@ -131,7 +131,7 @@
 			);
 			mainGroup = 253842622BDF8DE600AF1702;
 			packageReferences = (
-				2538427C2BDF902D00AF1702 /* XCRemoteSwiftPackageReference "ios_foodlensuisdk" */,
+				25FDF7B52BE0CC820081B4A5 /* XCRemoteSwiftPackageReference "ios_foodlensuisdk" */,
 			);
 			productRefGroup = 2538426C2BDF8DE600AF1702 /* Products */;
 			projectDirPath = "";
@@ -380,20 +380,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2538427C2BDF902D00AF1702 /* XCRemoteSwiftPackageReference "ios_foodlensuisdk" */ = {
+		25FDF7B52BE0CC820081B4A5 /* XCRemoteSwiftPackageReference "ios_foodlensuisdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://bitbucket.org/doing-lab/ios_foodlensuisdk.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.6;
+				minimumVersion = 3.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2538427D2BDF902D00AF1702 /* FoodLensUI */ = {
+		25FDF7B62BE0CC820081B4A5 /* FoodLensUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2538427C2BDF902D00AF1702 /* XCRemoteSwiftPackageReference "ios_foodlensuisdk" */;
+			package = 25FDF7B52BE0CC820081B4A5 /* XCRemoteSwiftPackageReference "ios_foodlensuisdk" */;
 			productName = FoodLensUI;
 		};
 /* End XCSwiftPackageProductDependency section */

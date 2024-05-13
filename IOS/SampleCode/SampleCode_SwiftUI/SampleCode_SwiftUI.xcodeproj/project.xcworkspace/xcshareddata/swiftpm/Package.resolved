@@ -1,12 +1,13 @@
 {
+  "originHash" : "101ae14f5238bd72ee67eea541b7625e08dc4831b5babb5f61484c13b1376eb6",
   "pins" : [
     {
       "identity" : "ios_foodlenscoresdk",
       "kind" : "remoteSourceControl",
       "location" : "https://bitbucket.org/doing-lab/ios_foodlenscoresdk",
       "state" : {
-        "revision" : "5cf7040e6beb289ff6cd5479b24c655c817b626d",
-        "version" : "3.0.1"
+        "revision" : "0ae0ee298ec2a17eb9e8d62972cd532ca1ef7afa",
+        "version" : "3.0.2"
       }
     },
     {
@@ -14,10 +15,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://bitbucket.org/doing-lab/ios_foodlensuisdk.git",
       "state" : {
-        "revision" : "4b891df97418af9a4262c2d99f0c94b853035c8e",
-        "version" : "3.0.1"
+        "revision" : "2be6c5dcb18319ac3e44bec8d736b80b5b9b970c",
+        "version" : "3.0.2"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
