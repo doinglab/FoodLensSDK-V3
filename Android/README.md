@@ -1,4 +1,6 @@
 # Manual for Android FoodLensSDK-V3
+## [Android SDK 한글 설명서 보기](README_KO.md)
+## [Go to ReleaseNote](ReleaseNote.md)
 
 This is a combined SDK for Android supporting FoodLens, CaloAI(FoodLens 2.0).  
 FoodLens is composed of Core SDK and UI SDK. You may use the functions of FoodLens by using the Core SDK to create your own UI, or you may also use the UI SDK to use the UI screen provided by Doinglab.
@@ -28,19 +30,32 @@ android {
 	....       
     }
 ```
-#### 1.2.2 gradle dependencies Setting
-- Open app > Gradle Scripts > build.gradle (Module: app) in the project and add dependencies.
-```java
-   //When Using Core SDK Only
-   implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.0" 
-   //When Using UI SDK Together 
-   implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.0.0"
+#### 1.2.2 Data Binding option (If you want to use UI SDK, please check below)
+ - To use UI SDK, you should enable data biding option.
+ - Open app > Gradle Scripts > build.gradle (Module: app) in the progject, add the text below in the android{} section.
+```xml
+android {
+    ...
+    buildFeatures {
+        dataBinding true
+    }
+}
 ```
 
-## 2. Resources and Manifests 
+#### 1.2.3 gradle dependencies Setting
+- Open app > Gradle Scripts > build.gradle (Module: app) in the project and add dependencies.
+- Please refer to [ReleaseNote](ReleaseNote.md) to check latest library version.
+```java
+   //When Using Core SDK Only
+   implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.1" 
+   //When Using UI SDK Together 
+   implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.0.1"
+```
+
+### 1.3 Resources and Manifests 
 - Set Company, AppToken.
 
-### 2.1 AppToken, CompanyToken Setting
+### 1.4 AppToken, CompanyToken Setting
 - Add the issued AppToken, CompanyToken to /app/res/values/strings.xml.
 ```xml
 <string name="foodlens_app_token">[AppToken]</string>
@@ -54,7 +69,7 @@ android {
 <meta-data android:name="com.doinglab.foodlens.sdk.companytoken" android:value="@string/foodlens_company_token"/> 
 ```
 
-### 2.2 Common
+### 1.5 Common
 * Setting ProGuard
 If you set a code obfuscation technique in the app through proguard, add a proguard like below in the setting.
 ```xml
@@ -63,25 +78,27 @@ If you set a code obfuscation technique in the app through proguard, add a progu
 }
 ```
 
-## 3. FoodLens Standalone Server Address Setting
+### 1.6 FoodLens Standalone Server Address Setting
  - You can set a server address if you operate a standalone server instead of original FoodLens server. Please discuss with Doinglab for more detailed method.
   - Add Meta data in Manifest.xml like below.
 ```xml
 //Domain address or IP address without protocol and port e.g) www.foodlens.com, 123.222.100.10
 <meta-data android:name="com.doinglab.foodlens.sdk.serveraddr" android:value="[server_address]"/> 
 ```  
+
+
 ## 2. How to Use Core SDK
 - FoodLens API is an API that works FoodLens features based on image file.  
 - You may use the Core SDK to compose a screen UI through customizing without using the UI provided by Doinglab.
 
 ### 2.1 Obtaining Nutritional Information as Food Result
-1. Create FoodLensCoreService.
+1. Create FoodLensCoreService instance.
    Parameters are Context and FoodLens Type.  
    You may choose FoodLensType between FoodLensType.FoodLens and FoodLensType.CaloAI.     
 2. Call predict method.
    Parameters are Jpeg image and RecognitionResultHandler.   
    Jpeg image delievers camera shot or original gallery image.</br>
-※ The recognition rate may be lowered when the image is small. 
+※ The recognition quality may be lowered when the image is small. 
 #### Code Example
 ```java
 //Create FoodLens Service
@@ -118,7 +135,7 @@ foodLensCoreService.setLanguage(LanguageConfig.EN)
 //API performance may be changed on demand.
 //1. ImageResizeOption.SPEED : Fast processing (1~2 food level)
 //2. ImageResizeOption.NORMAL : The most common processing (2~4 food level)
-//3. ImageResizeOption.QUALITY : You may choose between three. (More than 4 foods can be handled at once with highest food recognition rate although the spped is low)
+//3. ImageResizeOption.QUALITY : Best qulity processing. (More than 4 foods can be handled at once with highest food recognition rate although the spped is low)
 //Default is ImageResizeOption.NORMAL.
 foodLensCoreService.setImageResizeOption(LImageResizeOption.QUALITY)
 ```
@@ -133,7 +150,7 @@ foodLensCoreService.setImageResizeOption(LImageResizeOption.QUALITY)
 foodLensCoreService.setNutritionRetrieveOption(NutritionRetrieveOption.ALL_NUTRITION)
 ```
 ### 2.3 Food Information Search
-1. Create FoodLensCoreService.
+1. Create FoodLensCoreService instance.
     - Parameteres are Context and FoodLens Type.  
     - You may choose FoodLensType between FoodLensType.FoodLens and FoodLensType.CaloAI.     
 3. Call foodInfo method.
@@ -158,7 +175,7 @@ foodLensCoreService.foodInfo(foodId, object : RecognitionResultHandler {
 })
 ```
 ### 2.4 Food Information Search
-1. Create FoodLensCoreService.
+1. Create FoodLensCoreService instance.
     - Parameters are Context and FoodLens Type.  
     - You may choose FoodLensType between FoodLensType.FoodLens and FoodLensType.CaloAI.     
 3. Call searchFoodsByName method.
@@ -189,7 +206,7 @@ foodLensCoreService.searchFoodsByName(foodName, object : SearchResultHandler {
 - UI API includes simple screen Customize feature.
 
 ### 3.1 Using UI Service Recognition Feature
-1. Create FoodLensUIService.  
+1. Create FoodLensUIService instance.  
 Parameters are Context, FoodLens Type.  
 You may choose FoodLensType between FoodLensType.FoodLens and FoodLensType.CaloAI.
 2. Call startFoodLensCamera method.  
@@ -231,11 +248,11 @@ private var foodLensActivityResult: ActivityResultLauncher<Intent> =
 
 ### 3.2 Using Gallery Feature
 - Enter the gallery image selection screen directly without going through the camera.  
-- Implement method is the same with 5.1 by using startFoodLensGallery instead of startFoodLensCamera.
+- Implement method is the same with 3.1 by using startFoodLensGallery instead of startFoodLensCamera.
 
 ### 3.3 Using Search Feature
 - Enter a black screen directly without going through the camera.  
-- Implement method is the same with 5.1 by using startFoodLensSearch instead of startFoodLensCamera.
+- Implement method is the same with 3.1 by using startFoodLensSearch instead of startFoodLensCamera.
 
 ### 3.4 Using Data Revise Feature of UI Service
 - You can use nutritional information obtained from 3.1, 3.2, 3.3. 
@@ -244,7 +261,7 @@ private var foodLensActivityResult: ActivityResultLauncher<Intent> =
 #### *Important* You shall set to save the image to be shown on the screen in device local path and set imagePath of RecognitionResult before calling revise feature.
 1. Code Example
 ```java
-//Create FoodLens Service
+//Create FoodLens Service instance
 private val foodLensUiService by lazy {
   FoodLensUI.createFoodLensService(context, FoodLensType.FoodLens)
 }
@@ -319,26 +336,25 @@ Night Snack : 20PM ~ 5AM
 ## 4. JSON Change
 
 ### 4.1 RecognitionResult -> JSON string
-Description
-```java
-code
+You can convert RecognitionResult to JSON string.
+```
+var json = recognitionResult.toJSONString()
 ```
 
 ### 4.2 JSON string -> RecognitionResult
-Description
+You can convert JSON string to RecognitionResult.
 
-```swift
-code
+```
+var reconitionResult = RecognitionResult.create(json)
 ```
 
-## 5. SDK Specific Spec 
+## 5. SDK Sample
+[Sample 예제](SampleCode/)
 
-## 6. SDK Use Cases
-
-## 7. JSON Format
+## 6. JSON Format
 [JSON Format](../JSON%20Format)
 
 [JSON Sample](../JSON%20Sample)
 
-## 8. License
+## 7. License
 FoodLens is available under the MIT license. See the LICENSE file for more info.

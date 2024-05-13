@@ -18,7 +18,8 @@ FoodLens SDK는 Core SDK와 UI SDK로 이루어 지며, 자체 UI를 작성할 �
 - Privacy - Photo Library Usage Description
 
 ### 1.2 FoodLens SDK 설치 
- SPM(Swift Package Manager)을 이용하여 라이브러리 설치
+최종 라이브러리 버전은 [ReleaseNote](ReleaseNote.md)를 확인해 주세요 <br>
+SPM(Swift Package Manager)을 이용하여 라이브러리 설치
 - File > Swift Packages > Add Package Dependency
   
 Core SDK만 사용하는 경우 아래 경로 사용
@@ -37,6 +38,16 @@ inpo.plist에 FoodLensAppToken, FoodLensCompanyToken 항목 추가하여 AppToke
 <string>App Token</string>
 <key>FoodLensCompanyToken</key>
 <string>Company Token</string>
+```
+
+### 1.4 독립 FoodLens 서버 주소 설정
+기본 FoodLens 서버가 아닌 독립 서버를 운용할 경우 서버 주소를 설정 할 수 있습니다.
+```
+//info.plist에 FoodLensServerAddr 항목을 추가하고 서버 주소를 추가
+//도메인 이름만 추가 http, https등 프로토콜은 추가하지 않음 e.g.) www.domain.com, 132.213.111.23 등
+
+<key>FoodLensServerAddr</key>
+<string>www.domain.com</string>
 ```
 
 ## 2. Core SDK 사용법
