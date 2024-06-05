@@ -349,7 +349,7 @@ var reconitionResult = RecognitionResult.create(json)
 ```
 
 ## 5. SDK Sample
-[Sample 예제](SampleCode/)
+[Sample Code](SampleCode/)
 
 ## 6. JSON Format
 [JSON Format](../JSON%20Format)
