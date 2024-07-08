@@ -233,7 +233,7 @@ struct ContentView: View {
         VStack {
             Button("start") {
                 let foodlensUIService = FoodLensUIService(type: .foodlens)
-                foodLensUIService.startFoodLensCamera(parent: self.viewControllerHolder, completionHandler: ReconitionHandler())
+                foodlensUIService.startFoodLensCamera(parent: self.viewControllerHolder, completionHandler: ReconitionHandler())
             }
         }
         .padding()
