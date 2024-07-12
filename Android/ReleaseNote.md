@@ -1,5 +1,19 @@
 # Android FoodLensSDK Release Note
 
+## Latest versions
+### Core SDK: 3.0.4   
+### UI SDK: 3.0.3
+
+<br/>
+
+## v3.0.4
+Core SDK(2024.07.11)
+1. Add nutrition groups
+
+## v3.0.3
+UI SDK(2024.07.11)
+1. Add nutrition groups
+
 ## v3.0.2
 (2024.05.10)
 1. Modify and add nutriention groups
