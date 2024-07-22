@@ -94,7 +94,7 @@ If you set a code obfuscation technique in the app through proguard, add a progu
 ### 2.1 Obtaining Nutritional Information as Food Result
 1. Create FoodLensCoreService instance.
    Parameters are Context and FoodLens Type.  
-   You may choose FoodLensType between FoodLensType.FoodLens and FoodLensType.CaloAI.     
+   You may choose FoodLensType between <b>FoodLensType.FoodLens</b> and <b>FoodLensType.CaloAI</b>.     
 2. Call predict method.
    Parameters are Jpeg image and RecognitionResultHandler.   
    Jpeg image delievers camera shot or original gallery image.</br>
@@ -103,6 +103,7 @@ If you set a code obfuscation technique in the app through proguard, add a progu
 ```java
 //Create FoodLens Service
 private val foodLensCoreService by lazy {
+  //Please choose FoodLens or CaloAI option
   FoodLensCore.createFoodLensService(context, FoodLensType.FoodLens)
 }
 
