@@ -55,7 +55,7 @@ You can set a server address if you operate a standalone server instead of origi
 
 ### 2.1 Obtaining Nutritional Information
 1. Create FoodLensCoreService instance.
-    - You may choose FoodLensType between foodlens and caloai.
+    - You may choose FoodLensType between <b>foodlens</b> and <b>caloai</b>.
 2. Call predict method.
    Parameter is UIImage which will be used.   
    ※ FoodLens SDK supports three method including async, Combine, Escaping closure. (Refer to sample code)    
@@ -63,6 +63,7 @@ You can set a server address if you operate a standalone server instead of origi
 
 #### Code Example
 ``` swift
+//Please choose foodlens or caloai option
 let foodlensCoreService = FoodLensCoreService(type: .foodlens)
 
 guard let image = image else {
