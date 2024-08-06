@@ -349,13 +349,28 @@ You can convert JSON string to RecognitionResult.
 var reconitionResult = RecognitionResult.create(json)
 ```
 
-## 5. SDK Sample
+## 5. Error Code
+### 401: UNAUTHORIZED
+ - CompanyToken is empty or wrong.
+ - AppToken is empty or wrong.
+### 402: PAYMENT REQUIRED
+ - API call limit is over or payment is needed.
+### 403: FORBIDDEN
+ - Use unauthorized function.
+### 404: NOT FOUND
+ - No existing URL or not supported URL.
+### 406: NOT ACCEPTABLE
+ - Package name is empty or wrong.
+### 5xx: SERVER ERROR
+ - Unexpected server error.
+
+## 6. SDK Sample
 [Sample Code](SampleCode/)
 
-## 6. JSON Format
+## 7. JSON Format
 [JSON Format](../JSON%20Format)
 
 [JSON Sample](../JSON%20Sample)
 
-## 7. License
+## 8. License
 FoodLens is available under the MIT license. See the LICENSE file for more info.
