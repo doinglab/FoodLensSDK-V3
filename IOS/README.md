@@ -329,14 +329,28 @@ You can conver to JSON string to RecognitionResult object.
 let recognitionResult = RecognitionResult.create(json: jsonString)
 ```
 
+## 5. Error Code
+### 401: UNAUTHORIZED
+ - CompanyToken is empty or wrong.
+ - AppToken is empty or wrong.
+### 402: PAYMENT REQUIRED
+ - API call limit is over or payment is needed.
+### 403: FORBIDDEN
+ - Use unauthorized function.
+### 404: NOT FOUND
+ - No existing URL or not supported URL.
+### 406: NOT ACCEPTABLE
+ - Package name is empty or wrong.
+### 5xx: SERVER ERROR
+ - Unexpected server error.
 
-## 5. SDK Specific Spec 
+## 6. SDK Specific Spec 
 
 
-## 6. SDK Use Cases
+## 7. SDK Use Cases
 
 
-## 7. JSON Format
+## 8. JSON Format
 [JSON Format](../JSON%20Format)
 
 [JSON Sample](../JSON%20Sample)
