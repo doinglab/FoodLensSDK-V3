@@ -345,13 +345,28 @@ JSON 문자열을 RecognitionResult 객체로 변환할 경우, 아래처럼 사
 var reconitionResult = RecognitionResult.create(json)
 ```
 
-## 5. SDK 사용 예제 
+## 5. Error Code
+### 401: UNAUTHORIZED
+   - CompanyToken 혹은 AppToken 이 잘못되었거나 빈값인 경우
+### 402: PAYMENT REQUIRED
+   - API 호출 횟수가 계약횟수를 초과한 경우 혹은 비용 결제가 안된경우
+### 403: FORBIDDEN
+   - 사용할 수 없는 기능
+### 404: NOT FOUND
+  - 지원하지 않는 URL
+### 406: NOT ACCEPTABLE
+  - 등록한 패키지명과 API를 호출한 서비스의 패키지명이 다른 경우
+### 5xx: SERVER ERROR
+ - 서버에러
+
+
+## 6. SDK 사용 예제 
 [Sample 예제](SampleCode/)
 
-## 6. JSON Format
+## 7. JSON Format
 [JSON Format](../JSON%20Format)
 
 [JSON Sample](../JSON%20Sample)
 
-## 7. License
+## 8. License
 FoodLens is available under the MIT license. See the LICENSE file for more info.
