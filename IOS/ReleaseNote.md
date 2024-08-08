@@ -14,6 +14,9 @@ Core SDK (2024.08.08)
 3. Add PrivacyInfo.xcprivacy
 
 ### v3.0.3
+UI SDK (2024.08.08)
+1. Add PrivacyInfo.xcprivacy
+
 Core SDK (2024.07.10)
 1. Add nutrition groups
 
