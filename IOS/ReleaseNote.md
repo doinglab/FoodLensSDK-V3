@@ -1,12 +1,18 @@
 # iOS FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.0.3   
+### Core SDK: 3.0.4
 ### UI SDK: 3.0.2
 
 <br/>
 
 ## Version history
+### v3.0.4
+Core SDK (2024.08.08)
+1. Add food search API for CaloAI
+2. Add EstimatedAmount, Ingredient fields
+3. Add PrivacyInfo.xcprivacy
+
 ### v3.0.3
 Core SDK (2024.07.10)
 1. Add nutrition groups
