@@ -87,6 +87,7 @@ android {
 ## 2. Core SDK 사용법
 - FoodLens API는 FoodLens 기능을 이미지 파일 기반으로 동작하게 하는 기능입니다.  
 - 두잉랩 UI를 사용하지 않고 고객사에서 직접 커스터마이즈 하여 화면을 구성하고자 할 때 Core SDK를 사용할 수 있습니다.
+- <B>주의 : 이미지 처리로 인하여 Multi-Thread환경을 지원하지 않습니다. 동시에 여러 API를 호출 하지 마십시오.</b>
 
 ### 2.1 음식 결과 영양정보 얻기
 1. FoodLensCoreService 를 생성합니다.  
