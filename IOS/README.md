@@ -52,6 +52,7 @@ You can set a server address if you operate a standalone server instead of origi
 ## 2. How to Use Core SDK
 - FoodLens API is an API that works FoodLens features based on image file.  
 - You may use the Core SDK to compose a screen UI through customizing without using the UI provided by Doinglab.
+- <B> NOTE: BECAUSE OF IMAGE PROCESSING, SDK DO NOT SUPPORT MULTI THREAD ENVIRONMENT. PLEASE DO NOT CALL API CONCURRENTLY. </B>
 
 ### 2.1 Obtaining Nutritional Information
 1. Create FoodLensCoreService instance.
