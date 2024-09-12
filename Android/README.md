@@ -90,6 +90,7 @@ If you set a code obfuscation technique in the app through proguard, add a progu
 ## 2. How to Use Core SDK
 - FoodLens API is an API that works FoodLens features based on image file.  
 - You may use the Core SDK to compose a screen UI through customizing without using the UI provided by Doinglab.
+- <B> NOTE: BECAUSE OF IMAGE PROCESSING, SDK DO NOT SUPPORT MULTI THREAD ENVIRONMENT. PLEASE DO NOT CALL API CONCURRENTLY. </B>
 
 ### 2.1 Obtaining Nutritional Information as Food Result
 1. Create FoodLensCoreService instance.
