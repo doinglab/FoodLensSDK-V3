@@ -2,21 +2,29 @@
 
 ## Latest versions
 ### Core SDK: 3.0.5   
-### UI SDK: 3.0.5
+### UI SDK: 3.0.6
 
 <br/>
 
+## v3.0.6
+(2024.09.11)
+UI SDK
+1. Fixed issue with repeated permission requests when adding optional permissions
+
 ## v3.0.5
-Core, UI SDK(2024.08.08)
+(2024.08.08)
+Core, UI SDK
 1. Add food search API for CaloAI
 2. Add EstimatedAmount, Ingredient fields
 
 ## v3.0.4
-Core SDK(2024.07.11)
+(2024.07.11)
+Core SDK
 1. Add nutrition groups
 
 ## v3.0.3
-UI SDK(2024.07.11)
+(2024.07.11)
+UI SDK
 1. Add nutrition groups
 
 ## v3.0.2
