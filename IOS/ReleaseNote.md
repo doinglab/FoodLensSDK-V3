@@ -2,7 +2,7 @@
 
 ## Latest versions
 ### Core SDK: 3.0.4
-### UI SDK: 3.0.2
+### UI SDK: 3.0.3
 
 <br/>
 
