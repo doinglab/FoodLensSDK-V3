@@ -7,6 +7,15 @@
 <br/>
 
 ## Version history
+### v3.0.5
+Core SDK (2024.11.28)
+1. Performance Enhancements
+
+UI SDK (2024.11.28)
+1. Add `CustomFoodDelegate`
+2. Performance Enhancements
+3. Fix other bugs
+
 ### v3.0.4
 Core SDK (2024.08.08)
 1. Add food search API for CaloAI
