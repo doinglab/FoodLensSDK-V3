@@ -1,8 +1,8 @@
 # iOS FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.0.4
-### UI SDK: 3.0.3
+### Core SDK: 3.0.5
+### UI SDK: 3.0.5
 
 <br/>
 
