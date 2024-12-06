@@ -8,18 +8,18 @@
 
 ## v3.0.9
 (2024.11.20)
-UI SDK 
+UI SDK   
+(Compatible : Core SDK 3.0.7)
 1. Add Custom Food Provider
 2. Change the photo import function to Photo Picker
 3. Removed the READ_MEDIA_IMAGES permission
-4. Bug Fixes
-(Compatible : Core SDK 3.0.7)
+4. Bug Fixes   
 
 ## v3.0.7
 (2024.11.20)
-Core SDK 
-1. Performance Improvements
+Core SDK   
 (Compatible : UI SDK 3.0.9)
+1. Performance Improvements   
 
 ## v3.0.6
 (2024.09.11)
