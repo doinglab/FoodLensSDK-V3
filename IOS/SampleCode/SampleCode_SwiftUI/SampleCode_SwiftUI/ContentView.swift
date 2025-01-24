@@ -10,7 +10,7 @@ import FoodLensUI
 import FoodLensCore
 
 struct ContentView: View {
-    @Environment (\.viewController) var viewControllerHolder
+    @Environment(\.viewController) var viewControllerHolder
     @ObservedObject var viewModel: ViewModel
     
     var body: some View {
@@ -54,7 +54,7 @@ struct ContentView: View {
                     .buttonStyle(FoodLensButtonStyle())
                     
                     Button("Edit mode") {
-                        FoodLensStorage.shared.save(image: self.viewModel.predictedFoodImage, fileName: "image.jpg")
+                        FoodLensStorage.shared.save(image: self.viewModel.predictedFoodImage, fileName: viewModel.result.imagePath ?? "")
                         let foodlensUIService = FoodLensUIService(type: .foodlens)
                         foodlensUIService.startFoodLensDataEdit(
                             recognitionResult: self.viewModel.result,
