@@ -1,10 +1,16 @@
 # Android FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.0.7   
-### UI SDK: 3.0.9
+### Core SDK: 3.0.9   
+### UI SDK: 3.1.0
 
 <br/>
+
+## v3.1.0
+(2025.01.16)
+(Compatible : Core SDK 3.0.9)
+1. Improve the UI for user convenience
+2. Fix other bugs
 
 ## v3.0.9
 (2024.11.20)
@@ -13,7 +19,11 @@ UI SDK
 1. Add Custom Food Provider
 2. Change the photo import function to Photo Picker
 3. Removed the READ_MEDIA_IMAGES permission
-4. Bug Fixes   
+4. Bug Fixes
+
+(2025.02.10)
+Core SDK
+1. Performance improvements
 
 ## v3.0.7
 (2024.11.20)
