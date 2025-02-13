@@ -47,9 +47,9 @@ android {
 - Please refer to [ReleaseNote](ReleaseNote.md) to check latest library version.
 ```java
    //When Using Core SDK Only
-   implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.2" 
+   implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.9" 
    //When Using UI SDK Together 
-   implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.0.2"
+   implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.1.0"
 ```
 
 ### 1.3 Resources and Manifests 
@@ -105,7 +105,7 @@ If you set a code obfuscation technique in the app through proguard, add a progu
 //Create FoodLens Service
 private val foodLensCoreService by lazy {
   //Please choose FoodLens or CaloAI option
-  FoodLensCore.createFoodLensService(context, FoodLensType.FoodLens)
+  FoodLensCore.createFoodLensService(context, FoodLensType.CaloAI)
 }
 
 ...........
@@ -160,7 +160,7 @@ foodLensCoreService.setNutritionRetrieveOption(NutritionRetrieveOption.ALL_NUTRI
 #### Code Example
 ```java
 private val foodLensCoreService by lazy {
-  FoodLensCore.createFoodLensService(context, FoodLensType.FoodLens)
+  FoodLensCore.createFoodLensService(context, FoodLensType.CaloAI)
 }
 
 ...........
@@ -185,7 +185,7 @@ foodLensCoreService.foodInfo(foodId, object : RecognitionResultHandler {
 #### Code Example
 ```java
 private val foodLensCoreService by lazy {
-  FoodLensCore.createFoodLensService(context, FoodLensType.FoodLens)
+  FoodLensCore.createFoodLensService(context, FoodLensType.CaloAI)
 }
 
 ...........
