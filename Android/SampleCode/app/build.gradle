@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.doinglab.foodlens.sample"
         minSdk 26
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -43,9 +43,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.9.0'
 
     //Using Core SDK only
-    implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.1"
+    implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.9"
     //Using UI SDK together
-    implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.0.1"
+    implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.1.0"
 
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'

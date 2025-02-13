@@ -33,11 +33,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val foodLensCoreService by lazy {
-        FoodLensCore.createFoodLensService(this, FoodLensType.FoodLens)
+        FoodLensCore.createFoodLensService(this, FoodLensType.CaloAI)
     }
 
     private val foodLensUiService by lazy {
-        FoodLensUI.createFoodLensService(this, FoodLensType.FoodLens)
+        FoodLensUI.createFoodLensService(this, FoodLensType.CaloAI)
     }
 
     private val listAdapter by lazy {
@@ -163,8 +163,8 @@ class MainActivity : AppCompatActivity() {
             foodInfo.let {
                 val xMin = it.position?.xmin ?: 0
                 val yMin = it.position?.ymin ?: 0
-                val xMax = it.position?.xmax ?: originBitmap?.width ?: 0
-                val yMax = it.position?.ymax ?: originBitmap?.height ?: 0
+                val xMax = it.position?.xmax ?: 0
+                val yMax = it.position?.ymax ?: 0
                 val bitmap = BitmapUtil.cropBitmap(originBitmap, xMin, yMin, xMax, yMax)
 
                 var carbohydrate = -1.0
