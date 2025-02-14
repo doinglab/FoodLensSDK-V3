@@ -25,7 +25,7 @@ struct ContentView: View {
                     .buttonStyle(FoodLensButtonStyle())
                     
                     Button("Start FoodLens camera") {
-                        let foodlensUIService = FoodLensUIService(type: .foodlens)
+                        let foodlensUIService = FoodLensUIService(type: .caloai)
                         
                         var options: FoodLensSettingConfig = .init()
                         options.isEnableCameraOrientation = true    // 카메라 회전 기능 지원 여부 (defalut : true)
@@ -55,7 +55,7 @@ struct ContentView: View {
                     
                     Button("Edit mode") {
                         FoodLensStorage.shared.save(image: self.viewModel.predictedFoodImage, fileName: viewModel.result.imagePath ?? "")
-                        let foodlensUIService = FoodLensUIService(type: .foodlens)
+                        let foodlensUIService = FoodLensUIService(type: .caloai)
                         foodlensUIService.startFoodLensDataEdit(
                             recognitionResult: self.viewModel.result,
                             parent: self.viewControllerHolder,
@@ -79,7 +79,9 @@ struct ContentView: View {
             PHPicker(selectedImage: self.$viewModel.selectedImage)
         }
         .onChange(of: self.viewModel.selectedImage) { image in
-            self.viewModel.predict(image: image)
+            Task {
+                await self.viewModel.predict(image: image)
+            }
         }
         .padding(.vertical)
     }

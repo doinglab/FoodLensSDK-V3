@@ -9,7 +9,7 @@ import UIKit
 import FoodLensUI
 import FoodLensCore
 
-class ViewModel: ObservableObject {
+final class ViewModel: ObservableObject, @unchecked Sendable {
     @Published var result: RecognitionResult = .init()
     
     @Published var isShowPhotoPicker: Bool = false
@@ -19,33 +19,30 @@ class ViewModel: ObservableObject {
     
     @Published var isLoading: Bool = false
     
-    func predict(image: UIImage) {
-        let foodlensCoreService = FoodLensCoreService(type: .foodlens)
-        Task {
+    func predict(image: UIImage) async {
+        let foodlensCoreService = FoodLensCoreService(type: .caloai)
+        DispatchQueue.main.async {
+            self.isLoading = true
+        }
+        let result = await foodlensCoreService.predict(image: image)
+        switch result {
+        case .success(let response):
             DispatchQueue.main.async {
-                self.isLoading = true
+                self.predictedFoodImage = self.selectedImage
+                self.result = response
+                self.isLoading = false
+                print(response)
             }
-            let result = await foodlensCoreService.predict(image: image)
-            switch result {
-            case .success(let success):
-                DispatchQueue.main.async {
-                    self.predictedFoodImage = self.selectedImage
-                    self.result = success
-                    self.isLoading = false
-                }
-            case .failure(let failure):
-                print(failure)
-            }
+        case .failure(let failure):
+            print(failure)
         }
     }
 }
 
 extension ViewModel: RecognitionResultHandler {
     func onSuccess(_ result: RecognitionResult) {
-        DispatchQueue.main.async {
-            self.predictedFoodImage = FoodLensStorage.shared.load(fileName: result.imagePath ?? "") ?? .init()
-            self.result = result
-        }
+        self.predictedFoodImage = FoodLensStorage.shared.load(fileName: result.imagePath ?? "") ?? .init()
+        self.result = result
         print(result.toJSONString() ?? "")
     }
     
