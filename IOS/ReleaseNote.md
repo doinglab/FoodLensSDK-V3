@@ -1,16 +1,26 @@
 # iOS FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.0.5
-### UI SDK: 3.1.3
+### Core SDK: 3.1.0
+### UI SDK: 3.1.4
 
 <br/>
 
 ## Version history
+### v3.1.4
+UI SDK (2025.02.28)
+1. Support swipe-back gesture for better navigation
+2. Expand customizable UI options for more flexibility
+3. Fix other bugs
+
 ### v3.1.3
 UI SDK (2025.01.24)
 1. Improve the UI for user convenience
 2. Fix other bugs
+
+### v3.1.0
+Core SDK (2025.02.28)
+1. Add support for Swift 6
 
 ### v3.0.5
 Core SDK (2024.11.28)
