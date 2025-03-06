@@ -9,7 +9,7 @@ import UIKit
 import FoodLensUI
 import FoodLensCore
 
-final class ViewModel: ObservableObject, @unchecked Sendable {
+final class ViewModel: ObservableObject {
     @Published var result: RecognitionResult = .init()
     
     @Published var isShowPhotoPicker: Bool = false
@@ -31,7 +31,7 @@ final class ViewModel: ObservableObject, @unchecked Sendable {
                 self.predictedFoodImage = self.selectedImage
                 self.result = response
                 self.isLoading = false
-                print(response)
+                print(response.toJSONString() ?? "")
             }
         case .failure(let failure):
             print(failure)

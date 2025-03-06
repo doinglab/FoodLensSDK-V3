@@ -39,9 +39,10 @@ struct ContentView: View {
                         options.eatDate = Date()                    // 식시 시간 설정(default: 현재 시간, isUseEatDatePopup == true 시 팝업에서 입력 받은 시간으로 설정)
                         options.mealType = .lunch                   // 식사 타입 설정(default: 시간에 맞는 식사 타입)
                         options.recommendedKcal = 2400              // 1일 권장 칼로리 (defalut : 2,000)
+                        options.isEnableThousandSeparator = true
                         
                         var uiConfig: FoodLensUIConfig = .init()
-                        uiConfig.mainColor = .green
+                        uiConfig.mainColor = .blue
                         uiConfig.mainTextColor = .white
                         
                         foodlensUIService.setSettingConfig(options)
