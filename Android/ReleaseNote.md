@@ -2,9 +2,17 @@
 
 ## Latest versions
 ### Core SDK: 3.0.9   
-### UI SDK: 3.1.0
+### UI SDK: 3.1.2
 
 <br/>
+
+## v3.1.2
+(2025.03.06)
+1. Added option to use commas between thousands
+
+## v3.1.1
+(2025.02.28)
+1. Expand customizable UI options for more flexibility
 
 ## v3.1.0
 (2025.01.16)
