@@ -320,6 +320,7 @@ settingConfig.languageConfig = LanguageConfig.DEVICE 	//Result language setting,
 settingConfig.eatDate = Date()				//Meal time setting (default: Current time, isUseEatDatePopup == true Set as input time at pop-up)
 settingConfig.mealType = MealType.AFTERNOON_SNACK	//Meal type setting (default: Meal type based on time)
 settingConfig.recommendedKcal = 2000f			//Recommended calorie per day (defalut : 2,000)
+settingConfig.isEnableThousandSeparator = false  	//Added option to use commas between thousands (default : false)
 
 foodLensUiService.setSettingConfig(settingConfig)
 ```        
