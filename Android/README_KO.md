@@ -316,6 +316,7 @@ settingConfig.languageConfig = LanguageConfig.DEVICE 	//결과값 언어 설정,
 settingConfig.eatDate = Date()				// 식시 시간 설정(default: 현재 시간, isUseEatDatePopup == true 시 팝업에서 입력 받은 시간으로 설정)
 settingConfig.mealType = MealType.AFTERNOON_SNACK	// 식사 타입 설정(default: 시간에 맞는 식사 타입)
 settingConfig.recommendedKcal = 2000f			// 1일 권장 칼로리 (defalut : 2,000)
+settingConfig.isEnableThousandSeparator = false  	// 천 단위 콤마 사용 여부 (default : false)
 
 foodLensUiService.setSettingConfig(settingConfig)
 ```        
