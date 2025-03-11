@@ -35,11 +35,11 @@ struct ContentView: View {
                         options.isSaveToGallery = true              // 촬영한 이미지 갤러리 저장 여부 (defalut : false)
                         options.isUseEatDatePopup = true            // 갤러리에서 이미지 불러올 때 촬영 일자 사용여부 (ture일 경우 선택 팝업 표시)
                         options.imageResizingType = .normal         // //이미지 리사이즈 방식 옵션, SPEED(속도우선), NORMAL, QUALITY(결과 품질 우선) (defalut : NORMAL)
-                        options.language = .en                      // 제동되는 음식 정보 언어 설정 (음식정보 외에 UI에 표시되는 텍스트의 언어는 기기에 설정된 언어로 표시) (defalut : device)
+                        options.language = .ko                      // 제동되는 음식 정보 언어 설정 (음식정보 외에 UI에 표시되는 텍스트의 언어는 기기에 설정된 언어로 표시) (defalut : device)
                         options.eatDate = Date()                    // 식시 시간 설정(default: 현재 시간, isUseEatDatePopup == true 시 팝업에서 입력 받은 시간으로 설정)
                         options.mealType = .lunch                   // 식사 타입 설정(default: 시간에 맞는 식사 타입)
                         options.recommendedKcal = 2400              // 1일 권장 칼로리 (defalut : 2,000)
-                        options.isEnableThousandSeparator = true
+                        options.isEnableThousandSeparator = true    // 천단위 구분자 설정 여부 (defalut : false)
                         
                         var uiConfig: FoodLensUIConfig = .init()
                         uiConfig.mainColor = .blue

@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://bitbucket.org/doing-lab/ios_foodlensuisdk.git",
       "state" : {
-        "revision" : "2c9a5ed766ab1c10d0a3a4e8c73a0c87365c5b90",
-        "version" : "3.1.5"
+        "revision" : "fe306d1cfaf1e660b2545ea53e44a1d11d202054",
+        "version" : "3.1.6"
       }
     }
   ],
