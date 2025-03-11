@@ -2,11 +2,16 @@
 
 ## Latest versions
 ### Core SDK: 3.1.0
-### UI SDK: 3.1.5
+### UI SDK: 3.1.6
 
 <br/>
 
 ## Version history
+### v3.1.6
+UI SDK (2025.03.11)
+1.	Update text content
+2.	Fix minor bugs
+
 ### v3.1.5
 UI SDK (2025.03.06)
 1.	Add an option for thousand separators
