@@ -7,9 +7,10 @@
 <br/>
 
 ## v3.1.3
-(2025.03.11)
-1. Update text content
-2. Fix minor bugs
+(2025.03.11)  
+1. Improve usability  
+2. Update text content  
+3. Fix minor bugs  
 
 ## v3.1.2
 (2025.03.06)
