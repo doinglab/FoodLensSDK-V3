@@ -2,9 +2,19 @@
 
 ## Latest versions
 ### Core SDK: 3.0.9   
-### UI SDK: 3.1.3
+### UI SDK: 3.1.5
 
 <br/>
+
+## v3.1.5
+(2025.06.12)
+1. Added support for 16KB page size on Android 15+ devices
+2. Fix minor bugs
+
+## v3.1.4
+(2025.05.30)  
+1. Improve usability
+2. Fix minor bugs
 
 ## v3.1.3
 (2025.03.11)  
