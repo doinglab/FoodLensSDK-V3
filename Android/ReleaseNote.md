@@ -6,6 +6,13 @@
 
 <br/>
 
+## v3.1.6
+(2025.06.16)
+1. Enhanced UI compatibility with Android 15 (API level 35)  
+2. Added support for status bar and navigation bar insets  
+3. Improved edge-to-edge layout handling for gesture navigation
+4. Fix minor bugs
+
 ## v3.1.5
 (2025.06.12)
 1. Added support for 16KB page size on Android 15+ devices
