@@ -1,10 +1,15 @@
 # Android FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.0.9   
-### UI SDK: 3.1.5
+### Core SDK: 3.1.2
+### UI SDK: 3.1.7
 
 <br/>
+
+# v3.1.7
+(2025.07.14)
+1. Updated the target SDK version to 35.
+2. Fix minor bugs
 
 ## v3.1.6
 (2025.06.16)
@@ -31,7 +36,13 @@
 
 ## v3.1.2
 (2025.03.06)
+UI SDK
 1. Added option to use commas between thousands
+
+(2025.07.14)
+CoreSDK
+1. Updated the target SDK version to 35.
+2. Fix minor bugs
 
 ## v3.1.1
 (2025.02.28)
