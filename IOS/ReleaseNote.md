@@ -2,11 +2,18 @@
 
 ## Latest versions
 ### Core SDK: 3.1.0
-### UI SDK: 3.1.6
+### UI SDK: 3.1.81
 
 <br/>
 
 ## Version history
+
+### 3.1.81
+UI SDK (2025.07.18)
+1. Improved text alignment and sizing for better readability
+2. Adjusted color contrast to enhance visual clarity
+3. Refined overall UI layout for a cleaner interface
+
 ### v3.1.6
 UI SDK (2025.03.11)
 1.	Update text content
