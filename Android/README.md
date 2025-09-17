@@ -7,14 +7,14 @@ FoodLens is composed of Core SDK and UI SDK. You may use the functions of FoodLe
 
 ## 1. Android Project Setting
 
-### 1.1 Android 13 Support
-- Set Compile SDK Version over 33 for Android 13 support.
+### 1.1 Android 15 Support
+- Set Compile SDK Version over 35 for Android 15 support.
 - Open app > Gradle Scripts > build.gradle (Module: app) in the project and add the text below in the android{} section.
 
 ```java
 android {
         ....
-        compileSdkVersion 33
+        compileSdkVersion 35
 	....       
     }
 ```
@@ -309,18 +309,20 @@ foodLensUiService.setUiConfig(uiConfig)
 #### 3.5.2 FoodLens Option Change
 ```
 var settingConfig = FoodLensSettingConfig()
-settingConfig.isEnableCameraOrientation = true  	//Camera rotation feature support (defalut : true)
-settingConfig.isShowPhotoGalleryIcon = true     	//Gallery icon activation (defalut : true)
-settingConfig.isShowManualInputIcon = true      	//Search input icon activation (defalut : true)
-settingConfig.isShowHelpIcon = true             	//Help icon activation (defalut : true)
-settingConfig.isSaveToGallery = false           	//Camera shot save to gellery (defalut : false)
-settingConfig.isUseEatDatePopup = true          	//Save the input time as the time saved in gallery (defalut : true)
-settingConfig.imageResize = ImageResizeOption.NORMAL 	//Image resize method option, SPEED(Speed priority), NORMAL, QUALITY(Result quality priority) (defalut : NORMAL)
-settingConfig.languageConfig = LanguageConfig.DEVICE 	//Result language setting, DEVICE, KO, EN, JA (defalut : DEVICE)
-settingConfig.eatDate = Date()				//Meal time setting (default: Current time, isUseEatDatePopup == true Set as input time at pop-up)
-settingConfig.mealType = MealType.AFTERNOON_SNACK	//Meal type setting (default: Meal type based on time)
-settingConfig.recommendedKcal = 2000f			//Recommended calorie per day (defalut : 2,000)
-settingConfig.isEnableThousandSeparator = false  	//Added option to use commas between thousands (default : false)
+settingConfig.isEnableCameraOrientation = true  			// Camera rotation feature support (defalut : true)
+settingConfig.isShowPhotoGalleryIcon = true     			// Gallery icon activation (defalut : true)
+settingConfig.isShowManualInputIcon = true      			// Search input icon activation (defalut : true)
+settingConfig.isShowHelpIcon = true             			// Help icon activation (defalut : true)
+settingConfig.isSaveToGallery = false           			// Camera shot save to gellery (defalut : false)
+settingConfig.isUseEatDatePopup = true          			// Save the input time as the time saved in gallery (defalut : true)
+settingConfig.imageResize = ImageResizeOption.NORMAL 		// Image resize method option, SPEED(Speed priority), NORMAL, QUALITY(Result quality priority) (defalut : NORMAL)
+settingConfig.languageConfig = LanguageConfig.DEVICE 		// Result language setting, DEVICE, KO, EN, JA (defalut : DEVICE)
+settingConfig.eatDate = Date()								// Meal time setting (default: Current time, isUseEatDatePopup == true Set as input time at pop-up)
+settingConfig.mealType = MealType.AFTERNOON_SNACK			// Meal type setting (default: Meal type based on time)
+settingConfig.recommendedKcal = 2000f						// Recommended calorie per day (defalut : 2,000)
+settingConfig.isEnableThousandSeparator = false  			// Added option to use commas between thousands (default : false)
+settingConfig.nutrientSummaryDisplayOption = .hidden 		// Nutrient display option on the Summary screen - hidden (do not show), percentage (show as %), weight (show as weight) (default: HIDDEN)
+settingConfig.isGenerateCaloAiCandidate = false        		// Whether to include candidates in the API response when using CaloAI (default: false)
 
 foodLensUiService.setSettingConfig(settingConfig)
 ```        
