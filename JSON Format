@@ -20,6 +20,25 @@
             "totalServingSize" Double    //Total serving size (In case of product, serving size and total serving size can be different)
             "unit": String,              //Unit (g, ml)
             "counts": String,            //Counts(Bowl, etc)
+            "countsDetail": [{           //count detail value
+                           "countType": "serving",//countType can be “serving” and “total”. If one serving value and total serving value are different “total” value will be provided together.
+                            "servingSize": 388.0,
+                            "countsValue": 1.0,
+                            "counts": "plate(L)",
+                            "subCountsValue": -1.0, //This value is used as a sub-unit.
+                            "subCounts": ""
+             }],
+            "estimatedAmount": {
+                  "estimatedServingSize": Double,      //Estimated serving size (g, ml)
+                  "estimatedServingAmount": Double,    //Estimated serving amount. 
+                  "estimatedVolume": Double,           //Estimated bowl volume
+                  "estimatedPortion": Double,          //Estimated food portion in bowl (ratio) 
+                  "estimatedPlateType": String,        //Estimated bowl type
+            },
+            ingredients: [{
+                  "name": String,              //Ingredient name
+                  "gram": Double,              //Ingredient weight (Only you can get this information when you have permission, return -1 if value is not exist)
+            }],
             // Calories nutrients
             "energy": Double,            //Total energy(Calorie), Unit Kcal (Return -1 if value is not exist)
             "carbohydrate": Double,      //Total carbohydrate, Unit g (Return -1 if value is not exist)
@@ -74,12 +93,16 @@
           }]
       ingredients: [{
             "name": String,              //Ingredient name
+            "key" : String,              //Ingredient key value
             "gram": Double,              //Ingredient weight (Only you can get this information when you have permission, return -1 if value is not exist)
         }],
       "userSelected": Nutrition,         //Food nutrition inforation which is selected by user. In case  of CoreSDK, this value will be null
-      "estimatedAmount" :{
-            "estimatedServingSize": Double  //Estimagted weight of food (Total g or ml)
-            "estimatedServingAmount": Double//Estimated amount of food, ratio based on one serving size
+      "estimatedAmount": {
+            "estimatedServingSize": Double,      //Estimated serving size (g, ml)
+            "estimatedServingAmount": Double,    //Estimated serving amount. 
+            "estimatedVolume": Double,           //Estimated bowl volume
+            "estimatedPortion": Double,          //Estimated food portion in bowl (ratio) 
+            "estimatedPlateType": String,        //Estimated bowl type
       },
       "position": {                       //Food position
             "xmax": Int,
