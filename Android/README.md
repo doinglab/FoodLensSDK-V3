@@ -325,7 +325,13 @@ settingConfig.nutrientSummaryDisplayOption = .hidden 		// Nutrient display optio
 settingConfig.isGenerateCaloAiCandidate = false        		// Whether to include candidates in the API response when using CaloAI (default: false)
 
 foodLensUiService.setSettingConfig(settingConfig)
-```        
+```
+
+<b>\*\*nutrientSummaryDisplayOption\*\*
+
+| HIDDEN | PERCENTAGE | WEIGHT |
+| ------ | ---------- | ------ |
+| <img src="https://github.com/user-attachments/assets/e6118485-4bc6-40ad-afd9-107c3889488d" width="300"/> | <img src="https://github.com/user-attachments/assets/80e0ff90-8dfc-402d-ae2b-0ae8c6f83902" width="300"/> | <img src="https://github.com/user-attachments/assets/2a2e52f9-a980-4870-ac76-f490236ad710" width="300"/> |
 
 #### 3.5.3 Auto Meal Type Setting
 When the user does not set the meal type using MealType, the meal type is automatically set based on the criteria.
