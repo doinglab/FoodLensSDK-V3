@@ -294,6 +294,8 @@ let settingConfig = FoodLensSettingConfig(
     eatDate: Date(),                        // Meal time setting (default: Current time, isUseEatDatePopup == true Set as input time at pop-u)
     eatType: .lunch,                        // Meal type setting (default: Meal type based on time)
     recommendKcal: 2400,                    // Recommended calorie per day (defalut : 2,000)
+    nutrientSummaryDisplayOption: .hidden   // Nutrient display option on the Summary screen - hidden (do not show), percentage (show as %), weight (show as weight)
+    isGenerateCaloAiCandidate: false        // Whether to include candidates in the API response when using CaloAI
 )
 
 foodLensUIService.setSettingConfig(settingConfig)
