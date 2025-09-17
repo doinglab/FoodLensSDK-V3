@@ -1,10 +1,23 @@
 # Android FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.1.2
-### UI SDK: 3.1.92
+### Core SDK: 3.2.0
+### UI SDK: 3.2.1
 
 <br/>
+
+### 3.2.1
+UI SDK (2025.09.17)
+1. UX improvements for better usability  
+2. Separated portion editing and food changes for quicker modifications  
+3. Support for iOS 26  
+4. Other bug fixes
+
+### 3.2.0
+Core SDK (2025.09.17)
+1. Modified API response: introduced `detailCounts` by refining the `counts` field  
+2. Added option to return `candidates` in CaloAI
+
 
 ## v3.1.92
 (2025.07.18)
