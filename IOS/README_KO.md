@@ -292,6 +292,9 @@ let settingConfig = FoodLensSettingConfig(
     eatDate: Date(),                        // 식시 시간 설정(default: 현재 시간, isUseEatDatePopup == true 시 팝업에서 입력 받은 시간으로 설정)
     eatType: .lunch,                        // 식사 타입 설정(default: 시간에 맞는 식사 타입)
     recommendKcal: 2400,                    // 1일 권장 칼로리 (defalut : 2,000)
+    isEnableThousandSeparator: false  	    // 천 단위 콤마 사용 여부 (default : false)
+    nutrientSummaryDisplayOption: .hidden   // Summary 화면 영양소 표시 옵션 - hidden(표시하지 않음), percentage(퍼센트 표시), weight(중량 표시)
+    isGenerateCaloAiCandidate: false        // CaloAI를 사용할 때 API 응답 시 candidates 포함 여부
 )
 
 foodlensUIService.setSettingConfig(settingConfig)
