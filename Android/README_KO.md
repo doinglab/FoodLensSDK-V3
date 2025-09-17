@@ -6,7 +6,7 @@ FoodLens SDK는 Core SDK와 UI SDK로 이루어 지며, 자체 UI를 작성할 �
 ## 1. 안드로이드 프로젝트 설정
 
 ### 1.1 Android 15 지원
-- Android 13 지원을 위해 Compile SDK Version을 33이상으로 설정해 주세요. 
+- Android 15 지원을 위해 Compile SDK Version을 35이상으로 설정해 주세요. 
 - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 android{} 섹션에 아래와 같은 문구를 추가해 주세요.
 
 ```java
@@ -305,18 +305,20 @@ foodLensUiService.setUiConfig(uiConfig)
 #### 3.5.2 FoodLens 옵션 변경
 ```
 var settingConfig = FoodLensSettingConfig()
-settingConfig.isEnableCameraOrientation = true  	//카메라 회전 기능 지원 여부 (defalut : true)
-settingConfig.isShowPhotoGalleryIcon = true     	//갤러리 아이콘 활성화 여부 (defalut : true)
-settingConfig.isShowManualInputIcon = true      	//검색 입력 아이콘 활성화 여부 (defalut : true)
-settingConfig.isShowHelpIcon = true             	//도움말 아이콘 활성화 여부 (defalut : true)
-settingConfig.isSaveToGallery = false           	//카메라 촬영 이미지 갤러리 저장 여부 (defalut : false)
-settingConfig.isUseEatDatePopup = true          	//갤러리에 저장된 사진의 사진촬영시간을 입력시간으로 사용할지 여부 (defalut : true)
+settingConfig.isEnableCameraOrientation = true  		//카메라 회전 기능 지원 여부 (defalut : true)
+settingConfig.isShowPhotoGalleryIcon = true     		//갤러리 아이콘 활성화 여부 (defalut : true)
+settingConfig.isShowManualInputIcon = true      		//검색 입력 아이콘 활성화 여부 (defalut : true)
+settingConfig.isShowHelpIcon = true             		//도움말 아이콘 활성화 여부 (defalut : true)
+settingConfig.isSaveToGallery = false           		//카메라 촬영 이미지 갤러리 저장 여부 (defalut : false)
+settingConfig.isUseEatDatePopup = true          		//갤러리에 저장된 사진의 사진촬영시간을 입력시간으로 사용할지 여부 (defalut : true)
 settingConfig.imageResize = ImageResizeOption.NORMAL 	//이미지 리사이즈 방식 옵션, SPEED(속도우선), NORMAL, QUALITY(결과 품질 우선) (defalut : NORMAL)
 settingConfig.languageConfig = LanguageConfig.DEVICE 	//결과값 언어 설정, DEVICE, KO, EN, JA (defalut : DEVICE)
-settingConfig.eatDate = Date()				// 식시 시간 설정(default: 현재 시간, isUseEatDatePopup == true 시 팝업에서 입력 받은 시간으로 설정)
-settingConfig.mealType = MealType.AFTERNOON_SNACK	// 식사 타입 설정(default: 시간에 맞는 식사 타입)
-settingConfig.recommendedKcal = 2000f			// 1일 권장 칼로리 (defalut : 2,000)
-settingConfig.isEnableThousandSeparator = false  	// 천 단위 콤마 사용 여부 (default : false)
+settingConfig.eatDate = Date()							// 식시 시간 설정(default: 현재 시간, isUseEatDatePopup == true 시 팝업에서 입력 받은 시간으로 설정)
+settingConfig.mealType = MealType.AFTERNOON_SNACK		// 식사 타입 설정(default: 시간에 맞는 식사 타입)
+settingConfig.recommendedKcal = 2000f					// 1일 권장 칼로리 (defalut : 2,000)
+settingConfig.isEnableThousandSeparator = false  		// 천 단위 콤마 사용 여부 (default : false)
+settingConfig.nutrientSummaryDisplayOption = .hidden 	// Summary 화면 영양소 표시 옵션 - HIDDEN(표시하지 않음), PERCENTAGE(퍼센트 표시), WEIGHT(중량 표시) (default: HIDDEN)
+settingConfig.isGenerateCaloAiCandidate = false         // CaloAI를 사용할 때 API 응답 시 candidates 포함 여부 (default: false)
 
 foodLensUiService.setSettingConfig(settingConfig)
 ```        
