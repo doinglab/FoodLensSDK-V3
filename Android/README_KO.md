@@ -5,14 +5,14 @@ FoodLens SDK는 Core SDK와 UI SDK로 이루어 지며, 자체 UI를 작성할 �
 
 ## 1. 안드로이드 프로젝트 설정
 
-### 1.1 Android 13 지원
+### 1.1 Android 15 지원
 - Android 13 지원을 위해 Compile SDK Version을 33이상으로 설정해 주세요. 
 - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 android{} 섹션에 아래와 같은 문구를 추가해 주세요.
 
 ```java
 android {
         ....
-        compileSdkVersion 33
+        compileSdkVersion 35
 	....       
     }
 ```
@@ -45,9 +45,9 @@ android {
 - 최종 라이브러리 버전은 [ReleaseNote](ReleaseNote.md)를 확인해 주세요
 ```java
    //Core SDK만 사용할 경우
-   implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.9" 
+   implementation "com.doinglab.foodlens:FoodLensSDK-core:3.2.0" 
    //UI SDK도 사용할 경우 
-   implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.1.0"
+   implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.2.1"
 ```
 
 ### 1.3. 리소스(Resources) 및 메니페스트(Manifests) 
@@ -141,16 +141,16 @@ foodLensCoreService.setImageResizeOption(ImageResizeOption.QUALITY)
 #### 2.2.3 영양소 반환 옵션
 ```
 //인식 후 전달받는 영양소에 대한 옵션 입니다.
-//1. NutritionRetrieveOption.ALL_NUTRITION : 모둔 음식 후보군 (Candidates food)에 영양소를 전달 받음
-//2. NutritionRetrieveOption.TOP1_NUTRITION_ONLY : 가장 확률이 높은 임식에 대해서만 영양소를 전달 받음 
-//3. NutritionRetrieveOption.NO_NUTRITION : 인식결과만 전달받고 영양소는 전달 받지 않음
+//1. NutritionRetrieveOption.ALL_NUTRITION : 모든 음식 후보군 (Candidates food)에 영양소를 전달 받음
+//2. NutritionRetrieveOption.TOP1_NUTRITION_ONLY : 가장 확률이 높은 음식에 대해서만 영양소를 전달 받음 
+//3. NutritionRetrieveOption.NO_NUTRITION : 인식 결과만 전달받고 영양소는 전달 받지 않음
 //Default는 ALL_NUTRITION 입니다.
 foodLensCoreService.setNutritionRetrieveOption(NutritionRetrieveOption.ALL_NUTRITION)
 ```
 ### 2.3 음식정보 검색하기
 1. FoodLensCoreService 생성합니다.
     - 파라미터는 Context, FoodLens Type 입니다.  
-    - FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두가지 중에 선택할 수 있습니다.     
+    - FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두 가지 중에 선택할 수 있습니다.     
 3. foodInfo 메소드를 호출합니다.
 
 #### 코드 예제
