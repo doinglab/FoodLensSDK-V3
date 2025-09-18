@@ -98,9 +98,9 @@ foodlensCoreService.setLanguage(.en)
 #### 2.2.2 API Performance 옵션
 ```
 //요구사항에 따라 API성능을 변경할 수 잇습니다.
-//1. ImageResizingType.speed : 빠른 속도의 처리가 필요한 경우 (음식 1~2개 수준)
-//2. ImageResizingType.normal, 가장 보편적인 사황처리 (음식수 2~4개 수준)
-//3. ImageResizingType.quality 3개 중에 선택할 수 있습니다. (속도가 느리더라도 음식인식율을 최대로 올릴 경우 4개 이상의 음식을 동시에 처리)
+//1. ImageResizingType.speed : 빠른 속도의 처리가 필요한 경우 (음식 2~3개 수준에서 문제없이 처리)
+//2. ImageResizingType.normal, 가장 보편적인 사황처리 (음식수 4~6개 수준에서 문제 없이 처리)
+//3. ImageResizingType.quality 3개 중에 선택할 수 있습니다. (속도가 느리더라도 많은 음식을 동시에 처리)
 //Default는 ImageResizingType.normal 입니다.
 foodlensCoreService.setImageResizingType(.quality)
 ```
