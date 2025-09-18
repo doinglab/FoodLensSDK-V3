@@ -8,13 +8,14 @@
 
 ## Version history
 
-### 3.2.0
-UI SDK (2025.09.17)
+### 3.2.1
+UI SDK (2025.09.18)
 1. UX improvements for better usability  
 2. Separated portion editing and food changes for quicker modifications  
 3. Support for iOS 26  
 4. Other bug fixes
 
+### 3.2.0
 Core SDK (2025.09.17)
 1. Modified API response: introduced `detailCounts` by refining the `counts` field  
 2. Added option to return `candidates` in CaloAI
