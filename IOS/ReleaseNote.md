@@ -8,6 +8,10 @@
 
 ## Version history
 
+### 3.2.2
+UI SDK (2025.09.22)
+1. Improved image resizing method for better performance and quality
+
 ### 3.2.1
 UI SDK (2025.09.18)
 1. UX improvements for better usability  
