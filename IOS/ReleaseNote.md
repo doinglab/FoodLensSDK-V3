@@ -2,11 +2,17 @@
 
 ## Latest versions
 ### Core SDK: 3.2.0
-### UI SDK: 3.2.2
+### UI SDK: 3.2.3
 
 <br/>
 
 ## Version history
+
+
+### 3.2.3
+UI SDK (2025.09.29)
+1. UI updates  
+2. Fixed minor bugs  
 
 ### 3.2.2
 UI SDK (2025.09.22)
