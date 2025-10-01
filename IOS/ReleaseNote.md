@@ -2,12 +2,17 @@
 
 ## Latest versions
 ### Core SDK: 3.2.0
-### UI SDK: 3.2.3
+### UI SDK: 3.2.4
 
 <br/>
 
 ## Version history
 
+### 3.2.4
+UI SDK (2025.10.01)
+1. Fixed swipe-back behavior  
+2. Adjusted ScrollView bounce handling for iOS 26  
+3. Other bug fixes  
 
 ### 3.2.3
 UI SDK (2025.09.29)
