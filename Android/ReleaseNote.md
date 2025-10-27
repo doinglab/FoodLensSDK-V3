@@ -6,6 +6,11 @@
 
 <br/>
 
+## 3.2.4
+UI SDK (2025.10.27)
+1.	Fixed an issue where the current date was automatically set when searching for food
+2.	Minor stability improvements
+
 ## 3.2.3   
 UI SDK (2025.10.01)
 1. Updated text content 
