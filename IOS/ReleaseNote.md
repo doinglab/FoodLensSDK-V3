@@ -8,6 +8,12 @@
 
 ## Version history
 
+
+### 3.2.5
+UI SDK (2025.10.27)
+1. Expanded touch area of the back button
+2. Minor stability improvements
+
 ### 3.2.4
 UI SDK (2025.10.01)
 1. Fixed swipe-back behavior  
