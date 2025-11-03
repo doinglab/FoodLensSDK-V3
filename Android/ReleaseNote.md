@@ -2,9 +2,15 @@
 
 ## Latest versions
 ### Core SDK: 3.2.0
-### UI SDK: 3.2.4
+### UI SDK: 3.2.5
 
 <br/>
+
+## 3.2.5
+UI SDK (2025.11.03)
+1.	Fixed a date-related issue when searching for food
+2.	Fixed an error related to custom nutrient settings
+3.	Minor bug fixes
 
 ## 3.2.4
 UI SDK (2025.10.27)
