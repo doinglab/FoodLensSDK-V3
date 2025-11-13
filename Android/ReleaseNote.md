@@ -2,16 +2,17 @@
 
 ## Latest versions
 ### Core SDK: 3.3.0
-### UI SDK: 3.3.0
+### UI SDK: 3.3.1
 
 <br/>
 
-## 3.3.0
+## 3.3.1
 UI SDK (2025.11.13) (Compatible : Core SDK 3.3.0)
 1. Added nutrition label recognition  
 2. Improved recognition accuracy and processing performance  
 3. Fixed minor bugs
 
+## 3.3.0
 Core SDK (2025.11.13)
 1. Added nutrition label parsing engine
 
