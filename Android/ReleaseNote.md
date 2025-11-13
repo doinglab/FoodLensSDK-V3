@@ -1,10 +1,19 @@
 # Android FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.2.0
-### UI SDK: 3.2.5
+### Core SDK: 3.3.0
+### UI SDK: 3.3.0
 
 <br/>
+
+## 3.3.0
+UI SDK (2025.11.13) (Compatible : Core SDK 3.3.0)
+1. Added nutrition label recognition  
+2. Improved recognition accuracy and processing performance  
+3. Fixed minor bugs
+
+Core SDK (2025.11.13)
+1. Added nutrition label parsing engine
 
 ## 3.2.5
 UI SDK (2025.11.03)
