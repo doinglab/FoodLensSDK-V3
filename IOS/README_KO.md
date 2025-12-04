@@ -295,6 +295,8 @@ let settingConfig = FoodLensSettingConfig(
     isEnableThousandSeparator: false  	    // 천 단위 콤마 사용 여부 (default : false)
     nutrientSummaryDisplayOption: .hidden   // Summary 화면 영양소 표시 옵션 - hidden(표시하지 않음), percentage(퍼센트 표시), weight(중량 표시) (default : hidden)
     isGenerateCaloAiCandidate: false        // CaloAI를 사용할 때 API 응답 시 candidates 포함 여부 (default: false)
+    isEnableNutritionFactsScan: false       // 영양성분표 인식 기능 활성화 여부 (default: false) 
+    isShowMealMemo: Bool            				// 식사노트 활성화 여부 (default: true)
 )
 
 foodlensUIService.setSettingConfig(settingConfig)
