@@ -2,9 +2,14 @@
 
 ## Latest versions
 ### Core SDK: 3.3.0
-### UI SDK: 3.3.1
+### UI SDK: 3.3.2
 
 <br/>
+
+### 3.3.2
+UI SDK (2025.12.04)
+1.	Added an option to show or hide DietNotes using isShowMealMemo (default: true)
+2.	Minor bug fixes
 
 ## 3.3.1
 UI SDK (2025.11.13) (Compatible : Core SDK 3.3.0)
@@ -40,7 +45,6 @@ UI SDK (2025.09.29)
 UI SDK (2025.09.17)
 1. UX improvements for better usability  
 2. Separated portion editing and food changes for quicker modifications  
-3. Support for iOS 26  
 4. Other bug fixes
 
 ## 3.2.0
