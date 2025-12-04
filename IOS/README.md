@@ -289,13 +289,15 @@ let settingConfig = FoodLensSettingConfig(
     isShowHelpIcon: true,                   // Help icon activation (defalut : true)
     isSaveToGallery: true,                  // Camera shot save to gellery (defalut : false)
     isUseEatDatePopup: true,                // Save the input time as the time saved in gallery (defalut : true)
-    imageResizingType: .normal              // Image resize method option, SPEED(Speed priority), NORMAL, QUALITY(Result quality priority) (defalut : NORMAL)
+    imageResizingType: .normal,              // Image resize method option, SPEED(Speed priority), NORMAL, QUALITY(Result quality priority) (defalut : NORMAL)
     language: .en,                          // Result language setting device, ko, en, ja (defalut : device) (This is only affect to food recognition result. UI language is following system setting.) 
     eatDate: Date(),                        // Meal time setting (default: Current time, isUseEatDatePopup == true Set as input time at pop-u)
     eatType: .lunch,                        // Meal type setting (default: Meal type based on time)
     recommendKcal: 2400,                    // Recommended calorie per day (defalut : 2,000)
-    nutrientSummaryDisplayOption: .hidden   // Nutrient display option on the Summary screen - hidden (do not show), percentage (show as %), weight (show as weight)
-    isGenerateCaloAiCandidate: false        // Whether to include candidates in the API response when using CaloAI
+    nutrientSummaryDisplayOption: .hidden,   // Nutrient display option on the Summary screen - hidden (do not show), percentage (show as %), weight (show as weight)
+    isGenerateCaloAiCandidate: false,        // Whether to include candidates in the API response when using CaloAI
+    isEnableNutritionFactsScan: Bool,      	// Enables the Nutrition Facts label scanning feature (default: false)
+    isShowMealMemo: Bool                		// Enables the DietNotes feature (default: true)
 )
 
 foodLensUIService.setSettingConfig(settingConfig)
