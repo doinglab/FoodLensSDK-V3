@@ -256,7 +256,7 @@ private var foodLensActivityResult: ActivityResultLauncher<Intent> =
 - 3.1, 3.2, 3.3 에서 획득한 영양정보를 다시 활용 할 수 있습니다.
 - 작성한 recongitionResult를 startFoodLensDataEdit 호출시 전달합니다.  
 - 전달된 데이터로 음식 결과 화면으로 진입합니다.
-#### *중요* 수정 기능을 호출하기 이전에 화면에 표시하 이미지를 디바이즈 로컬 경로에 저장하고 RecognitionResult의 imagePath에 설정 해야 합니다. 
+#### *중요* 수정 기능을 호출하기 이전에 화면에 표시하기 위해 이미지를 디바이즈 로컬 경로에 저장하고 RecognitionResult의 imagePath에 설정 해야 합니다. 
 1. 코드 예제
 ```java
 //Create FoodLens Service
