@@ -319,6 +319,8 @@ settingConfig.recommendedKcal = 2000f					// 1일 권장 칼로리 (defalut : 2,
 settingConfig.isEnableThousandSeparator = false  		// 천 단위 콤마 사용 여부 (default : false)
 settingConfig.nutrientSummaryDisplayOption = .hidden 	// Summary 화면 영양소 표시 옵션 - HIDDEN(표시하지 않음), PERCENTAGE(퍼센트 표시), WEIGHT(중량 표시) (default: HIDDEN)
 settingConfig.isGenerateCaloAiCandidate = false         // CaloAI를 사용할 때 API 응답 시 candidates 포함 여부 (default: false)
+settingConfig.isEnableNutritionFactsScan: Bool = false	// 영양성분표 인식 기능 활성화 여부 (default: false) 
+settingConfig.isShowMealMemo: Bool = true				// 식사노트 활성화 여부 (default: true)
 
 foodLensUiService.setSettingConfig(settingConfig)
 ```        
