@@ -323,6 +323,8 @@ settingConfig.recommendedKcal = 2000f						// Recommended calorie per day (defal
 settingConfig.isEnableThousandSeparator = false  			// Added option to use commas between thousands (default : false)
 settingConfig.nutrientSummaryDisplayOption = .hidden 		// Nutrient display option on the Summary screen - hidden (do not show), percentage (show as %), weight (show as weight) (default: HIDDEN)
 settingConfig.isGenerateCaloAiCandidate = false        		// Whether to include candidates in the API response when using CaloAI (default: false)
+settingConfig.isEnableNutritionFactsScan: Bool = false		// Enables the Nutrition Facts label scanning feature (default: false)
+settingConfig.isShowMealMemo: Bool = true					// Enables the DietNotes feature (default: true)
 
 foodLensUiService.setSettingConfig(settingConfig)
 ```
