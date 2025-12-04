@@ -2,11 +2,16 @@
 
 ## Latest versions
 ### Core SDK: 3.3.0
-### UI SDK: 3.3.0
+### UI SDK: 3.3.1
 
 <br/>
 
 ## Version history
+
+### 3.3.1
+UI SDK (2025.12.04)
+1.	Added an option to show or hide DietNotes using isShowMealMemo (default: true)
+2.	Minor bug fixes
 
 ### 3.3.0
 UI SDK (2025.11.13)
