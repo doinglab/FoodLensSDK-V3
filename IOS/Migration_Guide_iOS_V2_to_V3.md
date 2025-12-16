@@ -90,7 +90,7 @@ AccessToken만 사용 중이었다면, Doinglab에 문의하여 AppToken과 Comp
 + foodlensUIService.startFoodLensDataEdit(recognitionResult: mealData, parent: self, completionHandler: handler)
 ```
 
-> 전체 구현 예시는 위 V3 전체 코드의 `startDataEdit` 참조
+> 전체 구현 예시는 아래 V3 전체 코드의 `startDataEdit` 참조
 
 #### 4.4 콜백 핸들러 변경
 ```diff
@@ -288,7 +288,7 @@ let settingConfig = FoodLensSettingConfig(
 foodlensUIService.setSettingConfig(settingConfig)
 ```
 
-**FoodLensStorage 사용법**
+**FoodLensStorage 사용법**   
 사용자가 UI에서 선택하여 분석한 이미지를 가져올 수 있고, Data 수정 기능을 사용할 때 이미지를 저장하여 전달할 수 있습니다.
 
 ```swift
