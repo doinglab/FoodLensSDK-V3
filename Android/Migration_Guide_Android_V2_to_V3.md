@@ -219,8 +219,8 @@ class MainActivity : AppCompatActivity() {
 - uiService.setToolbarTheme(toolbarTheme);
 
 + var uiConfig = FoodLensUiConfig()
-+ uiConfig.mainColor = Color.parseColor("#ff0000")
-+ uiConfig.mainTextColor = Color.parseColor("#ffffff")
++ uiConfig.mainColor = Color.parseColor("#ff0000")        // 메인 색상
++ uiConfig.mainTextColor = Color.parseColor("#ffffff")    // 메인 텍스트 색상
 + foodLensUiService.setUiConfig(uiConfig)
 ```
 
@@ -268,7 +268,7 @@ V3에서는 `setUiServiceMode` 대신 FoodLensType 선택과 옵션으로 대체
 
 ---
 
-## 🟢 V3 신규 기능 (선택 사용)
+## 🟢 V3 기능 옵션 (선택 사용)
 
 사용하고 싶은 경우에만 추가하면 됩니다.
 
@@ -294,15 +294,6 @@ settingConfig.isEnableNutritionFactsScan = false    // 영양성분표 스캔 (d
 settingConfig.isShowMealMemo = true                 // 식사 메모 (default: true)
 
 foodLensUiService.setSettingConfig(settingConfig)
-```
-
-**FoodLensUiConfig (테마 설정)**
-```kotlin
-var uiConfig = FoodLensUiConfig()
-uiConfig.mainColor = Color.parseColor("#ff0000")    // 메인 색상
-uiConfig.mainTextColor = Color.parseColor("#ffffff") // 메인 텍스트 색상
-
-foodLensUiService.setUiConfig(uiConfig)
 ```
 
 ---
