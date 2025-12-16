@@ -83,6 +83,26 @@ AccessToken만 사용 중이었다면, Doinglab에 문의하여 AppToken과 Comp
 + foodlensUIService.startFoodLensSearch(parent: self, completionHandler: handler)
 ```
 
+#### 4.3 데이터 수정 기능
+```diff
+- uiService.startEditUIService(mealData, parent: self, completionHandler: handler)
+
++ foodlensUIService.startFoodLensDataEdit(recognitionResult: mealData, parent: self, completionHandler: handler)
+```
+
+> 전체 구현 예시는 위 V3 전체 코드의 `startDataEdit` 참조
+
+#### 4.4 콜백 핸들러 변경
+```diff
+- protocol UserServiceResultHandler {
++ protocol RecognitionResultHandler {
+      func onSuccess(_ result: RecognitionResult)
+      func onCancel()
+-     func onError(_ error: BaseError)
++     func onError(_ error: Error)
+  }
+```
+
 **V3 전체 코드**
 ```swift
 import FoodLensUI
@@ -145,27 +165,6 @@ class ResultHandler: RecognitionResultHandler {
 }
 ```
 
-#### 4.3 데이터 수정 기능
-```diff
-- uiService.startEditUIService(mealData, parent: self, completionHandler: handler)
-
-+ foodlensUIService.startFoodLensDataEdit(recognitionResult: mealData, parent: self, completionHandler: handler)
-```
-
-> 전체 구현 예시는 위 V3 전체 코드의 `startDataEdit` 참조
-
-#### 4.4 콜백 핸들러 변경
-```diff
-- protocol UserServiceResultHandler {
-+ protocol RecognitionResultHandler {
-      func onSuccess(_ result: RecognitionResult)
-      func onCancel()
--     func onError(_ error: BaseError)
-+     func onError(_ error: Error)
-  }
-```
-
-> 전체 구현 예시는 4.2의 V3 전체 코드 참조
 
 ---
 
@@ -262,7 +261,7 @@ V3에서는 `FoodLens.uiServiceMode` 대신 FoodLensType 선택과 옵션으로 
 
 ---
 
-## 🟢 V3 신규 기능 (선택 사용)
+## 🟢 V3 기능 옵션 (선택 사용)
 
 사용하고 싶은 경우에만 추가하면 됩니다.
 
@@ -290,32 +289,14 @@ foodlensUIService.setSettingConfig(settingConfig)
 ```
 
 **FoodLensStorage 사용법**
+사용자가 UI에서 선택하여 분석한 이미지를 가져올 수 있고, Data 수정 기능을 사용할 때 이미지를 저장하여 전달할 수 있습니다.
+
 ```swift
-// 이미지 저장
-FoodLensStorage.shared.save(image: myImage, fileName: "food_image")
+// 사용자가 선택하여 분석한 사진 가져오기
+FoodLensStorage.shared.load(fileName: "food_image")
 
-// 이미지 불러오기
-let loadedImage = FoodLensStorage.shared.load(fileName: "food_image")
-```
-
-**SwiftUI에서 사용하기**
-```swift
-import SwiftUI
-import FoodLensUI
-
-struct ContentView: View {
-    @Environment(\.viewController) var viewControllerHolder
-    
-    var body: some View {
-        Button("카메라 시작") {
-            let foodlensUIService = FoodLensUIService(type: .foodlens)
-            foodlensUIService.startFoodLensCamera(
-                parent: self.viewControllerHolder, 
-                completionHandler: ResultHandler()
-            )
-        }
-    }
-}
+// 해당 메소드를 통해 UIImage와 이미지 파일 이름만 전달하여 FoodLens 전용 폴더에 저장
+FoodLensStorage.shared.save(image: UIImage, fileName: "food_image")
 ```
 
 ---
