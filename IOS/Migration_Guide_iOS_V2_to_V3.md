@@ -259,6 +259,15 @@ V3에서는 `FoodLens.uiServiceMode` 대신 FoodLensType 선택과 옵션으로 
   )
   ```
 
+### 4. V2 JSON 포맷 추출
+`toV2JSONString()` 호출
+```
+func onSuccess(_ result: RecognitionResult) {
+    let jsonString = result.toV2JSONString() ?? ""
+    print(jsonString)
+}
+```
+
 ---
 
 ## 🟢 V3 기능 옵션 (선택 사용)
