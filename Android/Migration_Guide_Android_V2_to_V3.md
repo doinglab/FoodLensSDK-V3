@@ -266,6 +266,17 @@ V3에서는 `setUiServiceMode` 대신 FoodLensType 선택과 옵션으로 대체
   settingConfig.isGenerateCaloAiCandidate = true  // candidates 포함 여부
   ```
 
+### 4. V2 JSON 포맷 추출
+`toV2JSONString()` 호출
+```
+override fun onSuccess(result: RecognitionResult?) {
+    result?.let {
+        val jsonString = it.toV2JSONString()
+        Log.d("FoodLens", jsonString)
+    }
+}
+```
+
 ---
 
 ## 🟢 V3 기능 옵션 (선택 사용)
