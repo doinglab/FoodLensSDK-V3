@@ -265,17 +265,80 @@ V3에서는 `setUiServiceMode` 대신 FoodLensType 선택과 옵션으로 대체
   ```kotlin
   settingConfig.isGenerateCaloAiCandidate = true  // candidates 포함 여부
   ```
+---
 
-### 4. V2 JSON 포맷 추출
-`toV2JSONString()` 호출
+## V3 -> V2 타입 변환
+
+### 1. RecognitionResult 변환
+
+#### V3 → V2 변환
+
+```kotlin
+// RecognitionResult(V3) → RecognitionLegacyResult(V2)
+val legacyResult = recognitionResult.toRecognitionLegacyResult()
+
+// RecognitionResult(V3) → V2 JSON String
+val v2JsonString = recognitionResult.toV2JSONString()
 ```
-override fun onSuccess(result: RecognitionResult?) {
-    result?.let {
-        val jsonString = it.toV2JSONString()
-        Log.d("FoodLens", jsonString)
-    }
-}
+
+### 2. eatType ↔ MealType 변환
+
+#### 타입 매핑 테이블
+
+| eatType (Int) | MealTypeLegacy (V2) | MealType (V3) |
+|:-------------:|:-------------------:|:-------------:|
+| 0 | breakfast | breakfast |
+| 1 | lunch | lunch |
+| 2 | dinner | dinner |
+| 3 | snack | 시간대별 분배* |
+| 4 | morning_snack | morning_snack |
+| 5 | afternoon_snack | afternoon_snack |
+| 6 | late_night_snack | late_night_snack |
+| 7 | unknown | 시간대별 분배* |
+| -1 또는 그 외 | unknown | 시간대별 분배* |
+
+> *V3에는 `snack` 타입이 없으므로 시간대에 따라 적절한 타입으로 분배됩니다.
+
+#### 시간대별 분배 기준
+
+| 시간대 | 변환되는 MealType |
+|:------:|:-----------------:|
+| 05:00 ~ 09:59 | breakfast |
+| 10:00 ~ 10:59 | morning_snack |
+| 11:00 ~ 12:59 | lunch |
+| 13:00 ~ 16:59 | afternoon_snack |
+| 17:00 ~ 19:59 | dinner |
+| 20:00 ~ 04:59 | late_night_snack |
+
+
+#### 변환 API
+
+```kotlin
+// eatType → MealType
+val mealType = MealType.fromEatType(eatType)
+val mealType = MealType.fromEatType(eatType, date)  // 시간대 기반 분배 시
+
+// MealType → eatType
+val eatType = mealType.toEatType()
 ```
+
+### 3. 사용 예시
+
+```kotlin
+// V3 데이터를 V2로 변환
+val v3Result: RecognitionResult = ...
+
+// RecognitionLegacyResult(V2) 객체로 변환
+val v2Result = v3Result.toRecognitionLegacyResult()
+
+// V2 JSON String으로 변환
+val v2JsonString = v3Result.toV2JSONString()
+
+// MealType만 변환
+val eatType = v3Result.type.toEatType()
+val mealTypeLegacy = MealTypeLegacy.fromEatType(eatType)
+```
+
 
 ---
 
