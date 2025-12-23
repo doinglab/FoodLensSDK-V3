@@ -1,15 +1,29 @@
 # Android FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.3.0
-### UI SDK: 3.3.2
+### Core SDK: 3.3.2
+### UI SDK: 3.3.4
 
 <br/>
 
-### 3.3.2
+## 3.3.4
+UI SDK (2025.12.23)
+1. Enable automatic image saving for food recognition
+2. Fixed API type not being passed correctly between screens
+    - Fixed an issue where FoodLensType (FoodLens/CaloAI) was not properly passed when navigating from Info/Edit screens to Search screen
+    - This caused the Search API to incorrectly call CaloAI instead of FoodLens in certain navigation paths
+3. Fixed keyboard not appearing on Search screen
+    - Keyboard now automatically appears when entering the Search screen via "Change Food" button
+
+## 3.3.2
 UI SDK (2025.12.04)
 1.	Added an option to show or hide DietNotes using isShowMealMemo (default: true)
 2.	Minor bug fixes
+
+Core SDK (2025.12.23)
+1. V2 API Response Format Support
+    - Added toV2JSONString() method to convert V3 recognition results to V2 format
+    - Added legacy type compatibility (MealTypeLegacy, RecognitionLegacyResult)
 
 ## 3.3.1
 UI SDK (2025.11.13) (Compatible : Core SDK 3.3.0)
