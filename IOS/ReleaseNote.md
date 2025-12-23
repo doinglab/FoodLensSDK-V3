@@ -1,12 +1,23 @@
 # iOS FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.3.0
-### UI SDK: 3.3.1
+### Core SDK: 3.3.2
+### UI SDK: 3.3.2
 
 <br/>
 
 ## Version history
+
+### 3.3.2
+UI SDK (2025.12.23)
+1. Enable image file saving by default during food recognition
+    - Added FoodLensCoreService.setSaveImageToFile(true) configuration
+    - Images used for recognition are now automatically saved to local storage
+
+Core SDK (2025.12.23)
+1. V2 API Response Format Support
+    - Added toV2JSONString() method to convert V3 recognition results to V2 format
+    - Added legacy type compatibility (MealTypeLegacy, RecognitionLegacyResult)
 
 ### 3.3.1
 UI SDK (2025.12.04)
