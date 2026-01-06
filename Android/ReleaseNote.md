@@ -2,12 +2,12 @@
 
 ## Latest versions
 ### Core SDK: 3.3.2
-### UI SDK: 3.3.4
+### UI SDK: 3.3.5
 
 <br/>
 
-## 3.3.4
-UI SDK (2025.12.23)
+## 3.3.5
+UI SDK (2026.01.06)
 1. Enable automatic image saving for food recognition
 2. Fixed API type not being passed correctly between screens
     - Fixed an issue where FoodLensType (FoodLens/CaloAI) was not properly passed when navigating from Info/Edit screens to Search screen
