@@ -2,11 +2,17 @@
 
 ## Latest versions
 ### Core SDK: 3.3.2
-### UI SDK: 3.3.2
+### UI SDK: 3.3.4
 
 <br/>
 
 ## Version history
+
+### 3.3.4
+UI SDK (2026.01.06)
+1. Improved image loading via imagePath when position is not available
+    - Support saving images with full file:// path
+    - DataEdit mode can now load food images using imagePath without position
 
 ### 3.3.2
 UI SDK (2025.12.23)
