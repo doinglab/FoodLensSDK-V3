@@ -2,11 +2,17 @@
 
 ## Latest versions
 ### Core SDK: 3.3.2
-### UI SDK: 3.3.4
+### UI SDK: 3.3.5
 
 <br/>
 
 ## Version history
+
+### 3.3.4
+UI SDK (2026.01.09)
+1. Fixed camera resource not being released when logging nutrition after selecting photo from gallery
+    - Previously, when users selected a photo from the gallery (instead of capturing with camera) and successfully logged nutrition, the camera session remained active, causing camera resource leaks
+    - Added stopCameraSession() call in FoodCameraView's onDisappear to ensure camera resources are properly released when navigating away from the camera screen
 
 ### 3.3.4
 UI SDK (2026.01.06)
