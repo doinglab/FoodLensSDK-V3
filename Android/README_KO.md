@@ -348,7 +348,7 @@ RecognitionResult 객체를 JSON 문자열로 변환할 수 있습니다.
 ```
 var json = recognitionResult.toJSONString()
 ```
-JSON 포냇은 [JSON Format](../JSON%20Format) 를 참고하세요
+JSON 포맷은 [JSON Format](../JSON%20Format) 를 참고하세요
 
 특정 영양소의 값이 존재하지 않으면 -1이 반환됩니다.
 
