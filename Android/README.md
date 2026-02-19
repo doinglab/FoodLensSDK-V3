@@ -353,6 +353,9 @@ You can convert RecognitionResult to JSON string.
 ```
 var json = recognitionResult.toJSONString()
 ```
+Please refer JSON format here [JSON Format](../JSON%20Format) 
+
+If some nutrient is not exist, -1 will be returned.
 
 ### 4.2 JSON string -> RecognitionResult
 You can convert JSON string to RecognitionResult.
