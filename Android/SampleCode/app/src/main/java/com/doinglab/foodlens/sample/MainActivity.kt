@@ -20,6 +20,7 @@ import com.doinglab.foodlens.sdk.core.model.result.RecognitionResult
 import com.doinglab.foodlens.sdk.core.type.*
 import com.doinglab.foodlens.sdk.ui.FoodLensUI
 import com.doinglab.foodlens.sdk.ui.UIServiceResultHandler
+import com.doinglab.foodlens.sdk.ui.config.FoodLensFeedbackConfig
 import com.doinglab.foodlens.sdk.ui.config.FoodLensSettingConfig
 import com.doinglab.foodlens.sdk.ui.config.FoodLensUiConfig
 
@@ -58,11 +59,41 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnRunUiCamera.setOnClickListener {
+            // 영양성분표 스캔 설정
+            val settingConfig = FoodLensSettingConfig()
+            settingConfig.isEnableNutritionFactsScan = binding.switchNutritionFacts.isChecked
+            foodLensUiService.setSettingConfig(settingConfig)
+
+            // 피드백(AI 한 끼 코칭) 설정 - startFoodLensCamera 호출 전에 설정
+            if (binding.switchFeedback.isChecked) {
+                foodLensUiService.setFeedbackConfig(FoodLensFeedbackConfig(
+                    sex = Sex.MALE,
+                    age = 30.0,
+                    height = 170.0,
+                    feedbackPurposeDetail = FeedbackPurposeDetail.KEEP,
+                    feedbackTone = emptyList(),              // 판정별 피드백 톤 설정 (빈 리스트면 서버 기본값 사용, 커스텀 시 GOOD/NORMAL/BAD 순서로 3개 설정)
+                    maxDailyCoachingCount = -1,              // 1일 최대 코칭 횟수 (-1: 무제한, 0: 비활성화, 양수: 해당 횟수 제한)
+                    maxRetryCount = -1,                      // 세션당 다시하기 횟수 (-1: 무제한, 0: 다시받기 불가, 양수: 해당 횟수 제한)
+                    dataEditMaxRetryCount = 0,               // dataEdit 모드 전용 다시하기 횟수 (null: maxRetryCount 따름, 0: 다시 받기 불가)
+                    showFullFeedback = false,                // 코칭 카드 피드백 전체 표시 여부 (false: 2줄 제한, true: 전체 표시)
+                    isShowRecipe = true                      // 코칭 카드/상세 화면에서 레시피(추천 음식) 표시 여부
+                ))
+            } else {
+                foodLensUiService.setFeedbackConfig(null)
+            }
+
             foodLensUiService.startFoodLensCamera(this, foodLensActivityResult, object :
                 UIServiceResultHandler {
                 override fun onSuccess(result: RecognitionResult?) {
                     result?.let {
                         setRecognitionResultData(result)
+
+                        // 피드백 결과 확인
+                        result.feedback?.let { feedback ->
+                            Log.d("foodLens", "피드백 요약: ${feedback.feedbackSummary}")
+                            Log.d("foodLens", "적합성: ${feedback.suitability?.result}")
+                            Log.d("foodLens", "다음 식사 추천: ${feedback.nextRecommend}")
+                        }
                     }
                 }
 
@@ -82,21 +113,27 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             recognitionResult?.let {
-                foodLensUiService.startFoodLensDataEdit(this, foodLensActivityResult, it, object : UIServiceResultHandler {
-                    override fun onSuccess(result: RecognitionResult?) {
-                        result?.let {
-                            setRecognitionResultData(result)
+                foodLensUiService.startFoodLensDataEdit(
+                    activity = this,
+                    activityResult = foodLensActivityResult,
+                    recognitionResult = it,
+                    handler = object : UIServiceResultHandler {
+                        override fun onSuccess(result: RecognitionResult?) {
+                            result?.let {
+                                setRecognitionResultData(result)
+                            }
                         }
-                    }
-                    override fun onError(errorReason: BaseError?) {
-                        Toast.makeText(this@MainActivity, errorReason?.getMessage(), Toast.LENGTH_SHORT).show()
-                        Log.d("foodLens", "foodLensEditResult onError ${errorReason?.getMessage()}")
-                    }
+                        override fun onError(errorReason: BaseError?) {
+                            Toast.makeText(this@MainActivity, errorReason?.getMessage(), Toast.LENGTH_SHORT).show()
+                            Log.d("foodLens", "foodLensEditResult onError ${errorReason?.getMessage()}")
+                        }
 
-                    override fun onCancel() {
-                        Log.d("foodLens", "foodLensEditResult cancel")
-                    }
-                })
+                        override fun onCancel() {
+                            Log.d("foodLens", "foodLensEditResult cancel")
+                        }
+                    },
+                    isAutoRefreshFeedback = false  // true: 피드백 없으면 자동 재호출, 음식 수정 시 다시 받기 스낵바 표시
+                )
             }
         }
 

@@ -3,10 +3,18 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localProperties.load(new FileInputStream(localPropertiesFile))
+}
+
 android {
     compileSdk 34
 
     defaultConfig {
+        resValue "string", "foodlens_app_token", localProperties.getProperty("FOODLENS_APP_TOKEN", "")
+        resValue "string", "foodlens_company_token", localProperties.getProperty("FOODLENS_COMPANY_TOKEN", "")
         applicationId "com.doinglab.foodlens.sample"
         minSdk 26
         targetSdk 34
@@ -43,9 +51,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.9.0'
 
     //Using Core SDK only
-    implementation "com.doinglab.foodlens:FoodLensSDK-core:3.0.9"
+    implementation "com.doinglab.foodlens:FoodLensSDK-core:3.4.0"
     //Using UI SDK together
-    implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.1.0"
+    implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.4.0"
 
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
