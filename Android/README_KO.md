@@ -330,6 +330,9 @@ foodLensUiService.setSettingConfig(settingConfig)
 | ------ | ---------- | ------ |
 | <img src="https://github.com/user-attachments/assets/e6118485-4bc6-40ad-afd9-107c3889488d" width="300"/> | <img src="https://github.com/user-attachments/assets/6f52a00d-0e74-4be0-bb6f-3f692d2d1bc9" width="300"/> | <img src="https://github.com/user-attachments/assets/4db3f466-3ab3-47a6-9534-fa19aaca208d" width="300"/> |
 
+### 3.6 AI 한 끼 코칭 (Feedback) 설정
+- AI 기반 식사 피드백 기능의 설정 방법은 [Feedback 설정 가이드](Feedback_guide_KO.md)를 참고하세요.
+
 #### 3.5.3 식사 타입 자동 설정
 사용자가 MealType을 이용하여 식사타입 설정을 직접 하지 않은 경우, 음식 식사 타입은 기준 시간을 기준으로 자동설정됨
 ```
