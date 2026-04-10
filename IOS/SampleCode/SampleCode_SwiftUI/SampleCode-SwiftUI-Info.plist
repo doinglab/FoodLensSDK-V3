@@ -6,5 +6,7 @@
 	<string>App Token</string>
 	<key>FoodLensCompanyToken</key>
 	<string>Company Token</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

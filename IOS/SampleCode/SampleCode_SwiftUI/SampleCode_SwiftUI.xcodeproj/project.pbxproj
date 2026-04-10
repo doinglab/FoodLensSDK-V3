@@ -406,7 +406,7 @@
 			repositoryURL = "https://bitbucket.org/doing-lab/ios_foodlensuisdk.git";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 3.1.0;
+				minimumVersion = 3.4.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

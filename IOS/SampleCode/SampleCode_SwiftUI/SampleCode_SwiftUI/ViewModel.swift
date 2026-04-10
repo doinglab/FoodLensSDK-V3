@@ -18,6 +18,8 @@ final class ViewModel: ObservableObject {
     @Published var predictedFoodImage: UIImage = UIImage()
     
     @Published var isLoading: Bool = false
+    @Published var isEnableNutritionFactsScan: Bool = false
+    @Published var isEnableFeedback: Bool = false
     
     func predict(image: UIImage) async {
         let foodlensCoreService = FoodLensCoreService(type: .caloai)

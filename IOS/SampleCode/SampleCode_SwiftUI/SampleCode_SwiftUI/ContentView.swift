@@ -12,7 +12,57 @@ import FoodLensCore
 struct ContentView: View {
     @Environment(\.viewController) var viewControllerHolder
     @ObservedObject var viewModel: ViewModel
-    
+
+    private func startFoodLensCamera() {
+        let foodlensUIService = FoodLensUIService(type: .caloai)
+
+        var options: FoodLensSettingConfig = .init()
+        options.isEnableCameraOrientation = true    // 카메라 회전 기능 지원 여부 (defalut : true)
+        options.isShowPhotoGalleryIcon = true       // 카메라 화면에서 갤러리 버튼 활성화 여부 (defalut : true)
+        options.isShowManualInputIcon = true        // 카메라 화면에서 검색 버튼 활성화 여부 (defalut : true)
+        options.isShowHelpIcon = true               // 카메라 화면에서 help 아이콘 활성화 여부 (defalut : true)
+        options.isSaveToGallery = true              // 촬영한 이미지 갤러리 저장 여부 (defalut : false)
+        options.isUseEatDatePopup = true            // 갤러리에서 이미지 불러올 때 촬영 일자 사용여부 (ture일 경우 선택 팝업 표시)
+        options.imageResizingType = .normal         // //이미지 리사이즈 방식 옵션, SPEED(속도우선), NORMAL, QUALITY(결과 품질 우선) (defalut : NORMAL)
+        options.language = .ko                      // 제동되는 음식 정보 언어 설정 (음식정보 외에 UI에 표시되는 텍스트의 언어는 기기에 설정된 언어로 표시) (defalut : device)
+        options.eatDate = Date()                    // 식시 시간 설정(default: 현재 시간, isUseEatDatePopup == true 시 팝업에서 입력 받은 시간으로 설정)
+        options.mealType = .lunch                   // 식사 타입 설정(default: 시간에 맞는 식사 타입)
+        options.recommendedKcal = 2400              // 1일 권장 칼로리 (defalut : 2,000)
+        options.isEnableThousandSeparator = true    // 천단위 구분자 설정 여부 (defalut : false)
+        options.isEnableNutritionFactsScan = self.viewModel.isEnableNutritionFactsScan  // 영양성분표 스캔 기능 활성화 여부 (default : false)
+
+        var uiConfig: FoodLensUIConfig = .init()
+        uiConfig.mainColor = .blue
+        uiConfig.mainTextColor = .white
+
+
+        foodlensUIService.setSettingConfig(options)
+        foodlensUIService.setUIConfig(uiConfig)
+
+        // 피드백(AI 한 끼 코칭) 설정 - startFoodLensCamera 호출 전에 설정
+        if self.viewModel.isEnableFeedback {
+            foodlensUIService.setFeedbackConfig(FoodLensFeedbackConfig(
+                sex: .male,
+                age: 30,
+                height: 170,
+                feedbackPurposeDetail: .keep,
+                feedbackTone: [],                   // 판정별 피드백 톤 설정 (빈 배열이면 서버 기본값 사용, 커스텀 시 GOOD/NORMAL/BAD 순서로 3개 설정)
+                maxDailyCoachingCount: -1,          // 1일 최대 코칭 횟수 (-1: 무제한, 0: 비활성화, 양수: 해당 횟수 제한)
+                maxRetryCount: -1,                  // 세션당 다시하기 횟수 (-1: 무제한, 0: 다시받기 불가, 양수: 해당 횟수 제한)
+                dataEditMaxRetryCount: 0,           // dataEdit 모드 전용 다시하기 횟수 (nil: maxRetryCount 따름, 0: 다시 받기 불가)
+                showFullFeedback: false,            // 코칭 카드 피드백 전체 표시 여부 (false: 2줄 제한, true: 전체 표시)
+                isShowRecipe: true                  // 코칭 카드/상세 화면에서 레시피(추천 음식) 표시 여부
+            ))
+        } else {
+            foodlensUIService.setFeedbackConfig(nil)
+        }
+
+        foodlensUIService.startFoodLensCamera(
+            parent: self.viewControllerHolder,
+            completionHandler: self.viewModel
+        )
+    }
+
     var body: some View {
         ZStack {
             VStack(spacing: 40.0) {
@@ -25,32 +75,7 @@ struct ContentView: View {
                     .buttonStyle(FoodLensButtonStyle())
                     
                     Button("Start FoodLens camera") {
-                        let foodlensUIService = FoodLensUIService(type: .caloai)
-                        
-                        var options: FoodLensSettingConfig = .init()
-                        options.isEnableCameraOrientation = true    // 카메라 회전 기능 지원 여부 (defalut : true)
-                        options.isShowPhotoGalleryIcon = true       // 카메라 화면에서 갤러리 버튼 활성화 여부 (defalut : true)
-                        options.isShowManualInputIcon = true        // 카메라 화면에서 검색 버튼 활성화 여부 (defalut : true)
-                        options.isShowHelpIcon = true               // 카메라 화면에서 help 아이콘 활성화 여부 (defalut : true)
-                        options.isSaveToGallery = true              // 촬영한 이미지 갤러리 저장 여부 (defalut : false)
-                        options.isUseEatDatePopup = true            // 갤러리에서 이미지 불러올 때 촬영 일자 사용여부 (ture일 경우 선택 팝업 표시)
-                        options.imageResizingType = .normal         // //이미지 리사이즈 방식 옵션, SPEED(속도우선), NORMAL, QUALITY(결과 품질 우선) (defalut : NORMAL)
-                        options.language = .ko                      // 제동되는 음식 정보 언어 설정 (음식정보 외에 UI에 표시되는 텍스트의 언어는 기기에 설정된 언어로 표시) (defalut : device)
-                        options.eatDate = Date()                    // 식시 시간 설정(default: 현재 시간, isUseEatDatePopup == true 시 팝업에서 입력 받은 시간으로 설정)
-                        options.mealType = .lunch                   // 식사 타입 설정(default: 시간에 맞는 식사 타입)
-                        options.recommendedKcal = 2400              // 1일 권장 칼로리 (defalut : 2,000)
-                        options.isEnableThousandSeparator = true    // 천단위 구분자 설정 여부 (defalut : false)
-                        
-                        var uiConfig: FoodLensUIConfig = .init()
-                        uiConfig.mainColor = .blue
-                        uiConfig.mainTextColor = .white
-                        
-                        foodlensUIService.setSettingConfig(options)
-                        foodlensUIService.setUIConfig(uiConfig)
-                        foodlensUIService.startFoodLensCamera(
-                            parent: self.viewControllerHolder,
-                            completionHandler: self.viewModel
-                        )
+                        startFoodLensCamera()
                     }
                     .buttonStyle(FoodLensButtonStyle())
                     
@@ -60,13 +85,21 @@ struct ContentView: View {
                         foodlensUIService.startFoodLensDataEdit(
                             recognitionResult: self.viewModel.result,
                             parent: self.viewControllerHolder,
-                            completionHandler: self.viewModel
+                            completionHandler: self.viewModel,
+                            isAutoRefreshFeedback: false  // true: 피드백 없으면 자동 재호출, 음식 수정 시 다시 받기 스낵바 표시
                         )
                     }
                     .buttonStyle(FoodLensButtonStyle())
                 }
                 .padding(.horizontal)
-                
+
+                // 설정 옵션
+                VStack(spacing: 8.0) {
+                    Toggle("Nutrition Facts Scan", isOn: self.$viewModel.isEnableNutritionFactsScan)
+                    Toggle("AI Feedback (한 끼 코칭)", isOn: self.$viewModel.isEnableFeedback)
+                }
+                .padding(.horizontal)
+
                 ResultView(fullImage: self.viewModel.predictedFoodImage, foods: self.viewModel.result.foods)
                 
                 Spacer()
