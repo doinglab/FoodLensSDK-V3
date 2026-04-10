@@ -1,10 +1,20 @@
 # Android FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.3.3
-### UI SDK: 3.3.6
+### Core SDK: 3.4.0
+### UI SDK: 3.4.0
 
 <br/>
+
+## 3.4.0
+Core SDK (2026.04.10)
+1. Added AI Meal Coaching (Feedback) model
+
+UI SDK (2026.04.10)
+1. Added AI Meal Coaching (Feedback) feature
+    - Provides AI feedback coaching card based on meal record analysis
+    - Displays feedback summary, suitability rating (GOOD/NORMAL/BAD), and recipe recommendations
+    - Coaching detail screen (detailed feedback sections, nutrient ratio, recommended food tip box)
 
 ## 3.3.6
 UI SDK (2026.02.10)                                                                             
