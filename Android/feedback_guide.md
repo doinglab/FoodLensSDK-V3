@@ -14,13 +14,16 @@ foodLensUiService.setFeedbackConfig(FoodLensFeedbackConfig(
     sex = Sex.MALE
 ))
 
-// 피드백 활성화 (사용자 정보 포함)
+// 피드백 활성화 (사용자 정보 포함 + 권장 칼로리 설정)
 foodLensUiService.setFeedbackConfig(FoodLensFeedbackConfig(
     sex = Sex.MALE,
     age = 30.0,
     height = 170.0,
     feedbackPurposeDetail = FeedbackPurposeDetail.KEEP
 ))
+foodLensUiService.setSettingConfig(FoodLensSettingConfig().apply {
+    recommendedKcal = 2200f  // 미설정 시 기본값 2000
+})
 
 // 피드백 비활성화
 foodLensUiService.setFeedbackConfig(null)
@@ -39,13 +42,7 @@ foodLensUiService.setFeedbackConfig(null)
 | `height` | `Double?` | `null` | 키 (cm) |
 | `feedbackPurposeDetail` | `FeedbackPurposeDetail` | `KEEP` | 목적 상세 (`KEEP`: 유지, `LOSE`: 감량, `GAIN`: 증량) |
 
-> **일일 권장 칼로리(`recommendCalorie`)는 `FoodLensFeedbackConfig`가 아닌 `FoodLensSettingConfig.recommendedKcal`로 설정합니다.** 피드백 요청 시 이 값이 자동으로 `recommendCalorie` 파라미터에 사용되며, 미설정 시 기본값 `2000`이 적용됩니다.
->
-> ```kotlin
-> foodLensUiService.setSettingConfig(FoodLensSettingConfig(
->     recommendedKcal = 2200f
-> ))
-> ```
+> **⚠️ 일일 권장 칼로리(`recommendedKcal`)는 피드백 품질에 직접 영향을 미치므로 반드시 설정해야 합니다.** `FoodLensFeedbackConfig`가 아닌 `FoodLensSettingConfig.recommendedKcal`로 설정하며, 피드백 요청 시 이 값이 자동으로 `recommendCalorie` 파라미터에 사용됩니다. 미설정 시 기본값 `2000`이 적용되지만, 사용자별 정확한 피드백을 위해 실제 권장 칼로리를 입력하는 것을 권장합니다.
 
 ### 피드백 생성 옵션
 
