@@ -332,6 +332,9 @@ public func onSuccess(_ result: RecognitionResultHandler) {
     print(jsonString)
 }
 ```
+Please refer JSON format here [JSON Format](../JSON%20Format) 
+
+If some nutrient is not exist, -1 will be returned.
 
 ### 4.2 JSON string -> RecognitionResult
 You can conver to JSON string to RecognitionResult object.

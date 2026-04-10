@@ -1,15 +1,50 @@
 # Android FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.3.0
-### UI SDK: 3.3.2
+### Core SDK: 3.3.3
+### UI SDK: 3.3.6
 
 <br/>
 
-### 3.3.2
+## 3.3.6
+UI SDK (2026.02.10)                                                                             
+1. Applied dynamic color settings to nutrition scan button                                      
+2. Fixed multiple Crashlytics crashes                                                           
+    - Added SafeLinearLayoutManager to prevent RecyclerView crashes                               
+    - Fixed NaN value handling in Float.toPercentString()
+    - Fixed IndexOutOfBoundsException when accessing empty list in FoodLensEditViewModel
+3. Fixed camera flash button and food tag click bugs
+4. Improved food tag clarity by switching to overlay view rendering
+5. Fixed SDK crashes caused by ProGuard obfuscation
+    - Added ProGuard rules for DateSerializer and Serializable classes
+    - Added SerializedName annotations to RecentSearch for stable JSON parsing
+6. Fixed data binding errors and resolved lint warnings
+7. Fixed crop failure when crop coordinates exceed image bounds
+
+## 3.3.5
+UI SDK (2026.01.06)
+1. Enable automatic image saving for food recognition
+2. Fixed API type not being passed correctly between screens
+    - Fixed an issue where FoodLensType (FoodLens/CaloAI) was not properly passed when navigating from Info/Edit screens to Search screen
+    - This caused the Search API to incorrectly call CaloAI instead of FoodLens in certain navigation paths
+3. Fixed keyboard not appearing on Search screen
+    - Keyboard now automatically appears when entering the Search screen via "Change Food" button
+
+## 3.3.3
+Core SDK (2026.02.10)
+1. Added ProGuard rules to prevent crashes from obfuscation
+    - Added protection rules for DateSerializer and Serializable classes
+2. Fixed crop failure when crop coordinates exceed image bounds
+
+## 3.3.2
 UI SDK (2025.12.04)
 1.	Added an option to show or hide DietNotes using isShowMealMemo (default: true)
 2.	Minor bug fixes
+
+Core SDK (2025.12.23)
+1. V2 API Response Format Support
+    - Added toV2JSONString() method to convert V3 recognition results to V2 format
+    - Added legacy type compatibility (MealTypeLegacy, RecognitionLegacyResult)
 
 ## 3.3.1
 UI SDK (2025.11.13) (Compatible : Core SDK 3.3.0)

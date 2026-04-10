@@ -1,12 +1,54 @@
 # iOS FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.3.0
-### UI SDK: 3.3.1
+### Core SDK: 3.3.3
+### UI SDK: 3.3.6
 
 <br/>
 
 ## Version history
+
+### 3.3.6                                                                                                                                                                                                             
+UI SDK (2026.02.10)                                                                                       
+1. Added screen_view logging when switching from camera to gallery
+    - Tracks user navigation from camera screen to gallery picker for better analytics                      
+2. Added nutrition label scanning related logs
+    - Improved analytics tracking for nutrition label scan feature usage
+3. Applied mainColor from uiConfig to nutrition label button
+    - Nutrition label button now respects the mainColor setting configured in uiConfig for consistent theming
+4. Fixed counts displaying empty string instead of default unit
+    - When counts value is empty, now properly displays default unit (serving/servings) instead of blank ext
+5. Fixed camera/gallery screenView logging issues
+    - Corrected screen view event tracking for camera and gallery screens
+
+### 3.3.5
+UI SDK (2026.01.09)
+1. Fixed camera resource not being released when logging nutrition after selecting photo from gallery
+    - Previously, when users selected a photo from the gallery (instead of capturing with camera) and successfully logged nutrition, the camera session remained active, causing camera resource leaks
+    - Added stopCameraSession() call in FoodCameraView's onDisappear to ensure camera resources are properly released when navigating away from the camera screen
+
+### 3.3.4
+UI SDK (2026.01.06)
+1. Improved image loading via imagePath when position is not available
+    - Support saving images with full file:// path
+    - DataEdit mode can now load food images using imagePath without position
+  
+### 3.3.3
+Core SDK (2026.02.10)                                                                                   
+1. Fixed FoodLensType dynamic selection not being applied in Closure/Combine APIs                         
+    - Previously, FoodLensType was only dynamically selected in async/await APIs                            
+    - Now properly applies dynamic FoodLensType selection across all API styles (Closure, Combine, async/await)  
+
+### 3.3.2
+UI SDK (2025.12.23)
+1. Enable image file saving by default during food recognition
+    - Added FoodLensCoreService.setSaveImageToFile(true) configuration
+    - Images used for recognition are now automatically saved to local storage
+
+Core SDK (2025.12.23)
+1. V2 API Response Format Support
+    - Added toV2JSONString() method to convert V3 recognition results to V2 format
+    - Added legacy type compatibility (MealTypeLegacy, RecognitionLegacyResult)
 
 ### 3.3.1
 UI SDK (2025.12.04)
