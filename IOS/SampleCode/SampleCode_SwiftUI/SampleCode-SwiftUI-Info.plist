@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>FoodLensAppToken</key>
-	<string>App Token</string>
+	<string>$(FOODLENS_APP_TOKEN)</string>
 	<key>FoodLensCompanyToken</key>
-	<string>Company Token</string>
+	<string>$(FOODLENS_COMPANY_TOKEN)</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 </dict>

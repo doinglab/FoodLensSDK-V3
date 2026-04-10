@@ -20,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25A000002CA0000000000001 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = SOURCE_ROOT; };
 		252C037D2BE0605C0026479B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		252C037F2BE060CD0026479B /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		2538426B2BDF8DE600AF1702 /* SampleCode_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleCode_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +51,7 @@
 		253842622BDF8DE600AF1702 = {
 			isa = PBXGroup;
 			children = (
+				25A000002CA0000000000001 /* Secrets.xcconfig */,
 				2538426D2BDF8DE600AF1702 /* SampleCode_SwiftUI */,
 				2538426C2BDF8DE600AF1702 /* Products */,
 			);
@@ -313,6 +315,7 @@
 		};
 		2538427A2BDF8DE800AF1702 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25A000002CA0000000000001 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -346,6 +349,7 @@
 		};
 		2538427B2BDF8DE800AF1702 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25A000002CA0000000000001 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
