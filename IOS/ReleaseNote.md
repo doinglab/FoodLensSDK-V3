@@ -2,22 +2,22 @@
 
 ## Latest versions
 ### Core SDK: 3.4.1
-### UI SDK: 3.4.1
+### UI SDK: 3.4.2
 
 <br/>
 
 ## Version history
-
-### 3.4.1
-Core SDK (2026.04.16)
-1. Made FeedbackOptionRequest fields optional (sex, recommendCalorie, feedbackPurposeDetail, eatTime, eatType, feedbackTone)
-
+### 3.4.2
 UI SDK (2026.04.16)
 1. Added `isEnabledFeedback` option to `FoodLensSettingConfig` (default: true)
     - Controls the overall activation of the AI Meal Coaching (Feedback) feature
     - When `false`, the coaching card/feedback UI is not displayed regardless of whether `setFeedbackConfig()` is called
 2. Made `FoodLensFeedbackConfig` fields optional (sex, feedbackPurposeDetail, feedbackTone)
     - `FoodLensFeedbackConfig` can now be created without any arguments
+
+### 3.4.1
+Core SDK (2026.04.16)
+1. Made FeedbackOptionRequest fields optional (sex, recommendCalorie, feedbackPurposeDetail, eatTime, eatType, feedbackTone)
 
 ### 3.4.0
 Core SDK (2026.04.10)
