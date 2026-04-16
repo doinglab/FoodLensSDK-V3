@@ -1,10 +1,25 @@
 # Android FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.4.0
-### UI SDK: 3.4.0
+### Core SDK: 3.4.1
+### UI SDK: 3.4.1
 
 <br/>
+
+## 3.4.1
+Core SDK (2026.04.16)
+1. Made FeedbackOption fields optional (sex, recommendCalorie, feedbackPurposeDetail, eatTime, eatType, feedbackTone)
+2. Refactored FeedbackOption fields to type-safe enums
+    - feedbackMode: String → FeedbackMode
+    - sex / feedbackPurpose / feedbackPurposeDetail / eatType: String → enum types
+    - eatTime: String → Date (with EatTimeSerializer)
+
+UI SDK (2026.04.16)
+1. Added `isEnabledFeedback` option to `FoodLensSettingConfig` (default: true)
+    - Controls the overall activation of the AI Meal Coaching (Feedback) feature
+    - When `false`, the coaching card/feedback UI is not displayed regardless of whether `setFeedbackConfig()` is called
+2. Made `FoodLensFeedbackConfig` fields optional (sex, feedbackPurposeDetail, feedbackTone)
+    - `FoodLensFeedbackConfig` can now be created without any arguments
 
 ## 3.4.0
 Core SDK (2026.04.10)

@@ -9,40 +9,49 @@ FoodLens SDK의 AI 한 끼 코칭 기능은 사용자의 식사 기록을 분석
 ```kotlin
 val foodLensUiService: FoodLensUIService = ...
 
-// 피드백 활성화 (최소 설정 - sex만 필수)
+// 피드백 활성화 (권장 설정)
 foodLensUiService.setFeedbackConfig(FoodLensFeedbackConfig(
     sex = Sex.MALE
 ))
+foodLensUiService.setSettingConfig(FoodLensSettingConfig().apply {
+    recommendedKcal = 2200f  // 미설정 시 기본값 2000
+})
 
-// 피드백 활성화 (사용자 정보 포함 + 권장 칼로리 설정)
+// 피드백 활성화 (사용자 정보 포함)
 foodLensUiService.setFeedbackConfig(FoodLensFeedbackConfig(
     sex = Sex.MALE,
     age = 30.0,
     height = 170.0,
     feedbackPurposeDetail = FeedbackPurposeDetail.KEEP
 ))
-foodLensUiService.setSettingConfig(FoodLensSettingConfig().apply {
-    recommendedKcal = 2200f  // 미설정 시 기본값 2000
-})
 
 // 피드백 비활성화
-foodLensUiService.setFeedbackConfig(null)
+foodLensUiService.setSettingConfig(FoodLensSettingConfig().apply {
+    isEnabledFeedback = false
+})
 ```
 
-> `setFeedbackConfig(null)`을 호출하거나 `setFeedbackConfig()`를 호출하지 않으면 코칭 카드가 표시되지 않습니다.
+> - `FoodLensFeedbackConfig`는 모든 필드가 옵셔널이므로 인자 없이 (`FoodLensFeedbackConfig()`) 생성할 수 있지만, 피드백 품질을 위해 `sex`와 `recommendedKcal`은 설정하는 것을 권장합니다.
+> - 피드백 활성/비활성 여부는 `FoodLensSettingConfig.isEnabledFeedback`(기본 `true`)로 제어합니다. `false`일 경우 `setFeedbackConfig()` 호출 여부와 관계없이 코칭 카드가 표시되지 않습니다.
 
 ## 설정 옵션
+
+### FoodLensSettingConfig (피드백 관련)
+
+| 옵션 | 타입 | 기본값 | 설명 |
+|---|---|---|---|
+| `isEnabledFeedback` | `Boolean` | `true` | 피드백 기능 전체 활성화 여부. `false`면 `setFeedbackConfig()` 호출 여부와 관계없이 코칭 카드/피드백 UI가 노출되지 않음 |
 
 ### 사용자 정보
 
 | 옵션 | 타입 | 기본값 | 설명 |
 |---|---|---|---|
-| `sex` | `Sex` | (필수) | 성별 (`MALE`, `FEMALE`) |
-| `age` | `Double?` | `null` | 나이 |
-| `height` | `Double?` | `null` | 키 (cm) |
-| `feedbackPurposeDetail` | `FeedbackPurposeDetail` | `KEEP` | 목적 상세 (`KEEP`: 유지, `LOSE`: 감량, `GAIN`: 증량) |
+| `sex` | `Sex?` | `null` | 성별 (`MALE`, `FEMALE`) |
+| `age` | `Double?` | `null` | 나이 (미입력 시 서버 기본값 사용) |
+| `height` | `Double?` | `null` | 키 (cm) (미입력 시 서버 기본값 사용) |
+| `feedbackPurposeDetail` | `FeedbackPurposeDetail?` | `null` | 목적 상세 (`KEEP`: 유지, `LOSE`: 감량, `GAIN`: 증량) |
 
-> **⚠️ 일일 권장 칼로리(`recommendedKcal`)는 피드백 품질에 직접 영향을 미치므로 반드시 설정해야 합니다.** `FoodLensFeedbackConfig`가 아닌 `FoodLensSettingConfig.recommendedKcal`로 설정하며, 피드백 요청 시 이 값이 자동으로 `recommendCalorie` 파라미터에 사용됩니다. 미설정 시 기본값 `2000`이 적용되지만, 사용자별 정확한 피드백을 위해 실제 권장 칼로리를 입력하는 것을 권장합니다.
+> **⚠️ `sex`와 일일 권장 칼로리(`recommendedKcal`)는 피드백 품질에 직접 영향을 미치므로 설정하는 것을 권장합니다.** `sex`는 `FoodLensFeedbackConfig`에서, `recommendedKcal`은 `FoodLensSettingConfig`에서 설정합니다. `recommendedKcal`은 피드백 요청 시 자동으로 `recommendCalorie` 파라미터에 사용되며, 미설정 시 기본값 `2000`이 적용됩니다.
 
 ### 피드백 생성 옵션
 
@@ -50,13 +59,13 @@ foodLensUiService.setFeedbackConfig(null)
 |---|---|---|---|
 | `generateFeedback` | `Boolean` | `true` | 피드백 생성 여부 |
 | `feedbackMode` | `FeedbackMode` | `ASYNC` | 피드백 모드 (`SYNC`, `ASYNC`) |
-| `feedbackTone` | `List<String>` | `emptyList()` | 피드백 톤 설정 (빈 값이면 서버 기본값 사용) |
+| `feedbackTone` | `List<String>?` | `null` | 판정별 피드백 톤 설정 (미설정 또는 빈 배열이면 서버 기본값 사용) |
 
 #### feedbackTone
 
 AI 코칭은 식사를 분석하여 **GOOD / NORMAL / BAD** 세 가지로 판정합니다. `feedbackTone`을 설정하면 각 판정에 맞는 피드백 톤을 커스텀할 수 있습니다.
 
-리스트의 각 인덱스가 판정 결과에 대응합니다.
+리스트 인덱스와 판정의 매핑은 다음과 같습니다.
 
 | 인덱스 | 판정 | 서버 기본 톤 |
 |---|---|---|
@@ -64,7 +73,7 @@ AI 코칭은 식사를 분석하여 **GOOD / NORMAL / BAD** 세 가지로 판정
 | `[1]` | NORMAL | 부드럽게 아쉬움 전달. 문제점을 지적하되 비난하지 않기 |
 | `[2]` | BAD | 걱정하는 톤으로 식사의 문제점을 상세히 알려주기. 비난 금지 |
 
-- 빈 리스트(`emptyList()`)를 전달하면 위 서버 기본 톤이 적용됩니다.
+- `null` 또는 빈 리스트(`emptyList()`)를 전달하면 위 서버 기본 톤이 적용됩니다.
 - 커스텀할 경우 반드시 3개 항목을 GOOD / NORMAL / BAD 순서대로 모두 설정해야 합니다.
 
 ```kotlin
@@ -85,9 +94,9 @@ foodLensUiService.setFeedbackConfig(FoodLensFeedbackConfig(
 |---|---|---|---|
 | `maxDailyCoachingCount` | `Int` | `-1` | 1일 최대 코칭 횟수 |
 | `maxRetryCount` | `Int` | `-1` | 세션(식사 기록)당 다시하기 횟수 |
-| `dataEditMaxRetryCount` | `Int?` | `0` | dataEdit 모드 전용 다시하기 횟수 (`null`: maxRetryCount 값을 따름) |
+| `dataEditMaxRetryCount` | `Int?` | `0` | dataEdit 모드 전용 다시하기 횟수 (`null` = `maxRetryCount` 따름, `0` = 다시 받기 불가) |
 | `showFullFeedback` | `Boolean` | `false` | 코칭 카드 피드백 전체 표시 여부 |
-| `isShowRecipe` | `Boolean` | `true` | 코칭 카드 레시피 추천 영역 표시 여부 |
+| `isShowRecipe` | `Boolean` | `true` | 코칭 카드/상세 화면에서 레시피(추천 음식) 표시 여부 |
 
 #### maxDailyCoachingCount / maxRetryCount 값 규칙
 
@@ -97,7 +106,7 @@ foodLensUiService.setFeedbackConfig(FoodLensFeedbackConfig(
 | `0` | 비활성화 (코칭 UI 미노출 / 다시받기 불가) |
 | 양수 | 해당 횟수만큼 제한 |
 
-> `maxDailyCoachingCount`가 `0`이면 `setFeedbackConfig(null)`과 동일하게 코칭 카드 자체가 표시되지 않습니다.
+> `maxDailyCoachingCount`가 `0`이면 `isEnabledFeedback = false`와 동일하게 코칭 카드 자체가 표시되지 않습니다.
 
 #### dataEditMaxRetryCount 값 규칙
 
@@ -145,7 +154,6 @@ foodLensUiService.startFoodLensDataEdit(
 )
 ```
 
-
 ## 콜백에서 피드백 결과 받기
 
 SDK 완료 콜백(`UIServiceResultHandler`)에서 `RecognitionResult.feedback`으로 피드백 결과를 받을 수 있습니다.
@@ -182,7 +190,7 @@ foodLensUiService.startFoodLensCamera(activity, activityResultLauncher,
 | `nextRecommendReason` | `String?` | 추천 이유 설명 |
 | `suitability` | `FeedbackSuitability?` | 적합성 평가 (`result`: GOOD/NORMAL/BAD, `type`: 표시 텍스트) |
 | `foodFeedback` | `List<String>?` | 개별 음식별 피드백 (현재 미지원, 빈 배열로 전달되며 추후 지원 예정) |
-| `progressState` | `String?` | 피드백 진행 상태 (progress/finish/error) |
+| `progressState` | `String?` | 피드백 진행 상태 (`progress` / `finish` / `error`) |
 | `readIndex` | `Int?` | 비동기 스트리밍 읽기 인덱스 |
 
 ## 주의사항

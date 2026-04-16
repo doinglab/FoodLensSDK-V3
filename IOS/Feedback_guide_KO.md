@@ -9,40 +9,49 @@ FoodLens SDK의 AI 한 끼 코칭 기능은 사용자의 식사 기록을 분석
 ```swift
 let uiService = FoodLensUIService(type: .foodlens)
 
-// 피드백 활성화 (최소 설정)
+// 피드백 활성화 (권장 설정)
 uiService.setFeedbackConfig(FoodLensFeedbackConfig(
     sex: .male
 ))
+var settingConfig = FoodLensSettingConfig()
+settingConfig.recommendedKcal = 2200  // 미설정 시 기본값 2000
+uiService.setSettingConfig(settingConfig)
 
-// 피드백 활성화 (사용자 정보 포함 + 권장 칼로리 설정)
+// 피드백 활성화 (사용자 정보 포함)
 uiService.setFeedbackConfig(FoodLensFeedbackConfig(
     sex: .male,
     age: 30,
     height: 170,
     feedbackPurposeDetail: .keep
 ))
-var settingConfig = FoodLensSettingConfig()
-settingConfig.recommendedKcal = 2200  // 미설정 시 기본값 2000
-uiService.setSettingConfig(settingConfig)
 
 // 피드백 비활성화
-uiService.setFeedbackConfig(nil)
+var settingConfig = FoodLensSettingConfig()
+settingConfig.isEnabledFeedback = false
+uiService.setSettingConfig(settingConfig)
 ```
 
-> `setFeedbackConfig(nil)`을 호출하거나 `setFeedbackConfig()`를 호출하지 않으면 코칭 카드가 표시되지 않습니다.
+> - `FoodLensFeedbackConfig`는 모든 필드가 옵셔널이므로 인자 없이 (`FoodLensFeedbackConfig()`) 생성할 수 있지만, 피드백 품질을 위해 `sex`와 `recommendedKcal`은 설정하는 것을 권장합니다.
+> - 피드백 활성/비활성 여부는 `FoodLensSettingConfig.isEnabledFeedback`(기본 `true`)로 제어합니다. `false`일 경우 `setFeedbackConfig()` 호출 여부와 관계없이 코칭 카드가 표시되지 않습니다.
 
 ## 설정 옵션
+
+### FoodLensSettingConfig (피드백 관련)
+
+| 옵션 | 타입 | 기본값 | 설명 |
+|---|---|---|---|
+| `isEnabledFeedback` | `Bool` | `true` | 피드백 기능 전체 활성화 여부. `false`면 `setFeedbackConfig()` 호출 여부와 관계없이 코칭 카드/피드백 UI가 노출되지 않음 |
 
 ### 사용자 정보
 
 | 옵션 | 타입 | 기본값 | 설명 |
 |---|---|---|---|
-| `sex` | `Sex` | (필수) | 성별 (`.male`, `.female`) |
+| `sex` | `Sex?` | `nil` | 성별 (`.male`, `.female`) |
 | `age` | `Double?` | `nil` | 나이 (미입력 시 서버 기본값 사용) |
 | `height` | `Double?` | `nil` | 키 (cm) (미입력 시 서버 기본값 사용) |
-| `feedbackPurposeDetail` | `FeedbackPurposeDetail` | `.keep` | 목적 상세 (`.keep`: 유지, `.lose`: 감량, `.gain`: 증량) |
+| `feedbackPurposeDetail` | `FeedbackPurposeDetail?` | `nil` | 목적 상세 (`.keep`: 유지, `.lose`: 감량, `.gain`: 증량) |
 
-> **⚠️ 일일 권장 칼로리(`recommendedKcal`)는 피드백 품질에 직접 영향을 미치므로 반드시 설정해야 합니다.** `FoodLensFeedbackConfig`가 아닌 `FoodLensSettingConfig.recommendedKcal`로 설정하며, 피드백 요청 시 이 값이 자동으로 `recommendCalorie` 파라미터에 사용됩니다. 미설정 시 기본값 `2000`이 적용되지만, 사용자별 정확한 피드백을 위해 실제 권장 칼로리를 입력하는 것을 권장합니다.
+> **⚠️ `sex`와 일일 권장 칼로리(`recommendedKcal`)는 피드백 품질에 직접 영향을 미치므로 설정하는 것을 권장합니다.** `sex`는 `FoodLensFeedbackConfig`에서, `recommendedKcal`은 `FoodLensSettingConfig`에서 설정합니다. `recommendedKcal`은 피드백 요청 시 자동으로 `recommendCalorie` 파라미터에 사용되며, 미설정 시 기본값 `2000`이 적용됩니다.
 
 ### 피드백 생성 옵션
 
@@ -50,7 +59,7 @@ uiService.setFeedbackConfig(nil)
 |---|---|---|---|
 | `generateFeedback` | `Bool` | `true` | 피드백 생성 여부 |
 | `feedbackMode` | `FeedbackMode` | `.async` | 피드백 모드 (`.sync`, `.async`) |
-| `feedbackTone` | `[String]` | `[]` | 판정별 피드백 톤 설정 (빈 값이면 서버 기본값 사용) |
+| `feedbackTone` | `[String]?` | `nil` | 판정별 피드백 톤 설정 (미설정 또는 빈 배열이면 서버 기본값 사용) |
 
 #### feedbackTone
 
@@ -64,7 +73,7 @@ AI 코칭은 식사를 분석하여 **GOOD / NORMAL / BAD** 세 가지로 판정
 | `[1]` | NORMAL | 부드럽게 아쉬움 전달. 문제점을 지적하되 비난하지 않기 |
 | `[2]` | BAD | 걱정하는 톤으로 식사의 문제점을 상세히 알려주기. 비난 금지 |
 
-- 빈 배열(`[]`)을 전달하면 위 서버 기본 톤이 적용됩니다.
+- `nil` 또는 빈 배열(`[]`)을 전달하면 위 서버 기본 톤이 적용됩니다.
 - 커스텀할 경우 반드시 3개 항목을 GOOD / NORMAL / BAD 순서대로 모두 설정해야 합니다.
 
 ```swift

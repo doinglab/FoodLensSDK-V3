@@ -9,40 +9,49 @@ The AI Meal Coaching feature of the FoodLens SDK analyzes user meal records and 
 ```swift
 let uiService = FoodLensUIService(type: .foodlens)
 
-// Enable feedback (minimum configuration)
+// Enable feedback (recommended configuration)
 uiService.setFeedbackConfig(FoodLensFeedbackConfig(
     sex: .male
 ))
+var settingConfig = FoodLensSettingConfig()
+settingConfig.recommendedKcal = 2200  // Default: 2000
+uiService.setSettingConfig(settingConfig)
 
-// Enable feedback (with user info + recommended calorie)
+// Enable feedback (with user info)
 uiService.setFeedbackConfig(FoodLensFeedbackConfig(
     sex: .male,
     age: 30,
     height: 170,
     feedbackPurposeDetail: .keep
 ))
-var settingConfig = FoodLensSettingConfig()
-settingConfig.recommendedKcal = 2200  // Default: 2000
-uiService.setSettingConfig(settingConfig)
 
 // Disable feedback
-uiService.setFeedbackConfig(nil)
+var settingConfig = FoodLensSettingConfig()
+settingConfig.isEnabledFeedback = false
+uiService.setSettingConfig(settingConfig)
 ```
 
-> If you call `setFeedbackConfig(nil)` or do not call `setFeedbackConfig()`, the coaching card will not be displayed.
+> - All fields of `FoodLensFeedbackConfig` are optional, so you can create it without any arguments (`FoodLensFeedbackConfig()`). However, for better feedback quality, it is recommended to set `sex` and `recommendedKcal`.
+> - Feedback activation is controlled by `FoodLensSettingConfig.isEnabledFeedback` (default `true`). When `false`, the coaching card is not displayed regardless of whether `setFeedbackConfig()` is called.
 
 ## Configuration Options
+
+### FoodLensSettingConfig (Feedback-related)
+
+| Option | Type | Default | Description |
+|---|---|---|---|
+| `isEnabledFeedback` | `Bool` | `true` | Whether the feedback feature is enabled. When `false`, the coaching card/feedback UI is not displayed regardless of whether `setFeedbackConfig()` is called |
 
 ### User Information
 
 | Option | Type | Default | Description |
 |---|---|---|---|
-| `sex` | `Sex` | (required) | Gender (`.male`, `.female`) |
+| `sex` | `Sex?` | `nil` | Gender (`.male`, `.female`) |
 | `age` | `Double?` | `nil` | Age (server default if not set) |
 | `height` | `Double?` | `nil` | Height in cm (server default if not set) |
-| `feedbackPurposeDetail` | `FeedbackPurposeDetail` | `.keep` | Goal detail (`.keep`: maintain, `.lose`: lose weight, `.gain`: gain weight) |
+| `feedbackPurposeDetail` | `FeedbackPurposeDetail?` | `nil` | Goal detail (`.keep`: maintain, `.lose`: lose weight, `.gain`: gain weight) |
 
-> **⚠️ Daily recommended calories (`recommendedKcal`) directly affects feedback quality and must be configured.** Set it via `FoodLensSettingConfig.recommendedKcal`, not `FoodLensFeedbackConfig`. This value is automatically used as the `recommendCalorie` parameter in feedback requests. The default is `2000`, but it is strongly recommended to set the actual recommended calories for accurate personalized feedback.
+> **⚠️ `sex` and daily recommended calories (`recommendedKcal`) directly affect feedback quality and are recommended to be configured.** `sex` is set via `FoodLensFeedbackConfig`, and `recommendedKcal` is set via `FoodLensSettingConfig`. `recommendedKcal` is automatically used as the `recommendCalorie` parameter in feedback requests, and defaults to `2000` if not set.
 
 ### Feedback Generation Options
 
@@ -50,7 +59,7 @@ uiService.setFeedbackConfig(nil)
 |---|---|---|---|
 | `generateFeedback` | `Bool` | `true` | Whether to generate feedback |
 | `feedbackMode` | `FeedbackMode` | `.async` | Feedback mode (`.sync`, `.async`) |
-| `feedbackTone` | `[String]` | `[]` | Feedback tone per rating (server default if empty) |
+| `feedbackTone` | `[String]?` | `nil` | Feedback tone per rating (server default if `nil` or empty) |
 
 #### feedbackTone
 
@@ -64,7 +73,7 @@ The array index maps to the rating as follows:
 | `[1]` | NORMAL | Gently convey areas for improvement, point out issues without blame |
 | `[2]` | BAD | Express concern and explain meal issues in detail, no criticism |
 
-- Passing an empty array (`[]`) applies the server default tones above.
+- Passing `nil` or an empty array (`[]`) applies the server default tones above.
 - When customizing, you must provide all 3 items in GOOD / NORMAL / BAD order.
 
 ```swift

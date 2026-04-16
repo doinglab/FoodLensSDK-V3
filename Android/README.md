@@ -325,6 +325,7 @@ settingConfig.nutrientSummaryDisplayOption = .hidden 		// Nutrient display optio
 settingConfig.isGenerateCaloAiCandidate = false        		// Whether to include candidates in the API response when using CaloAI (default: false)
 settingConfig.isEnableNutritionFactsScan: Bool = false		// Enables the Nutrition Facts label scanning feature (default: false)
 settingConfig.isShowMealMemo: Bool = true					// Enables the DietNotes feature (default: true)
+settingConfig.isEnabledFeedback = true						// Enables the AI Meal Coaching (Feedback) feature (default: true, if false the coaching card/feedback UI is hidden)
 
 foodLensUiService.setSettingConfig(settingConfig)
 ```

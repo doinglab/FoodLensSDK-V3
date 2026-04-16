@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://bitbucket.org/doing-lab/ios_foodlenscoresdk",
       "state" : {
-        "revision" : "5ed7d1f40b806dea5accb1856b9f152a701566e9",
-        "version" : "3.4.0"
+        "revision" : "0cbed819cd6555a4a9d9917a2ba1d0d37a8389ba",
+        "version" : "3.4.1"
       }
     },
     {
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://bitbucket.org/doing-lab/ios_foodlensuisdk.git",
       "state" : {
-        "revision" : "5dcb685431c9eaa4e67d18b17ee38d22d5bb62dd",
-        "version" : "3.4.0"
+        "revision" : "286de3c807e53051e6445b2e6108243912bcdcb2",
+        "version" : "3.4.1"
       }
     }
   ],

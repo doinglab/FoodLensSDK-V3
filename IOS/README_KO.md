@@ -297,6 +297,7 @@ let settingConfig = FoodLensSettingConfig(
     isGenerateCaloAiCandidate: false,       // CaloAI를 사용할 때 API 응답 시 candidates 포함 여부 (default: false)
     isEnableNutritionFactsScan: false,      // 영양성분표 인식 기능 활성화 여부 (default: false) 
     isShowMealMemo: Bool,                   // 식사노트 활성화 여부 (default: true)
+    isEnabledFeedback: true,                // AI 한 끼 코칭(Feedback) 기능 활성화 여부 (default: true, false면 코칭 카드/피드백 UI 미노출)
 )
 
 foodlensUIService.setSettingConfig(settingConfig)
