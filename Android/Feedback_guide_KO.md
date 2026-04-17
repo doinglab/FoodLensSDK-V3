@@ -7,7 +7,7 @@ FoodLens SDK의 AI 한 끼 코칭 기능은 사용자의 식사 기록을 분석
 ## 기본 설정
 
 ```kotlin
-val foodLensUiService: FoodLensUIService = ...
+val foodLensUiService = FoodLensUI.createFoodLensService(context, FoodLensType.CaloAI)
 
 // 피드백 활성화 (권장 설정)
 foodLensUiService.setFeedbackConfig(FoodLensFeedbackConfig(

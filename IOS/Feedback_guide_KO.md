@@ -7,7 +7,7 @@ FoodLens SDK의 AI 한 끼 코칭 기능은 사용자의 식사 기록을 분석
 ## 기본 설정
 
 ```swift
-let uiService = FoodLensUIService(type: .foodlens)
+let uiService = FoodLensUIService(type: .caloai)
 
 // 피드백 활성화 (권장 설정)
 uiService.setFeedbackConfig(FoodLensFeedbackConfig(

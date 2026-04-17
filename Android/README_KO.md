@@ -216,7 +216,7 @@ FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두가지 중에 선�
 ```java
 //Create FoodLens Service
 private val foodLensUiService by lazy {
-  FoodLensUI.createFoodLensService(context, FoodLensType.FoodLens)
+  FoodLensUI.createFoodLensService(context, FoodLensType.CaloAI)
 }
 
 //Call prediction method.
@@ -261,7 +261,7 @@ private var foodLensActivityResult: ActivityResultLauncher<Intent> =
 ```java
 //Create FoodLens Service
 private val foodLensUiService by lazy {
-  FoodLensUI.createFoodLensService(context, FoodLensType.FoodLens)
+  FoodLensUI.createFoodLensService(context, FoodLensType.CaloAI)
 }
 
 //Call prediction method.

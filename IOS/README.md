@@ -190,7 +190,7 @@ class ReconitionHandler : RecognitionResultHandler {
 }
 ............
 
-let foodLensUIService = FoodLensUIService(type: .foodlens)
+let foodLensUIService = FoodLensUIService(type: .caloai)
 foodLensUIService.startFoodLensCamera(parent: self, completionHandler: ReconitionHandler())
 ```
 
@@ -234,7 +234,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button("start") {
-                let foodlensUIService = FoodLensUIService(type: .foodlens)
+                let foodlensUIService = FoodLensUIService(type: .caloai)
                 foodlensUIService.startFoodLensCamera(parent: self.viewControllerHolder, completionHandler: ReconitionHandler())
             }
         }

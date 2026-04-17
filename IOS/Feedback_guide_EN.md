@@ -7,7 +7,7 @@ The AI Meal Coaching feature of the FoodLens SDK analyzes user meal records and 
 ## Basic Configuration
 
 ```swift
-let uiService = FoodLensUIService(type: .foodlens)
+let uiService = FoodLensUIService(type: .caloai)
 
 // Enable feedback (recommended configuration)
 uiService.setFeedbackConfig(FoodLensFeedbackConfig(

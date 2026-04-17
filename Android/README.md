@@ -220,7 +220,7 @@ Deliver ActivityResultLauncher<Intent> to process the result. </br>
 ```java
 //Create FoodLens Service
 private val foodLensUiService by lazy {
-  FoodLensUI.createFoodLensService(context, FoodLensType.FoodLens)
+  FoodLensUI.createFoodLensService(context, FoodLensType.CaloAI)
 }
 
 //Call prediction method.
@@ -265,7 +265,7 @@ private var foodLensActivityResult: ActivityResultLauncher<Intent> =
 ```java
 //Create FoodLens Service instance
 private val foodLensUiService by lazy {
-  FoodLensUI.createFoodLensService(context, FoodLensType.FoodLens)
+  FoodLensUI.createFoodLensService(context, FoodLensType.CaloAI)
 }
 
 //Call prediction method.

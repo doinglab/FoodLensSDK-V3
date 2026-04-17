@@ -7,7 +7,7 @@ The FoodLens SDK's AI Meal Coaching feature analyzes a user's meal records and p
 ## Basic Setup
 
 ```kotlin
-val foodLensUiService: FoodLensUIService = ...
+val foodLensUiService = FoodLensUI.createFoodLensService(context, FoodLensType.CaloAI)
 
 // Enable feedback (recommended setup)
 foodLensUiService.setFeedbackConfig(FoodLensFeedbackConfig(
