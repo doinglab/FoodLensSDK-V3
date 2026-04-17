@@ -65,7 +65,7 @@ You can set a server address if you operate a standalone server instead of origi
 #### Code Example
 ``` swift
 //Please choose foodlens or caloai option
-let foodlensCoreService = FoodLensCoreService(type: .foodlens)
+let foodlensCoreService = FoodLensCoreService(type: .caloai)
 
 guard let image = image else {
     return
@@ -122,7 +122,7 @@ foodlensCoreService.setNutritionRetrieveOption(.all)
 
 #### Code Example
 ```swift
-let foodlensCoreService = FoodLensCoreService(type: .foodlens)
+let foodlensCoreService = FoodLensCoreService(type: .caloai)
 
 Task {
     let result = await foodlensCoreService.foodInfo(foodId: id)
@@ -145,7 +145,7 @@ Task {
 
 #### Code Example
 ```swift
-let foodlensCoreService = FoodLensCoreService(type: .foodlens)
+let foodlensCoreService = FoodLensCoreService(type: .caloai)
 
 Task {
     let result = await foodlensCoreService.searchFoodbyName(name)

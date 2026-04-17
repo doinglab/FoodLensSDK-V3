@@ -66,7 +66,7 @@ inpo.plist에 FoodLensAppToken, FoodLensCompanyToken 항목 추가하여 AppToke
 
 #### 코드 예제
 ``` swift
-let foodlensCoreService = FoodLensCoreService(type: .foodlens)
+let foodlensCoreService = FoodLensCoreService(type: .caloai)
 
 guard let image = image else {
     return
@@ -123,7 +123,7 @@ foodlensCoreService.setNutritionRetrieveOption(.all)
 
 #### 코드 예제
 ```swift
-let foodlensCoreService = FoodLensCoreService(type: .foodlens)
+let foodlensCoreService = FoodLensCoreService(type: .caloai)
 
 Task {
     let result = await foodlensCoreService.foodInfo(foodId: id)
@@ -146,7 +146,7 @@ Task {
 
 #### 코드 예제
 ```swift
-let foodlensCoreService = FoodLensCoreService(type: .foodlens)
+let foodlensCoreService = FoodLensCoreService(type: .caloai)
 
 Task {
     let result = await foodlensCoreService.searchFoodbyName(name)
