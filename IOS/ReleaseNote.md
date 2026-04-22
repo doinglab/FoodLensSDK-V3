@@ -2,11 +2,16 @@
 
 ## Latest versions
 ### Core SDK: 3.4.1
-### UI SDK: 3.4.2
+### UI SDK: 3.4.3
 
 <br/>
 
 ## Version history
+### 3.4.3
+UI SDK (2026.04.22)
+1. Fixed an issue where feedback POST requests were intermittently sent even when `isEnabledFeedback = false`
+    - Ensures no feedback API calls are made when the feature is disabled
+
 ### 3.4.2
 UI SDK (2026.04.16)
 1. Added `isEnabledFeedback` option to `FoodLensSettingConfig` (default: true)
