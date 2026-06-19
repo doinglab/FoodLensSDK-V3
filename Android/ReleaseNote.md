@@ -1,10 +1,28 @@
 # Android FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.4.1
-### UI SDK: 3.4.1
+### Core SDK: 3.4.2
+### UI SDK: 3.4.2
 
 <br/>
+
+## 3.4.2
+Core SDK (2026.06.19)  
+1. Public API change
+    - Renamed `recognizeNutritionFacts` → `scanNutritionFacts`.  
+2. Meal feedback API overhaul
+    - Migrated endpoint to `/analysis/feedback/meal`
+    - Removed `FeedbackOption.nutrientRatio`, added `feedbackDietMethod`.  
+3. Food search autocomplete API extended
+    - Added `count` / `detail` parameters.  
+4. Bug fixes
+
+UI SDK (2026.06.19)
+1. Added multi-select in food search
+    - Select up to 10 items at once on the food search screen
+2. Refreshed meal summary UX
+    - Improved date / time picker UX
+3. Bug fixes
 
 ## 3.4.1
 Core SDK (2026.04.16)
