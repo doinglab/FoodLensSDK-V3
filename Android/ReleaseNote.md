@@ -2,9 +2,12 @@
 
 ## Latest versions
 ### Core SDK: 3.4.2
-### UI SDK: 3.4.2
+### UI SDK: 3.4.3
 
 <br/>
+## 3.4.3
+UI SDK (2026.06.22)
+1. Fixed camera shutter button not being visible on foldable devices when unfolded
 
 ## 3.4.2
 Core SDK (2026.06.19)  
