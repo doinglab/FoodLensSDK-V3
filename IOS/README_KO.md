@@ -58,7 +58,7 @@ inpo.plist에 FoodLensAppToken, FoodLensCompanyToken 항목 추가하여 AppToke
 
 ### 2.1 음식 결과 영양정보 얻기
 1. FoodLensCoreService 생성합니다.
-    - FoodLensType은 foodlens, caloai 중 선택 할 수 있습니다.
+    - FoodLensType은 foodlens, caloai(Foodlens 2.0) 중 선택 할 수 있습니다.
 2. predict 메소드를 호출합니다.
    파라미터로 UIImage로 로드된 이미지를 전달합니다.   
    ※ async, Combine, Escaping closure 3가지 방법을 지원합니다. (샘플코드 참고)    
@@ -117,7 +117,7 @@ foodlensCoreService.setNutritionRetrieveOption(.all)
 
 ### 2.3 음식정보 검색하기
 1. FoodLensCoreService 생성합니다.
-    - FoodLensType은 foodlens, caloai 중 선택 할 수 있습니다.
+    - FoodLensType은 foodlens, caloai(Foodlens 2.0) 중 선택 할 수 있습니다.
 2. foodInfo 메소드를 호출합니다.
 ※ async, combine, closure 3가지 방법을 지원합니다. (샘플코드 참고)
 
@@ -140,7 +140,7 @@ Task {
 
 ### 2.4 음식이름 검색하기
 1. FoodLensCoreService 생성합니다.
-    - FoodLensType은 foodlens, caloai 중 선택 할 수 있습니다.
+    - FoodLensType은 foodlens, caloai(Foodlens 2.0) 중 선택 할 수 있습니다.
 2. searchFoodbyName 메소드를 호출합니다.    
 ※ async, combine, closure 3가지 방법을 지원합니다. (샘플코드 참고)
 
@@ -171,7 +171,7 @@ parent에는 FoodLensUI의 View를 띄울 UIViewController를 전달하고, comp
 
 ### 3.1 UI Service의 인식 기능 사용
 1. FoodLensUIService 인스턴스 생성합니다.    
-FoodLensType은 foodlens, caloai 중 선택 할 수 있습니다.
+FoodLensType은 foodlens, caloai(Foodlens 2.0) 중 선택 할 수 있습니다.
 2. startFoodLensCamera 메소드를 호출합니다.
 파라미터는 Parent ViewController와 RecognitionResultHandler 입니다.
 
