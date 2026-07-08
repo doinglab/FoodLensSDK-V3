@@ -92,7 +92,7 @@ android {
 ### 2.1 음식 결과 영양정보 얻기
 1. FoodLensCoreService 를 생성합니다.  
    파라미터는 Context, FoodLens Type 입니다.  
-   FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두가지 중에 선택할 수 있습니다.     
+   FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI (Foodlens 2.0) 두가지 중에 선택할 수 있습니다.     
 2. predict 메서드를 호출합니다.  
    파라미터는 Jpeg image, RecognitionResultHandler 입니다.   
    Jpeg이미지는 카메라 촬영 또는 갤러리 원본 이미지를 전달해 줍니다.</br>
@@ -150,7 +150,7 @@ foodLensCoreService.setNutritionRetrieveOption(NutritionRetrieveOption.ALL_NUTRI
 ### 2.3 음식정보 검색하기
 1. FoodLensCoreService 생성합니다.
     - 파라미터는 Context, FoodLens Type 입니다.  
-    - FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두 가지 중에 선택할 수 있습니다.     
+    - FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI(Foodlens 2.0) 두 가지 중에 선택할 수 있습니다.     
 3. foodInfo 메소드를 호출합니다.
 
 #### 코드 예제
@@ -175,7 +175,7 @@ foodLensCoreService.foodInfo(foodId, object : RecognitionResultHandler {
 ### 2.4 음식정보 검색하기
 1. FoodLensCoreService 생성합니다.
     - 파라미터는 Context, FoodLens Type 입니다.  
-    - FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두가지 중에 선택할 수 있습니다.     
+    - FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI(Foodlens 2.0) 두가지 중에 선택할 수 있습니다.     
 3. searchFoodsByName 메소드를 호출합니다.
 
 #### 코드 예제
@@ -206,7 +206,7 @@ foodLensCoreService.searchFoodsByName(foodName, object : SearchResultHandler {
 ### 3.1 UI Service의 인식 기능 사용
 1. FoodLensUIService 를 생성합니다.  
 파라미터는 Context, FoodLens Type 입니다.  
-FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI 두가지 중에 선택할 수 있습니다.
+FoodLensType은 FoodLensType.FoodLens, FoodLensType.CaloAI(Foodlens 2.0) 두가지 중에 선택할 수 있습니다.
 2. startFoodLensCamera 메서드를 호출합니다.  
 파라미터는 Context, ActivityResultLauncher, UIServiceResultHandler 입니다.   
 결과를 처리할 ActivityResultLauncher<Intent>를 전달합니다. </br>
