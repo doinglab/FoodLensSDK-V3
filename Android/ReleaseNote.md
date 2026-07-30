@@ -1,12 +1,27 @@
 # Android FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.4.2
-### UI SDK: 3.4.3
+### Core SDK: 3.4.3
+### UI SDK: 3.4.4
 
 <br/>
 
+## 3.4.4
+UI SDK (2026.07.30)
+1. Migrated gallery to Android Photo Picker
+  - No storage permission required
+2. Improved gallery photo loading
+  - Better decoding performance and stability
+3. Upgraded image libraries
+  - Glide and ExifInterface
+4. Internal security improvements
+5. Bug fixes
+  - Fixed camera shutter button off-screen on foldable devices
+
 ## 3.4.3
+Core SDK (2026.07.30)
+1. Internal security improvements
+
 UI SDK (2026.06.22)
 1. Fixed camera shutter button not being visible on foldable devices when unfolded
 
