@@ -24,7 +24,9 @@ foodLensUiService.setFeedbackConfig(FoodLensFeedbackConfig(
     height = 170.0,
     feedbackPurposeDetail = FeedbackPurposeDetail.KEEP
 ))
-
+```
+### 피드백 비활성화
+```kotlin
 // 피드백 비활성화
 foodLensUiService.setSettingConfig(FoodLensSettingConfig().apply {
     isEnabledFeedback = false
