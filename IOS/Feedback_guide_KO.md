@@ -24,7 +24,9 @@ uiService.setFeedbackConfig(FoodLensFeedbackConfig(
     height: 170,
     feedbackPurposeDetail: .keep
 ))
-
+```
+### 피드백 비활성화
+```swift
 // 피드백 비활성화
 var settingConfig = FoodLensSettingConfig()
 settingConfig.isEnabledFeedback = false
