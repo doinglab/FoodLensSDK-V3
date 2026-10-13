@@ -17,6 +17,7 @@ UI SDK (2026.10.13)
     - `Position` coordinates are now based on this image. Set `HIGH` to keep the previous size
     - Applies to both food recognition and nutrition label scan
 3. Changed the nutrition label scan image path
+4. Bug fixes
 
 ## 3.4.4
 Core SDK (2026.10.13)
@@ -36,6 +37,7 @@ UI SDK (2026.07.30)
     - Better decoding performance and stability
 3. Upgraded image libraries
     - Glide and ExifInterface
+    - **Requires AGP (Android Gradle Plugin) 8.1 or higher** from this version on. On AGP 8.0 or lower, `androidx.exifinterface:1.4.2` fails to dex — use UI SDK 3.4.3 instead
 4. Internal security improvements
 5. Bug fixes
     - Fixed camera shutter button off-screen on foldable devices
