@@ -288,6 +288,7 @@ let settingConfig = FoodLensSettingConfig(
     isSaveToGallery: true,                  // 촬영한 이미지 갤러리 저장 여부 (defalut : false)
     isUseEatDatePopup: true,                // 갤러리에서 이미지 불러올 때 촬영 일자 사용여부 (ture일 경우 선택 팝업 표시)
     imageResizingType: .normal,             // 이미지 리사이즈 방식 옵션, SPEED(속도우선), NORMAL, QUALITY(결과 품질 우선) (defalut : NORMAL)
+    outputImageSizeOption: .medium,         // 결과 화면 표시·호스트 전달 이미지 크기, 짧은 변 상한 LOW(1024), MEDIUM(2048), HIGH(3072), 작은 이미지는 확대하지 않음 (default : MEDIUM)
     language: .en,                          // 제동되는 음식 정보 언어 설정 (음식정보 외에 UI에 표시되는 텍스트의 언어는 기기에 설정된 언어로 표시) (defalut : device)
     eatDate: Date(),                        // 식시 시간 설정(default: 현재 시간, isUseEatDatePopup == true 시 팝업에서 입력 받은 시간으로 설정)
     eatType: .lunch,                        // 식사 타입 설정(default: 시간에 맞는 식사 타입)
