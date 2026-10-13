@@ -290,6 +290,7 @@ let settingConfig = FoodLensSettingConfig(
     isSaveToGallery: true,                  // Camera shot save to gellery (defalut : false)
     isUseEatDatePopup: true,                // Save the input time as the time saved in gallery (defalut : true)
     imageResizingType: .normal,             // Image resize method option, SPEED(Speed priority), NORMAL, QUALITY(Result quality priority) (defalut : NORMAL)
+    outputImageSizeOption: .medium,         // Size of the image shown on the result screen and delivered to the host, shorter-edge cap LOW(1024), MEDIUM(2048), HIGH(3072), smaller images are not upscaled (default : MEDIUM)
     language: .en,                          // Result language setting device, ko, en, ja (defalut : device) (This is only affect to food recognition result. UI language is following system setting.) 
     eatDate: Date(),                        // Meal time setting (default: Current time, isUseEatDatePopup == true Set as input time at pop-u)
     eatType: .lunch,                        // Meal type setting (default: Meal type based on time)
