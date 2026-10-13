@@ -12,9 +12,12 @@ UI SDK (2026.10.13)
 1. Added `outputImageSizeOption` to `FoodLensSettingConfig` (default: `.medium`)
     - Controls the image shown on the result screen and delivered to the host — both are the same file
     - Also applies to nutrition label scans; `Position` is scaled to the delivered image
-2. `FoodLensUIService` is now `@MainActor` (Swift 6 concurrency); call it from the main thread
-3. Requires Swift tools 5.10 (Xcode 15.3+)
-4. Bug fixes
+2. Changed the size of images shown on the result screen and delivered to the host
+    - Previously saved at the original size; now follows `outputImageSizeOption` (default 2048)
+    - `Position` is based on this image. Set `.high` to keep a size closer to the previous one
+3. `FoodLensUIService` is now `@MainActor` (Swift 6 concurrency); call it from the main thread
+4. Requires Swift tools 5.10 (Xcode 15.3+)
+5. Bug fixes
 
 ### 3.4.4
 UI SDK (2026.06.19)
