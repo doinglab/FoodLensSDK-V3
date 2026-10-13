@@ -9,8 +9,14 @@
 ## 3.4.5
 UI SDK (2026.10.13)
 1. Added `outputImageSize` to `FoodLensSettingConfig` (default: `MEDIUM`)
+    - `LOW` (1024) / `MEDIUM` (2048, default) / `HIGH` (3072) — a cap on the shorter edge; images smaller than the cap are not upscaled
     - Controls the image shown on the result screen and delivered to the host — both are the same file
-2. Changed the nutrition label scan image path
+    - Independent of `imageResize`, which controls only the image sent to the recognition server
+2. Changed the size of images shown on the result screen and delivered to the host
+    - Previously fixed at 3072 regardless of `imageResize`; now follows `outputImageSize` (default 2048)
+    - `Position` coordinates are now based on this image. Set `HIGH` to keep the previous size
+    - Applies to both food recognition and nutrition label scan
+3. Changed the nutrition label scan image path
 
 ## 3.4.4
 Core SDK (2026.10.13)
