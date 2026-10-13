@@ -10,6 +10,7 @@ if (localPropertiesFile.exists()) {
 }
 
 android {
+    namespace "com.doinglab.foodlens.sample"
     compileSdk 34
 
     defaultConfig {
@@ -51,9 +52,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.9.0'
 
     //Using Core SDK only
-    implementation "com.doinglab.foodlens:FoodLensSDK-core:3.4.0"
+    implementation "com.doinglab.foodlens:FoodLensSDK-core:3.4.4"
     //Using UI SDK together
-    implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.4.0"
+    implementation "com.doinglab.foodlens:FoodLensSDK-ui:3.4.5"
 
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
