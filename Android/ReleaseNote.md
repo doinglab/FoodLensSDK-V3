@@ -1,12 +1,28 @@
 # Android FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.4.3
-### UI SDK: 3.4.4
+### Core SDK: 3.4.4
+### UI SDK: 3.4.5
 
 <br/>
 
+## 3.4.5
+UI SDK (2026.10.13)
+1. Added `outputImageSize` to `FoodLensSettingConfig` (default: `MEDIUM`)
+    - Controls the image shown on the result screen and delivered to the host — both are the same file
+2. Changed the nutrition label scan image path
+
 ## 3.4.4
+Core SDK (2026.10.13)
+1. Added `OutputImageSizeOption` for images delivered to the host
+    - `LOW` (1024) / `MEDIUM` (2048, default) / `HIGH` (3072) — a cap on the shorter edge; images smaller than the cap are not upscaled
+    - Set with `setOutputImageSizeOption()`, independent of `setImageResizeOption()`, which controls only the image sent to the recognition server
+    - Applies to `RecognitionResult.imagePath`, the `Food[].imagePath` crops, and the coordinate space of `Position`
+2. Changed the size of images delivered to the host
+    - Previously fixed at 3072 regardless of `ImageResizeOption`; now follows `OutputImageSizeOption` (default 2048)
+    - `Position` coordinates are now based on this image. Set `HIGH` to keep the previous size
+    - The image sent to the recognition server is unchanged
+
 UI SDK (2026.07.30)
 1. Migrated gallery to Android Photo Picker
     - No storage permission required
