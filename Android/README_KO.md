@@ -18,6 +18,11 @@ android {
 ```
 
 ### 1.2 gradle 설정
+#### 1.2.0 Android Gradle Plugin 버전
+- UI SDK 3.4.4 이상은 **AGP(Android Gradle Plugin) 8.1 이상**이 필요합니다. (Core SDK만 사용하는 경우에는 해당하지 않습니다)
+- UI SDK가 의존하는 `androidx.exifinterface:1.4.2`가 AGP 8.1 미만에서는 dex 변환에 실패합니다.
+- AGP 8.0 이하를 사용하시는 경우 UI SDK는 3.4.3 까지만 사용 가능합니다.
+
 #### 1.2.1 minSdkVersion 설정
 - minSdkVersion은 26 이상을 사용하시기 바랍니다.
 - 프로젝트에서 app > Gradle Scripts(그래들 스크립트) > build.gradle (Module: app)을 연 후 defaultConfig{} 섹션에 아래와 같은 문구를 추가해 주세요.
