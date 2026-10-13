@@ -20,6 +20,11 @@ android {
 ```
 
 ### 1.2 gradle Setting
+#### 1.2.0 Android Gradle Plugin version
+- UI SDK 3.4.4 and above require **AGP (Android Gradle Plugin) 8.1 or higher**. (Not applicable when using the Core SDK only)
+- `androidx.exifinterface:1.4.2`, which the UI SDK depends on, fails to dex on AGP versions below 8.1.
+- If you are on AGP 8.0 or lower, the UI SDK can be used up to 3.4.3.
+
 #### 1.2.1 minSdkVersion Setting
 - Use minSdkVersion over 26.
 - Open app > Gradle Scripts > build.gradle (Module: app) in the project and add the text below in the defaultConfig{} section.
