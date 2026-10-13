@@ -1,12 +1,21 @@
 # iOS FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.4.2
-### UI SDK: 3.4.4
+### Core SDK: 3.4.3
+### UI SDK: 3.4.5
 
 <br/>
 
 ## Version history
+### 3.4.5
+UI SDK (2026.10.13)
+1. Added `outputImageSizeOption` to `FoodLensSettingConfig` (default: `.medium`)
+    - Controls the image shown on the result screen and delivered to the host — both are the same file
+    - Also applies to nutrition label scans; `Position` is scaled to the delivered image
+2. `FoodLensUIService` is now `@MainActor` (Swift 6 concurrency); call it from the main thread
+3. Requires Swift tools 5.10 (Xcode 15.3+)
+4. Bug fixes
+
 ### 3.4.4
 UI SDK (2026.06.19)
 1. Added multi-select in food search
@@ -16,6 +25,19 @@ UI SDK (2026.06.19)
 3. Bug fixes
 
 ### 3.4.3
+Core SDK (2026.10.13)
+1. Added `OutputImageSizeOption` for images delivered to the host
+    - `.low` (1024) / `.medium` (2048, default) / `.high` (3072) — a cap on the shorter edge; images smaller than the cap are not upscaled
+    - Set with `setOutputImageSizeOption(_:)`, independent of `setImageResizingType(_:)`, which controls only the image sent to the recognition server
+    - Applies to `RecognitionResult.imagePath`, the `Food[].imagePath` crops, and the coordinate space of `Position` when `setSaveImageToFile(true)`
+2. Changed the size of images delivered to the host
+    - Previously saved at the original size; now follows `OutputImageSizeOption` (default 2048)
+    - With `setSaveImageToFile(true)`, `Position` is now based on the saved image. Set `.high` to keep a size closer to the previous one
+    - With `setSaveImageToFile(false)`, `Position` is unchanged (based on the image you pass in)
+3. Server upload JPEG quality now follows `ImageResizingType` (`.speed` 0.8 / `.normal` 0.9 / `.quality` 1.0)
+4. Fixed images smaller than the `ImageResizingType` limit being upscaled before upload
+5. Requires Swift tools 5.10 (Xcode 15.3+)
+
 UI SDK (2026.04.22)
 1. Fixed an issue where feedback POST requests were intermittently sent even when `isEnabledFeedback = false`
     - Ensures no feedback API calls are made when the feature is disabled
