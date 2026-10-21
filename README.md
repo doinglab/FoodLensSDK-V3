@@ -3,7 +3,7 @@
 **Get calories and 36 nutrients from a single food photo.**
 FoodLens is an AI food image recognition engine by [Doinglab](https://www.doinglab.com). This repository contains the Android and iOS SDKs for **FoodLens** and **CaloAI (FoodLens 2.0)**.
 
-[Website](https://foodlens.ai) · [REST API docs](https://foodlens.ai/docs/) · [Android manual](Android/) · [iOS manual](IOS/) · [한국어 안내](#한국어)
+[Website](https://foodlens.ai) · [REST API docs](https://foodlens.ai/docs/) · [Android manual](Android/README.md) · [iOS manual](IOS/README.md) · [한국어 안내](#한국어)
 
 | English | 한국어 | 日本語 |
 | --- | --- | --- |
