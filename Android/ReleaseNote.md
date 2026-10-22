@@ -1,12 +1,41 @@
 # Android FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.4.4
-### UI SDK: 3.4.5
+### Core SDK: 3.4.5
+### UI SDK: 3.4.6
 
 <br/>
 
+## 3.4.6
+UI SDK (2026.10.22)
+1. Added ingredient editing
+    - Adds an **[Edit Ingredients]** button to the portion edit sheet
+    - Change the weight of each ingredient, remove ingredients, or search and add new ones; nutrition is recalculated and applied to the result
+    - Enable with `FoodLensSettingConfig.isEnableIngredientEdit = true` (default: `false`)
+2. Added Daily Report screen
+    - Shows the day's score, nutrition balance, and meal timeline
+    - Launch with `FoodLensUIService.startFoodLensDailyReport()`
+3. Added `isShowRecipe` to `FoodLensFeedbackConfig` (default: `true`)
+    - Shows or hides the recipe recommendation area on the coaching card
+4. Added a tooltip on the meal summary screen when the meal time does not match the meal type
+5. Bug fixes
+
 ## 3.4.5
+Core SDK (2026.10.22)
+1. Added ingredient APIs
+    - `searchIngredients()`: search ingredients
+    - `getIngredientNutrition()`: get nutrition for a list of ingredients
+2. Added daily feedback APIs
+    - `dayFeedback()`: request daily feedback
+    - `getDayFeedback()`: fetch the daily feedback result
+3. Changed the daily feedback response model to match the server response
+    - Removed `FeedbackDayBody.nutritionBalance`, `FeedbackDayBody.foodGroupRecommendations`, `FeedbackDayAlternative`, and `FeedbackDayFoodGroupItem`
+    - Added `FeedbackDayNutritionBalance` and `FeedbackDayProductRecommendation`
+    - Macro values are now server-provided ratios (0–100, present values sum to 100), not intake in grams — do not recalculate on the client
+4. `FoodLensCoreServiceImpl` is now internal
+    - Create the service with `FoodLensCore.createFoodLensService()`
+5. Bug fixes
+
 UI SDK (2026.10.13)
 1. Added `outputImageSize` to `FoodLensSettingConfig` (default: `MEDIUM`)
     - `LOW` (1024) / `MEDIUM` (2048, default) / `HIGH` (3072) — a cap on the shorter edge; images smaller than the cap are not upscaled

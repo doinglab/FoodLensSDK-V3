@@ -1,12 +1,32 @@
 # iOS FoodLensSDK Release Note
 
 ## Latest versions
-### Core SDK: 3.4.3
-### UI SDK: 3.4.5
+### Core SDK: 3.4.4
+### UI SDK: 3.4.6
 
 <br/>
 
 ## Version history
+### 3.4.6
+UI SDK (2026.10.22)
+1. Added ingredient editing
+    - Adds an **[Edit Ingredients]** button to the portion edit sheet
+    - Change the weight of each ingredient, remove ingredients, or search and add new ones; nutrition is recalculated and applied to the result
+    - Enable with `FoodLensSettingConfig.isEnableIngredientEdit = true` (default: `false`)
+2. Added Daily Report screen
+    - Shows the day's score, nutrition balance, and meal timeline
+    - Launch with `FoodLensUIService.startFoodLensDailyReport()`
+3. Added a tooltip on the meal summary screen when the meal time does not match the meal type
+4. Removed the bundled SF Pro font and the `SFProFont` API — public API change
+    - Apps that embed Apple-provided fonts will be rejected by the App Store from 2027.10.01 (ITMS-91182)
+    - Remove any `SFProFont.registerFonts()` / `removeFonts()` calls from your app
+    - Rendering is unchanged — the registered font was never actually used
+    - Resource bundle size: 17MB → 1.0MB
+5. Added layout support for foldable devices (iPhone Duo)
+    - Handles fold / unfold transitions and asymmetric safe areas
+6. Requires Core SDK 3.4.4 or later
+7. Bug fixes
+
 ### 3.4.5
 UI SDK (2026.10.13)
 1. Added `outputImageSizeOption` to `FoodLensSettingConfig` (default: `.medium`)
@@ -20,6 +40,18 @@ UI SDK (2026.10.13)
 5. Bug fixes
 
 ### 3.4.4
+Core SDK (2026.10.22)
+1. Added ingredient APIs
+    - `searchIngredientByName()`: search ingredients
+    - `ingredientInfo()`: get nutrition for a list of ingredients
+2. Added daily feedback APIs
+    - `feedbackDay()`: request daily feedback
+    - `getFeedbackDay()`: fetch the daily feedback result
+3. Changed macro values in daily feedback to server-provided ratios — behavior change
+    - Previously intake in grams; now a 0–100 ratio whose present values sum to 100
+    - Do not recalculate on the client (no Atwater 4·4·9, no ×100)
+4. Bug fixes
+
 UI SDK (2026.06.19)
 1. Added multi-select in food search
     - Select up to 10 items at once on the food search screen
